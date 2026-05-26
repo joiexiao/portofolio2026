@@ -123,15 +123,8 @@ export function HeroSection({ triggerGlitch = false }: Props) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center pl-6 md:pl-28 pr-6 md:pr-12"
+      className="relative min-h-screen flex items-center  justify-start lg:justify-center pl-6 lg:pl-28 pr-6 lg:pr-12"
     >
-      {/* Left vertical labels */}
-      <div className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground -rotate-90 origin-left block whitespace-nowrap">
-          jaidesu
-        </span>
-      </div>
-
       {/* Main content */}
       <div ref={contentRef} className="flex-1 w-full">
         <SplitFlapAudioProvider>
@@ -150,8 +143,8 @@ export function HeroSection({ triggerGlitch = false }: Props) {
         <h2
           className="
             text-primary/90
-            text-[clamp(1.5rem,3vw,1.8rem)]
-            mt-4
+            text-xl lg:text-3xl md:text-2xl
+            lg:mt-8 md:mt-4 mt-8
             tracking-wide
             drop-shadow-[0_0_6px_hsl(var(--primary)/0.45)]
           "
@@ -161,10 +154,10 @@ export function HeroSection({ triggerGlitch = false }: Props) {
 
         <p
           className="
-            mt-12
+            lg:mt-8 md:mt-4 mt-4
             max-w-md
             font-mono
-            text-sm
+            text-xs md:text-sm lg:text-sm 
             text-muted-foreground/80
             leading-relaxed
             transition-colors duration-300
@@ -177,10 +170,35 @@ export function HeroSection({ triggerGlitch = false }: Props) {
           creative experiments. Currently based in Depok, Indonesia.
         </p>
 
-        <div className="mt-16 flex items-center gap-8">
+        <div
+          className="
+    mt-10
+    flex flex-col items-center gap-4
+
+    sm:mt-12 sm:flex-row sm:gap-6
+    md:gap-8
+  "
+        >
           <TransitionLink
             href="#work"
-            className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
+            className="
+      group
+      inline-flex w-full items-center justify-center gap-3
+
+      border border-foreground/20
+      px-5 py-3
+
+      font-mono
+      text-[10px] uppercase tracking-[0.25em]
+      text-foreground
+
+      transition-all duration-200
+      hover:border-accent hover:text-accent
+
+      sm:w-auto
+      sm:px-6
+      sm:text-xs
+    "
             data-cursor="hover"
           >
             <ScrambleTextOnHover
@@ -189,12 +207,23 @@ export function HeroSection({ triggerGlitch = false }: Props) {
               data-cursor="hover"
               duration={0.6}
             />
-            <BitmapChevron className="transition-transform duration-[500ms]' ease-in-out group-hover:rotate-45" />
+
+            <BitmapChevron className="transition-transform duration-500 ease-in-out group-hover:rotate-45" />
           </TransitionLink>
+
           <TransitionLink
             href="/about"
             data-cursor="hover"
-            className="font-mono text-xs uppercase tracking-widest text-white hover:underline hover:text-primary transition-colors duration-200"
+            className="
+      font-mono
+      text-[10px] uppercase tracking-[0.25em]
+      text-white
+
+      transition-colors duration-200
+      hover:text-primary hover:underline
+
+      sm:text-xs
+    "
           >
             <ScrambleTextOnHover
               text="about"

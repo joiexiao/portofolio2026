@@ -240,13 +240,37 @@ export default function PageLoader({ onFinish }: Props) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[99999] bg-black text-primary font-mono"
+      className="fixed inset-0 z-[99999] overflow-hidden bg-black font-mono text-primary"
     >
+      {/* LEFT TEXT */}
       <div
         ref={leftWrapRef}
-        className="absolute left-12 top-1/2 -translate-y-1/2"
+        className="
+    absolute
+    left-1/2 top-12
+    w-[90%] max-w-[340px]
+    -translate-x-1/2
+    text-center
+
+    sm:left-8 sm:top-1/2 sm:w-[300px]
+    sm:-translate-x-0 sm:-translate-y-1/2
+    sm:text-left
+
+    md:left-10 md:w-[320px]
+    lg:left-12 lg:w-[340px]
+  "
       >
-        <div className="relative h-[140px] w-[340px] overflow-hidden text-sm">
+        <div
+          className="
+      relative overflow-hidden
+      h-[110px]
+      text-[10px] leading-relaxed
+
+      sm:h-[120px] sm:text-xs
+      md:h-[130px]
+      lg:h-[140px] lg:text-sm
+    "
+        >
           <div ref={leftInnerRef} className="relative space-y-2">
             <p>// SYNCHRONIZING PARALLEL REALITIES...</p>
             <p>// TRANSMITTING QUANTUM SIGNALS...</p>
@@ -258,21 +282,55 @@ export default function PageLoader({ onFinish }: Props) {
         </div>
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* CENTER LOADER */}
+      <div className="absolute inset-0 flex items-center justify-center px-4">
         <span
           ref={centerRef}
           onClick={ready ? handleEnter : undefined}
-          className={`text-sm select-none ${
+          className={`
+          select-none
+          text-xs tracking-wide
+
+          sm:text-sm
+          md:text-base
+
+          ${
             ready ? "cursor-pointer hover:bg-primary hover:text-background" : ""
-          }`}
+          }
+        `}
           data-cursor="hover"
         >
           ( 0% )
         </span>
       </div>
 
-      <div className="absolute right-12 top-1/2 -translate-y-1/2 text-xs max-w-sm text-right">
-        <span ref={rightRef} className="uppercase text-accent" />
+      {/* RIGHT TEXT */}
+      <div
+        className="
+        absolute
+        bottom-12 left-1/2
+        w-[90%] max-w-[300px]
+        -translate-x-1/2
+        text-center
+
+        sm:bottom-auto sm:left-auto sm:right-8 sm:top-1/2
+        sm:w-[260px] sm:max-w-none
+        sm:translate-x-0 sm:-translate-y-1/2
+        sm:text-right
+
+        md:right-10 md:w-[300px]
+        lg:right-12 lg:w-[340px]
+      "
+      >
+        <span
+          ref={rightRef}
+          className="
+          uppercase text-accent
+          text-[10px]
+
+          sm:text-xs
+        "
+        />
       </div>
     </div>
   );
