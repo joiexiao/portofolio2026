@@ -159,7 +159,7 @@ export function ContactSection() {
 
         {/* Title */}
         <div className="mb-48">
-          <span className="text-[20px] uppercase tracking-[0.2em] text-accent font-[var(--font-bebas)] font-medium">
+          <span className="uppercase tracking-[0.2em] text-accent font-medium text-xs md:text-xl lg:text-2xl">
             Just say
           </span>
 
@@ -171,7 +171,7 @@ export function ContactSection() {
               tracking-tight
             "
           >
-            <span className="text-[clamp(2.75rem,6.8vw,5.3rem)] font-medium">
+            <span className="font-medium text-4xl md:text-5xl lg:text-7xl">
               Hello
             </span>
 
@@ -179,11 +179,10 @@ export function ContactSection() {
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-                text-[clamp(2.75rem,6.8vw,5.3rem)]
+                font-medium text-4xl md:text-5xl lg:text-7xl
                 text-foreground/30
                 transition-colors duration-300
                 hover:text-foreground
-                font-medium
                 break-all md:break-normal
               "
             >
