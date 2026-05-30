@@ -59,22 +59,69 @@ export default function AboutMe() {
         }}
         className={`w-screen h-screen flex-shrink-0 flex items-center transition-all duration-[600ms] px-6 py-24 ease-out ${getSectionClass(0)}`}
       >
-        <div className="w-full px-24">
-          <h1 className="text-6xl font-medium leading-tight">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
+          <h1
+            className="text-3xl
+md:text-5xl
+lg:text-6xl font-medium leading-tight"
+          >
             Clients and companies
             <br />
             I've worked with
           </h1>
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Universitas Pembangunan Nasional Veteran Jakarta
             </p>
-            <p className="text-2xl">Yayasan Amaliah ASTRA</p>
-            <p className="text-2xl">Levi Camp</p>
-            <p className="text-2xl">Heulaulabs</p>
-            <p className="text-2xl">Think Store</p>
-            <p className="text-2xl">Malky Joki</p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Yayasan Amaliah ASTRA
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Levi Camp
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Heulaulabs
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Think Store
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Malky Joki
+            </p>
           </div>
         </div>
       </section>
@@ -86,22 +133,67 @@ export default function AboutMe() {
         }}
         className={`w-screen h-screen flex-shrink-0 flex items-center transition-all duration-[600ms] px-6 py-24 ease-out ${getSectionClass(1)}`}
       >
-        <div className="w-full px-24">
-          <h1 className="text-6xl font-medium leading-tight">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
+          <h1
+            className="text-3xl
+md:text-5xl
+lg:text-6xl  font-medium leading-tight"
+          >
             Clients and companies I’d love
             <br />
             to work with in the future
           </h1>
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
-            <p className="text-2xl">Entertainment brands and studios</p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Entertainment brands and studios
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Non-profit organisations and charitable initiatives
             </p>
-            <p className="text-2xl">Early-stage startups</p>
-            <p className="text-2xl">Independent and small businesses</p>
-            <p className="text-2xl">Artists and creative practitioners</p>
-            <p className="text-2xl mt-12">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Early-stage startups
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Independent and small businesses
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Artists and creative practitioners
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl mt-12"
+            >
               I’m drawn to working alongside people who are genuinely committed
               to creating positive change.
             </p>
@@ -116,27 +208,74 @@ export default function AboutMe() {
         }}
         className={`w-screen h-screen flex-shrink-0 flex items-center transition-all duration-[600ms] px-6 py-24 ease-out ${getSectionClass(2)}`}
       >
-        <div className="w-full px-24">
-          <h1 className="text-6xl font-medium leading-tight">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
+          <h1
+            className="text-3xl
+md:text-5xl
+lg:text-6xl  font-medium leading-tight"
+          >
             What keeps me busy
             <br />
             outside of work
           </h1>
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
-            <p className="text-2xl">Training at the gym</p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Training at the gym
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Watching anime, as well as reading manhwa and manga
             </p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Enjoying time alone with a coffee and a quiet smoke
             </p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Reading, with a strong interest in philosophy and non-fiction
             </p>
-            <p className="text-2xl">Spending meaningful time with family</p>
-            <p className="text-2xl">Listening to music while zoning out</p>
-            <p className="text-2xl mt-12">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Spending meaningful time with family
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Listening to music while zoning out
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl mt-12"
+            >
               Exploring new places, ideally ones I’ve never experienced before.
             </p>
           </div>
@@ -150,28 +289,67 @@ export default function AboutMe() {
         }}
         className={`w-screen h-screen flex-shrink-0 flex items-center transition-all duration-[600ms] px-6 py-24 ease-out ${getSectionClass(3)}`}
       >
-        <div className="w-full px-24">
-          <h1 className="text-6xl font-medium leading-tight">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
+          <h1
+            className="text-3xl
+md:text-5xl
+lg:text-6xl  font-medium leading-tight"
+          >
             What I hope to achieve in
             <br />
             the future
           </h1>
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Creating meaningful work that brings joy through design
             </p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Continuing to learn and experiment with Webflow
             </p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Discovering quiet places to enjoy a smoke around the world
             </p>
-            <p className="text-2xl">Spending more time with family</p>
-            <p className="text-2xl">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Spending more time with family
+            </p>
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Exploring the city through street photography
             </p>
-            <p className="text-2xl mt-12">
+            <p
+              className="text-sm
+md:text-xl
+lg:text-2xl mt-12"
+            >
               In the long run, I aim to apply my skills in ways that create a
               positive difference, however small.
             </p>

@@ -125,7 +125,8 @@ export default function Hero() {
           className="
             relative z-10
             font-mono font-bold
-            text-6xl
+            text-5xl
+sm:text-6xl
             leading-none
             cursor-pointer
             select-none

@@ -103,6 +103,7 @@ export function ContactSection() {
         px-10
         font-[var(--font-bebas)]
         uppercase tracking-[0.1em]
+        text-sm md:text-base lg:text-lg
         text-black
       "
         data-cursor="hover"
@@ -140,13 +141,16 @@ export function ContactSection() {
       "
     >
       {/* CONTENT WRAPPER - CONSISTENT PADDING */}
-      <div className="flex-1 pl-6 md:pl-28 pr-6 md:pr-12">
+      <div
+        className="flex-1   pl-6 lg:pl-24
+  pr-6 lg:pr-24"
+      >
         {/* Header */}
-        <div ref={headerRef} className="mb-32">
+        <div ref={headerRef} className="lg:mb-48 mb-32 lg:mt-0 mt-12">
           <span
             className="
               inline-block
-              text-[24px]
+              text-xl lg:text-2xl
               text-accent
               typing-cursor
               font-mono
@@ -158,29 +162,36 @@ export function ContactSection() {
         </div>
 
         {/* Title */}
-        <div className="mb-48">
-          <span className="uppercase tracking-[0.2em] text-accent font-medium text-xs md:text-xl lg:text-2xl">
+        <div className="lg:mb-48 mb-64">
+          <span
+            className="
+    block
+    uppercase tracking-[0.2em]
+    text-accent font-light
+    text-xs md:text-base lg:text-base
+    mb-2 md:mb-8
+  "
+          >
             Just say
           </span>
 
           <h2
             className="
-              mt-2
-              flex flex-col md:flex-row md:items-baseline gap-2
-              font-[var(--font-bebas)]
-              tracking-tight
-            "
+    flex flex-row md:flex-row md:items-baseline
+    font-[var(--font-bebas)]
+    tracking-tight
+  "
           >
-            <span className="font-medium text-4xl md:text-5xl lg:text-7xl">
-              Hello
+            <span className="font-semibold text-[27.8px] sm:text-3xl md:text-5xl lg:text-[84px]">
+              hello
             </span>
 
             <a
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-                font-medium text-4xl md:text-5xl lg:text-7xl
-                text-foreground/30
+                font-semibold text-[27.8px] sm:text-3xl md:text-5xl lg:text-[84px]
+                text-foreground/10
                 transition-colors duration-300
                 hover:text-foreground
                 break-all md:break-normal
@@ -190,13 +201,14 @@ export function ContactSection() {
             </a>
           </h2>
         </div>
+      </div>
 
-        {/* BACK TO TOP - MOVED INSIDE PADDING CONTAINER */}
-        <div className="flex justify-end mb-12">
-          <a
-            href="#hero"
-            data-cursor="hover"
-            className="
+      {/* BACK TO TOP - MOVED INSIDE PADDING CONTAINER */}
+      <div className="flex justify-end mb-12 px-6 md:px-12">
+        <a
+          href="#hero"
+          data-cursor="hover"
+          className="
               group
               inline-flex
               items-center
@@ -215,33 +227,31 @@ export function ContactSection() {
               transition-all
               duration-200
             "
-          >
-            <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
+        >
+          <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
 
-            <BitmapChevron
-              className="
+          <BitmapChevron
+            className="
                 transition-transform
                 duration-[400ms]
                 ease-in-out
                 group-hover:rotate-317
               "
-            />
-          </a>
-        </div>
+          />
+        </a>
       </div>
-
       {/* FOOTER — FULL BLEED - FIXED */}
-      <div className="w-full -mx-6 md:-mx-0">
+      <div className="relative left-1/2 -translate-x-1/2 w-screen">
         <div
           ref={footerRef}
           className="
-            relative
-            h-[64px]
-            overflow-hidden
-            border-t border-black/20
-            bg-white
-            flex items-center
-          "
+      relative
+      h-[64px]
+      overflow-hidden
+      border-t border-black/20
+      bg-white
+      flex items-center
+    "
         >
           <Marquee speed={18} pauseOnHover gradient={false}>
             <FooterItem />

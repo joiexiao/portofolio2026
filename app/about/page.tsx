@@ -77,7 +77,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-x-hidden">
       {/* =====================
           GLOBAL BACKGROUNDS
       ====================== */}
@@ -93,7 +93,12 @@ export default function AboutPage() {
       {/* =====================
           CTA MENU (GLOBAL)
       ===================== */}
-      <div className="fixed top-12 inset-x-0 z-50">
+      <div
+        className={`
+    fixed top-12 inset-x-0 z-50
+    ${showMenuCTA ? "pointer-events-auto" : "pointer-events-none"}
+  `}
+      >
         <div
           className="mx-auto px-6 md:px-12 flex justify-end"
           data-cursor="hover"

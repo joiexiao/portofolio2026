@@ -123,7 +123,13 @@ export function HeroSection({ triggerGlitch = false }: Props) {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center  justify-start lg:justify-center pl-6 lg:pl-28 pr-6 lg:pr-12"
+      className="
+  relative min-h-screen
+  flex items-center
+  justify-start lg:justify-center
+  pl-6 lg:pl-24
+  pr-6 lg:pr-24
+"
     >
       {/* Main content */}
       <div ref={contentRef} className="flex-1 w-full">
@@ -143,7 +149,7 @@ export function HeroSection({ triggerGlitch = false }: Props) {
         <h2
           className="
             text-primary/90
-            text-xl lg:text-3xl md:text-2xl
+            text-2xl lg:text-4xl md:text-3xl
             lg:mt-8 md:mt-4 mt-8
             tracking-wide
             drop-shadow-[0_0_6px_hsl(var(--primary)/0.45)]
@@ -155,9 +161,9 @@ export function HeroSection({ triggerGlitch = false }: Props) {
         <p
           className="
             lg:mt-8 md:mt-4 mt-4
-            max-w-md
+            max-w-2xl
             font-mono
-            text-xs md:text-sm lg:text-sm 
+            text-xs md:text-sm lg:text-base
             text-muted-foreground/80
             leading-relaxed
             transition-colors duration-300

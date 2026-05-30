@@ -29,14 +29,28 @@ export default function Intro() {
 
   return (
     <section className="w-screen h-screen flex-shrink-0">
-      <div className="h-full max-w-6xl mx-auto px-16 flex items-center justify-center">
+      <div
+        className="
+    h-full
+    max-w-6xl
+    mx-auto
+
+    px-6
+    md:px-10
+    lg:px-16
+
+    flex items-center justify-center
+  "
+      >
         <h1
           ref={titleRef}
           className="
             intro-title
             font-sans
             font-medium 
-            text-6xl
+            text-4xl
+md:text-5xl
+lg:text-6xl
             leading-none
             select-none
             text-primary

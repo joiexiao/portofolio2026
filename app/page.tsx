@@ -85,8 +85,6 @@ export default function Page() {
           ${showContent ? "opacity-100" : "opacity-0"}
         `}
       >
-        <SideNav />
-
         <div className="grid-bg fixed inset-0 opacity-50" aria-hidden="true" />
 
         <div className="fixed top-12 inset-x-0 z-50">

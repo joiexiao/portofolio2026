@@ -110,7 +110,8 @@ export function WorkSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12"
+      className="relative py-32   pl-6 lg:pl-24
+  pr-6 lg:pr-24"
     >
       {/* HEADER */}
       <div ref={headerRef} className="mb-16 flex items-end justify-between">
@@ -118,8 +119,8 @@ export function WorkSection() {
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
             02 / Work
           </span>
-          <h2 className="mt-4  text-5xl md:text-7xl tracking-tight">
-            SELECTED WORK
+          <h2 className="mt-4  text-4xl md:text-6xl lg:text-7xl tracking-tight">
+            Selected Works
           </h2>
         </div>
 

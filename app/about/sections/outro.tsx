@@ -152,14 +152,27 @@ const Outro = forwardRef<HTMLElement, OutroProps>((props, ref) => {
       className="min-h-screen flex items-center justify-center relative"
     >
       {/* ✅ TOP RIGHT - Time & Location */}
-      <div className="absolute top-24 left-32 right-32">
+      <div
+        className="absolute
+top-10
+left-6
+right-6
+
+sm:top-16
+sm:left-12
+sm:right-12
+
+lg:top-24
+lg:left-32
+lg:right-32"
+      >
         <div className="relative">
           {/* LEFT TEXT */}
           <div className="text-left">
-            <p className="text-2xl font-medium">
+            <p className="text-base md:text-lg lg:text-2xl">
               Bogor, IDN{" "}
               <span className="text-white/60 text-sm">
-                (currently at Coffee Shop)
+                (Currently at Coffee Shop)
               </span>
             </p>
             <p className="text-2xl font-medium">
@@ -171,7 +184,10 @@ const Outro = forwardRef<HTMLElement, OutroProps>((props, ref) => {
           <TransitionLink
             href="/resume"
             data-cursor="hover"
-            className="absolute right-0 top-1 font-mono text-xs uppercase tracking-widest text-white hover:text-primary underline underline-offset-4 decoration-1 transition-colors duration-200"
+            className="absolute right-0 top-1 font-mono text-xs uppercase    text-primary
+    underline underline-offset-4 decoration-1
+    hover:bg-primary
+    hover:text-background transition-colors duration-200"
           >
             <ScrambleTextOnHover
               text="jaid's resume"
@@ -194,7 +210,9 @@ const Outro = forwardRef<HTMLElement, OutroProps>((props, ref) => {
           }}
           onMouseEnter={show}
           onMouseLeave={hide}
-          className="relative z-10 font-mono font-bold text-6xl leading-none cursor-pointer select-none hero-title text-primary underline underline-offset-8 decoration-4 hover:bg-primary hover:text-background"
+          className="relative z-10 font-mono font-bold text-4xl
+md:text-5xl
+lg:text-6xl leading-none cursor-pointer select-none hero-title text-primary underline underline-offset-8 decoration-4 hover:bg-primary hover:text-background"
           style={{
             textShadow: isHovered ? "0 0 40px rgba(96,165,250,0.5)" : "none",
           }}
@@ -204,7 +222,7 @@ const Outro = forwardRef<HTMLElement, OutroProps>((props, ref) => {
         </h1>
 
         {/* WORD CLOUD */}
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none hidden md:block">
           {words.map((item, i) => (
             <span
               key={i}
@@ -275,7 +293,20 @@ const Outro = forwardRef<HTMLElement, OutroProps>((props, ref) => {
       </div>
 
       {/* ✅ BOTTOM CENTER - Contact Button */}
-      <div className="absolute bottom-24 right-32">
+      <div
+        className="
+    absolute
+
+    bottom-10
+    left-1/2
+    -translate-x-1/2
+
+    lg:left-auto
+    lg:right-32
+    lg:translate-x-0
+    lg:bottom-24
+  "
+      >
         <TransitionLink
           href="/#work"
           className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"

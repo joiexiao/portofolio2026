@@ -62,7 +62,16 @@ export default function Bio() {
         }}
         className={`w-screen h-screen flex-shrink-0 flex items-center transition-all px-6 py-24 duration-[600ms] ease-out ${getSectionClass(0)}`}
       >
-        <div className="w-full px-24">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
           <span className="text-sm font-mono tracking-widest text-primary mb-6 inline-block">
             {scrambleKey[0] > 0 ? (
               <ScrambleText
@@ -76,7 +85,11 @@ export default function Bio() {
             )}
           </span>
 
-          <h2 className="text-5xl font-semibold leading-tight max-w-5xl">
+          <h2
+            className="text-4xl
+md:text-4xl
+lg:text-5xl font-semibold leading-tight max-w-5xl"
+          >
             <span className="relative inline group">
               <span
                 onMouseEnter={() => setHoveredWord("graduated")}
@@ -109,7 +122,7 @@ export default function Bio() {
               border border-white/20
               shadow-xl
               p-2.5
-              w-48
+              hidden md:block w-48
             "
                 >
                   <img
@@ -154,7 +167,7 @@ export default function Bio() {
               border border-white/20
               shadow-xl
               p-2.5
-              w-48
+              hidden md:block w-48
             "
                 >
                   <img
@@ -177,7 +190,16 @@ export default function Bio() {
         }}
         className={`w-screen h-screen flex-shrink-0  px-6 py-24 flex items-center transition-all px-6 py-24 duration-[600ms] ease-out ${getSectionClass(1)}`}
       >
-        <div className="w-full px-24">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
           <span className="text-sm tracking-widest font-mono text-primary mb-6 inline-block">
             {scrambleKey[1] > 0 ? (
               <ScrambleText
@@ -191,7 +213,11 @@ export default function Bio() {
             )}
           </span>
 
-          <h2 className="text-5xl font-semibold leading-tight max-w-5xl">
+          <h2
+            className="text-4xl
+md:text-4xl
+lg:text-5xl font-semibold leading-tight max-w-5xl"
+          >
             During academic studies, built experience across multiple{" "}
             {/* ✅ UI/UX HOVER */}
             <span className="relative inline group">
@@ -226,7 +252,7 @@ export default function Bio() {
               border border-white/20
               shadow-xl
               p-2.5
-              w-48
+              hidden md:block w-48
             "
                 >
                   <img
@@ -270,7 +296,7 @@ export default function Bio() {
               border border-white/20
               shadow-xl
               p-2.5
-              w-48
+              hidden md:block w-48
             "
                 >
                   <img
@@ -293,7 +319,16 @@ export default function Bio() {
         }}
         className={`w-screen h-screen flex-shrink-0  px-6 py-24 flex items-center transition-all duration-[600ms] ease-out ${getSectionClass(2)}`}
       >
-        <div className="w-full px-24">
+        <div
+          className="
+    w-full
+
+    px-6
+    sm:px-12
+    md:px-16
+    lg:px-24
+  "
+        >
           <span className="text-sm tracking-widest font-mono text-primary mb-6 inline-block">
             {scrambleKey[2] > 0 ? (
               <ScrambleText
@@ -307,7 +342,11 @@ export default function Bio() {
             )}
           </span>
 
-          <h2 className="text-5xl font-semibold leading-tight max-w-5xl">
+          <h2
+            className="text-4xl
+md:text-4xl
+lg:text-5xl font-semibold leading-tight max-w-5xl"
+          >
             Began working as a{" "}
             <span className="relative inline group">
               <span
@@ -340,7 +379,7 @@ export default function Bio() {
               border border-white/20
               shadow-xl
               p-2.5
-              w-48
+              hidden md:block w-48
             "
                 >
                   <img

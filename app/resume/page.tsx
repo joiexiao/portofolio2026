@@ -89,7 +89,7 @@ const DownloadButton = () => {
       border border-foreground/20
       backdrop-blur-xl
       font-mono text-xs uppercase tracking-widest
-      text-foreground
+      text-foreground text-center
       hover:border-accent hover:text-accent
       transition-all duration-200
     "
@@ -117,7 +117,11 @@ export default function ResumePage() {
         <h1 className="text-sm md:text-base font-mono text-primary">
           <ScrambleText text="./portfolio/mujahid-azzam/resume" />
         </h1>
-        <DownloadButton />
+
+        {/* Desktop Only */}
+        <div className="hidden md:block">
+          <DownloadButton />
+        </div>
       </div>
 
       {/* Main Content Grid */}
@@ -491,14 +495,28 @@ export default function ResumePage() {
       </div>
 
       {/* Bottom Link */}
-      <div className="pb-12 mt-12 flex justify-end max-w-7xl mx-auto">
+      <div className="pb-12 mt-12 flex justify-between items-center max-w-7xl mx-auto">
+        {/* Mobile Only */}
+        <div className="md:hidden">
+          <DownloadButton />
+        </div>
+
         <TransitionLink
           href="/"
           data-cursor="hover"
-          className="font-mono text-xs uppercase    text-primary
-    underline underline-offset-4 decoration-1
-    hover:bg-primary
-    hover:text-background transition-colors duration-200"
+          className="
+      font-mono
+      text-xs
+      uppercase
+      text-primary
+      underline
+      underline-offset-4
+      decoration-1
+      hover:bg-primary
+      hover:text-background
+      transition-colors
+      duration-200
+    "
         >
           <ScrambleTextOnHover
             text="jaid's portfolio"
