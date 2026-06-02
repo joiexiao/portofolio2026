@@ -72,7 +72,7 @@ export default function Bio() {
     lg:px-24
   "
         >
-          <span className="text-sm font-mono tracking-widest text-primary mb-6 inline-block">
+          <span className="text-[10px] sm:text-sm lg:text-sm font-mono tracking-widest text-primary mb-6 inline-block">
             {scrambleKey[0] > 0 ? (
               <ScrambleText
                 key={`bg-${scrambleKey[0]}`}
@@ -86,7 +86,7 @@ export default function Bio() {
           </span>
 
           <h2
-            className="text-4xl
+            className="text-2xl sm:text-4xl
 md:text-4xl
 lg:text-5xl font-semibold leading-tight max-w-5xl"
           >
@@ -94,7 +94,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
               <span
                 onMouseEnter={() => setHoveredWord("graduated")}
                 onMouseLeave={() => setHoveredWord(null)}
-                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-4 underline-offset-8 hover:bg-primary"
+                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-2 lg:decoration-4 underline-offset-4 lg:underline-offset-8 hover:bg-primary"
                 data-cursor="hover"
               >
                 Graduated
@@ -139,7 +139,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
               <span
                 onMouseEnter={() => setHoveredWord("is")}
                 onMouseLeave={() => setHoveredWord(null)}
-                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-4 underline-offset-8 hover:bg-primary"
+                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-2 lg:decoration-4 underline-offset-6 lg:underline-offset-8 hover:bg-primary"
                 data-cursor="hover"
               >
                 Information Systems
@@ -188,7 +188,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
         ref={(el) => {
           sectionRefs.current[1] = el;
         }}
-        className={`w-screen h-screen flex-shrink-0  px-6 py-24 flex items-center transition-all px-6 py-24 duration-[600ms] ease-out ${getSectionClass(1)}`}
+        className={`w-screen h-screen flex-shrink-0  px-6 py-24 flex items-center transition-all duration-[600ms] ease-out ${getSectionClass(1)}`}
       >
         <div
           className="
@@ -200,7 +200,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
     lg:px-24
   "
         >
-          <span className="text-sm tracking-widest font-mono text-primary mb-6 inline-block">
+          <span className="text-[10px] sm:text-sm tracking-widest font-mono text-primary mb-6 inline-block">
             {scrambleKey[1] > 0 ? (
               <ScrambleText
                 key={`journey-${scrambleKey[1]}`}
@@ -214,7 +214,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
           </span>
 
           <h2
-            className="text-4xl
+            className="text-2xl sm:text-4xl
 md:text-4xl
 lg:text-5xl font-semibold leading-tight max-w-5xl"
           >
@@ -224,7 +224,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
               <span
                 onMouseEnter={() => setHoveredWord("uiux")}
                 onMouseLeave={() => setHoveredWord(null)}
-                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-4 underline-offset-8 hover:bg-primary"
+                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-2 lg:decoration-4 underline-offset-6 lg:underline-offset-8 hover:bg-primary"
                 data-cursor="hover"
               >
                 UI/UX
@@ -268,7 +268,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
               <span
                 onMouseEnter={() => setHoveredWord("graphic")}
                 onMouseLeave={() => setHoveredWord(null)}
-                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-4 underline-offset-8 hover:bg-primary"
+                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-2 lg:decoration-4 underline-offset-6 lg:underline-offset-8 hover:bg-primary"
                 data-cursor="hover"
               >
                 Graphic Design
@@ -329,7 +329,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
     lg:px-24
   "
         >
-          <span className="text-sm tracking-widest font-mono text-primary mb-6 inline-block">
+          <span className="text-[10px] sm:text-sm tracking-widest font-mono text-primary mb-6 inline-block">
             {scrambleKey[2] > 0 ? (
               <ScrambleText
                 key={`exp-${scrambleKey[2]}`}
@@ -343,7 +343,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
           </span>
 
           <h2
-            className="text-4xl
+            className="text-2xl sm:text-4xl
 md:text-4xl
 lg:text-5xl font-semibold leading-tight max-w-5xl"
           >
@@ -352,7 +352,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
               <span
                 onMouseEnter={() => setHoveredWord("freelance")} // ✅ unique-id harus beda tiap kata
                 onMouseLeave={() => setHoveredWord(null)}
-                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-4 underline-offset-8 hover:bg-primary"
+                className="hover:text-black transition-colors cursor-pointer underline decoration-primary decoration-2 lg:decoration-4 underline-offset-4 lg:underline-offset-8 hover:bg-primary"
                 data-cursor="hover"
               >
                 freelance

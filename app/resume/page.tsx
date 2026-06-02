@@ -6,6 +6,7 @@ import { Old_Standard_TT } from "next/font/google";
 import localFont from "next/font/local";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import TransitionLink from "@/components/transition-link";
+import { BitmapChevron } from "@/components/bitmap-chevron";
 
 // Font Configuration - Langsung di file ini
 const oldStandardTT = Old_Standard_TT({
@@ -74,7 +75,52 @@ const ScrambleText = ({
     return () => clearTimeout(initialDelay);
   }, [text, duration]);
 
-  return <span className="font-mono">{displayText}</span>;
+  const target = "mujahid-azzam";
+
+  const start = text.indexOf(target);
+  const end = start + target.length;
+
+  return (
+    <span className="text-xs sm:text-sm md:text-base lg:text-base font-mono text-primary">
+      {displayText.slice(0, start)}
+
+      <TransitionLink
+        href="/about"
+        data-cursor="hover"
+        className="
+    text-primary
+    hover:bg-primary
+    hover:text-background
+    transition-colors duration-200
+  "
+      >
+        <span
+          data-cursor="hover"
+          className={`
+      relative inline-block
+
+      after:absolute
+      after:left-0
+      after:bottom-[1px]
+      after:h-[0.5px]
+      after:w-full
+      after:bg-current
+
+      after:origin-left
+      after:transition-transform
+      after:duration-500
+      after:ease-out
+
+      ${isAnimating ? "after:scale-x-0" : "after:scale-x-100"}
+    `}
+        >
+          {displayText.slice(start, end)}
+        </span>
+      </TransitionLink>
+
+      {displayText.slice(end)}
+    </span>
+  );
 };
 
 // Download Button Component
@@ -85,12 +131,25 @@ const DownloadButton = () => {
       download
       data-cursor="hover"
       className="
-      px-6 py-3
+            group inline-flex items-center gap-2
+
       border border-foreground/20
-      backdrop-blur-xl
-      font-mono text-xs uppercase tracking-widest
-      text-foreground text-center
-      hover:border-accent hover:text-accent
+
+      px-4 py-2
+      lg:px-6 lg:py-3
+
+      font-mono
+      text-[10px]
+      lg:text-xs
+
+      uppercase
+      tracking-[0.15em]
+      lg:tracking-widest
+
+      text-foreground
+      hover:border-accent
+      hover:text-accent
+
       transition-all duration-200
     "
       initial={{ opacity: 0, y: 20 }}
@@ -107,16 +166,23 @@ const DownloadButton = () => {
 export default function ResumePage() {
   return (
     <motion.div
-      className="relative h-fit text-white p-8 md:p-12 lg:p-16"
+      className="
+  relative h-fit text-white
+
+  px-4 py-6
+  sm:px-8 sm:py-10
+  lg:p-16
+"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       {/* Header with scramble text */}
-      <div className="pt-12 mb-12 flex justify-between items-center max-w-7xl mx-auto">
-        <h1 className="text-sm md:text-base font-mono text-primary">
-          <ScrambleText text="./portfolio/mujahid-azzam/resume" />
-        </h1>
+      <div className="lg:mb-12 sm:mb-8 mb-4 flex justify-between items-center max-w-7xl mx-auto">
+        <ScrambleText
+          text="./portfolio/mujahid-azzam/resume"
+          data-cursor="hover"
+        />
 
         {/* Desktop Only */}
         <div className="hidden md:block">
@@ -126,11 +192,12 @@ export default function ResumePage() {
 
       {/* Main Content Grid */}
       <div
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto ${oldStandardTT.className}`}
+        className={`grid grid-cols-1 lg:grid-cols-2
+gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto ${oldStandardTT.className}`}
       >
         {/* Left Column */}
         <motion.div
-          className={`border border-white p-8 lg:p-10 space-y-4 ${oldStandardTT.className}`}
+          className={`border border-white p-4 sm:p-6 lg:p-10 space-y-4 ${oldStandardTT.className}`}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -138,14 +205,16 @@ export default function ResumePage() {
           {/* Header Section */}
           <div className="text-center space-y-2 pb-2 border-b border-white">
             <h1
-              className={`text-3xl lg:text-4xl tracking-wide ${oldStandardTT.className}`}
+              className={`text-xl sm:text-2xl lg:text-4xl tracking-wide ${oldStandardTT.className}`}
             >
               Mujahid Azzam Darmawan
             </h1>
           </div>
           <div className="text-center space-y-2 pb-3 border-b border-white">
-            <p className="text-xs text-gray-300">Tapos, Kota Depok, 16457</p>
-            <div className="flex flex-wrap justify-center gap-x-1 text-xs text-gray-300">
+            <p className="text-[10px] sm:text-xs text-gray-300">
+              Tapos, Kota Depok, 16457
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-1 text-[10px] sm:text-xs text-gray-300">
               <span>mujahidazzam16@gmail.com</span>
               <span>|</span>
               <a
@@ -178,12 +247,12 @@ export default function ResumePage() {
           <div className="space-y-4">
             <div className="space-y-4">
               <p
-                className={`float-left mr-3 -mt-1 text-[96px] leading-[0.90] ${oldEnglishText.className}`}
+                className={`float-left mr-3 -mt-1 text-[94px] sm:text-[94px] lg:text-[96px] leading-[0.90] ${oldEnglishText.className}`}
               >
                 I
               </p>
 
-              <p className="text-xs leading-[1.75] text-justify">
+              <p className="text-[10px] sm:text-xs leading-[1.75] text-justify">
                 come from an Information Systems background and have an interest
                 in creative digital design. I work with both technical structure
                 and visual design principles to create solutions that are clear,
@@ -197,20 +266,25 @@ export default function ResumePage() {
           {/* Educations */}
           <div className="space-y-4">
             <h2
-              className={`text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
+              className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
               Educations
             </h2>
             <div>
-              <div className="flex justify-between items-start mb-2">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
                 <div className="flex-1">
-                  <h3 className="text-sm font-semibold">
+                  <h3 className="text-[10px] sm:text-xs font-semibold">
                     Diploma of Information System, UPN "Veteran" Jakarta -
                     Jakarta, Indonesia
                   </h3>
-                  <p className="text-xs text-gray-400">GPA : 3.71 / 4.00</p>
+                  <p className="text-[10px] sm:text-xs text-gray-400">
+                    GPA : 3.71 / 4.00
+                  </p>
                 </div>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Aug 2022 - Jan 2026
                 </span>
               </div>
@@ -220,7 +294,7 @@ export default function ResumePage() {
           {/* Experiences */}
           <div className="space-y-6">
             <h2
-              className={`text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
+              className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
               Experiences
             </h2>
@@ -228,16 +302,17 @@ export default function ResumePage() {
             {/* UI/UX Designer - Heulanitas */}
             <div>
               <div
-                className={`flex justify-between items-start mb-2 ${oldStandardTT.className}`}
+                className={`flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2 ${oldStandardTT.className}`}
               >
-                <h3 className="text-sm font-semibold flex-1">
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   UI/UX Designer, Heulaulabs - Jakarta, Indonesia
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Feb 2025 - Present
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed user interfaces for web-based applications by
                   translating user requirements into structured wireframes, user
@@ -261,15 +336,18 @@ export default function ResumePage() {
 
             {/* Graphic Designer - Malky Joki Store */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Graphic Designer, Malky Joki Store - Jakarta, Indonesia
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Jan 2023
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed digital graphic assets such as social media posts,
                   banners, and promotional visuals.
@@ -287,15 +365,18 @@ export default function ResumePage() {
 
             {/* Graphic Designer - Think Store */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Graphic Designer, Think Store - Bogor, Indonesia
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Sep 2024
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Created graphic design materials for digital and promotional
                   needs.
@@ -310,15 +391,18 @@ export default function ResumePage() {
 
             {/* Graphic Designer - Amaliah ASTRA */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Graphic Designer, Amaliah ASTRA - Jakarta, Indonesia
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   May 2025 - Jun 2025
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed visual mockups for the Astra Kurban 2025 event,
                   focusing on the presentation and handover of sacrificial
@@ -345,23 +429,26 @@ export default function ResumePage() {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           {/* Organization */}
-          <div className="border border-white p-8 lg:p-10 space-y-6">
+          <div className="border border-white p-4 sm:p-6 lg:p-10 space-y-6">
             <h2
-              className={`text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
+              className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
               Organization
             </h2>
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Treasurer, HIMA D3 SI UPN "Veteran" Jakarta - Jakarta,
                   Indonesia
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Jan 2024 - Dec 2024
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Managed financial records and budgeting documentation for
                   organizational programs.
@@ -375,25 +462,28 @@ export default function ResumePage() {
           </div>
 
           {/* Selected Projects */}
-          <div className="border border-white p-8 lg:p-10 space-y-6">
+          <div className="border border-white p-4 sm:p-6 lg:p-10 space-y-6">
             <h2
-              className={`text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
+              className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
               Selected Projects
             </h2>
 
             {/* Fund Small Capital */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Fund Small Capital, Web Based Application - Project UI/UX
                   Designer
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Jul 2025 - Dec 2025
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed secured user interfaces for a financial web
                   application, focusing on clarity, accessibility, and ease of
@@ -412,16 +502,19 @@ export default function ResumePage() {
 
             {/* Museum Bela Negara */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Museum Bela Negara, Virtual Museum Web Platform - Project
                   UI/UX Designer
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Aug 2024 - Oct 2024
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed digital interfaces for a virtual museum experience.
                 </li>
@@ -435,16 +528,19 @@ export default function ResumePage() {
 
             {/* levi Camp */}
             <div>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-sm font-semibold flex-1">
+              <div
+                className="flex flex-col gap-1
+sm:flex-row sm:justify-between sm:items-start mb-2"
+              >
+                <h3 className="text-[10px] sm:text-xs font-semibold flex-1">
                   Levi Camp, Camp Reservation Web Platform - Project UI/UX
                   Designer
                 </h3>
-                <span className="text-xs text-gray-400 whitespace-nowrap ml-4">
+                <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
                   Feb 2024 - Jul 2024
                 </span>
               </div>
-              <ul className="text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
+              <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
                 <li>
                   Designed interfaces for a camp reservation system with a focus
                   on booking clarity.
@@ -459,31 +555,35 @@ export default function ResumePage() {
           </div>
 
           {/* Technical Skills */}
-          <div className="border border-white p-8 lg:p-10 space-y-4">
+          <div className="border border-white p-4 sm:p-6 lg:p-10 space-y-4">
             <h2
-              className={`text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
+              className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
               Technical Skills
             </h2>
             <div className="space-y-3">
               <div>
-                <h3 className="text-sm font-semibold mb-1">
+                <h3 className="text-[10px] sm:text-xs font-semibold mb-1">
                   Technologies / Framework:
                 </h3>
-                <p className="text-xs leading-relaxed">
+                <p className="text-[10px] sm:text-xs leading-relaxed">
                   Laravel, Tailwind CSS, Next.js, React.js, GSAP.
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-semibold mb-1">Soft Skills:</h3>
-                <p className="text-xs leading-relaxed">
+                <h3 className="text-[10px] sm:text-xs font-semibold mb-1">
+                  Soft Skills:
+                </h3>
+                <p className="text-[10px] sm:text-xs leading-relaxed">
                   Structured thinking, visual problem solving, collaboration,
                   time management
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-semibold mb-1">Tools:</h3>
-                <p className="text-xs leading-relaxed">
+                <h3 className="text-[10px] sm:text-xs font-semibold mb-1">
+                  Tools:
+                </h3>
+                <p className="text-[10px] sm:text-xs leading-relaxed">
                   Figma, Adobe Photoshop, Adobe Illustrator, Capcut, Canva,
                   Microsoft Word, Microsoft Excel, Visual Studio Code, NetBeans,
                   Android Studio, CodeBlocks, GitHub, Git.
@@ -495,7 +595,7 @@ export default function ResumePage() {
       </div>
 
       {/* Bottom Link */}
-      <div className="pb-12 mt-12 flex justify-between items-center max-w-7xl mx-auto">
+      <div className="lg:mb-12 sm:mb-8 mb-4 mt-4 sm:mt-8 lg:mt-12 flex justify-between items-center max-w-7xl mx-auto">
         {/* Mobile Only */}
         <div className="md:hidden">
           <DownloadButton />

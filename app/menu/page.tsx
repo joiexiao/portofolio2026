@@ -45,7 +45,7 @@ export default function MenuPage() {
   }, []);
 
   const menuItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/#home" },
     { label: "Work", href: "/#work" },
     { label: "About", href: "/about" },
     { label: "Resume", href: "/resume" },

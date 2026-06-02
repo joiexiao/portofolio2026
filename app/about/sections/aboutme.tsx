@@ -70,7 +70,7 @@ export default function AboutMe() {
   "
         >
           <h1
-            className="text-3xl
+            className="text-2xl sm:text-3xl
 md:text-5xl
 lg:text-6xl font-medium leading-tight"
           >
@@ -81,42 +81,42 @@ lg:text-6xl font-medium leading-tight"
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Universitas Pembangunan Nasional Veteran Jakarta
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Yayasan Amaliah ASTRA
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Levi Camp
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Heulaulabs
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Think Store
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
@@ -144,7 +144,7 @@ lg:text-2xl"
   "
         >
           <h1
-            className="text-3xl
+            className="text-2xl sm:text-3xl
 md:text-5xl
 lg:text-6xl  font-medium leading-tight"
           >
@@ -155,42 +155,42 @@ lg:text-6xl  font-medium leading-tight"
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Entertainment brands and studios
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Non-profit organisations and charitable initiatives
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Early-stage startups
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Independent and small businesses
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Artists and creative practitioners
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl mt-12"
             >
@@ -219,7 +219,7 @@ lg:text-2xl mt-12"
   "
         >
           <h1
-            className="text-3xl
+            className="text-2xl sm:text-3xl
 md:text-5xl
 lg:text-6xl  font-medium leading-tight"
           >
@@ -230,49 +230,49 @@ lg:text-6xl  font-medium leading-tight"
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Training at the gym
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Watching anime, as well as reading manhwa and manga
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Enjoying time alone with a coffee and a quiet smoke
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Reading, with a strong interest in philosophy and non-fiction
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Spending meaningful time with family
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Listening to music while zoning out
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl mt-12"
             >
@@ -300,7 +300,7 @@ lg:text-2xl mt-12"
   "
         >
           <h1
-            className="text-3xl
+            className="text-2xl sm:text-3xl
 md:text-5xl
 lg:text-6xl  font-medium leading-tight"
           >
@@ -311,42 +311,42 @@ lg:text-6xl  font-medium leading-tight"
           <div className="w-24 h-px bg-accent my-6 transition-all duration-500 group-hover:w-full" />
           <div className="space-y-1">
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Creating meaningful work that brings joy through design
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Continuing to learn and experiment with Webflow
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Discovering quiet places to enjoy a smoke around the world
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Spending more time with family
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl"
             >
               Exploring the city through street photography
             </p>
             <p
-              className="text-sm
+              className="text-xs sm:text-sm
 md:text-xl
 lg:text-2xl mt-12"
             >

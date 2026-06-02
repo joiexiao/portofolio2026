@@ -149,7 +149,7 @@ export function HeroSection({ triggerGlitch = false }: Props) {
         <h2
           className="
             text-primary/90
-            text-2xl lg:text-4xl md:text-3xl
+            text-xl sm:text-3xl  md:text-3xl lg:text-4xl
             lg:mt-8 md:mt-4 mt-8
             tracking-wide
             drop-shadow-[0_0_6px_hsl(var(--primary)/0.45)]
@@ -163,7 +163,7 @@ export function HeroSection({ triggerGlitch = false }: Props) {
             lg:mt-8 md:mt-4 mt-4
             max-w-2xl
             font-mono
-            text-xs md:text-sm lg:text-base
+            text-xs sm:text-sm md:text-base lg:text-base
             text-muted-foreground/80
             leading-relaxed
             transition-colors duration-300

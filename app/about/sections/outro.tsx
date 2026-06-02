@@ -169,13 +169,13 @@ lg:right-32"
         <div className="relative">
           {/* LEFT TEXT */}
           <div className="text-left">
-            <p className="text-base md:text-lg lg:text-2xl">
+            <p className="text-sm sm:text-base md:text-lg lg:text-2xl">
               Bogor, IDN{" "}
-              <span className="text-white/60 text-sm">
+              <span className="text-white/60 text-xs sm:text-sm lg:text-sm">
                 (Currently at Coffee Shop)
               </span>
             </p>
-            <p className="text-2xl font-medium">
+            <p className="text-xl sm:text-sm lg:text-2xl font-medium">
               {formatTime()} {formatDate()}
             </p>
           </div>
@@ -184,7 +184,7 @@ lg:right-32"
           <TransitionLink
             href="/resume"
             data-cursor="hover"
-            className="absolute right-0 top-1 font-mono text-xs uppercase    text-primary
+            className="absolute right-0 top-1 font-mono text-[10px] sm:text-[12px] lg:text-xs uppercase text-primary
     underline underline-offset-4 decoration-1
     hover:bg-primary
     hover:text-background transition-colors duration-200"
@@ -293,27 +293,87 @@ lg:text-6xl leading-none cursor-pointer select-none hero-title text-primary unde
       </div>
 
       {/* ✅ BOTTOM CENTER - Contact Button */}
+      {/* View Projects */}
       <div
         className="
     absolute
+    bottom-6
+    right-6
 
-    bottom-10
-    left-1/2
-    -translate-x-1/2
-
-    lg:left-auto
     lg:right-32
-    lg:translate-x-0
     lg:bottom-24
   "
       >
         <TransitionLink
           href="/#work"
-          className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
+          className="
+      group inline-flex items-center gap-2
+
+      border border-foreground/20
+
+      px-4 py-2
+      lg:px-6 lg:py-3
+
+      font-mono
+      text-[10px]
+      lg:text-xs
+
+      uppercase
+      tracking-[0.15em]
+      lg:tracking-widest
+
+      text-foreground
+      hover:border-accent
+      hover:text-accent
+
+      transition-all duration-200
+    "
           data-cursor="hover"
         >
           <ScrambleTextOnHover text="View Projects" as="span" duration={0.6} />
-          <BitmapChevron className="transition-transform duration-[500ms]' ease-in-out group-hover:rotate-45" />
+          <BitmapChevron className="transition-transform duration-500 ease-in-out group-hover:rotate-45" />
+        </TransitionLink>
+      </div>
+
+      {/* Back To Home */}
+      <div
+        className="
+    absolute
+    bottom-6
+    left-6
+
+    lg:left-32
+    lg:bottom-24
+  "
+      >
+        <TransitionLink
+          href="/#hero"
+          className="
+      group inline-flex items-center gap-2
+
+      border border-foreground/20
+
+      px-4 py-2
+      lg:px-6 lg:py-3
+
+      font-mono
+      text-[10px]
+      lg:text-xs
+
+      uppercase
+      tracking-[0.15em]
+      lg:tracking-widest
+
+      text-foreground
+      hover:border-accent
+      hover:text-accent
+
+      transition-all duration-200
+    "
+          data-cursor="hover"
+        >
+          <BitmapChevron className="transition-transform rotate-260 duration-500 ease-in-out group-hover:rotate-220" />
+          <ScrambleTextOnHover text="Back to home" as="span" duration={0.6} />
         </TransitionLink>
       </div>
     </section>

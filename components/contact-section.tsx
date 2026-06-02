@@ -150,7 +150,7 @@ export function ContactSection() {
           <span
             className="
               inline-block
-              text-xl lg:text-2xl
+              text-base sm:text-xl lg:text-2xl
               text-accent
               typing-cursor
               font-mono
@@ -162,13 +162,13 @@ export function ContactSection() {
         </div>
 
         {/* Title */}
-        <div className="lg:mb-48 mb-64">
+        <div className="lg:mb-48 mb-32">
           <span
             className="
     block
     uppercase tracking-[0.2em]
     text-accent font-light
-    text-xs md:text-base lg:text-base
+    text-[10px] sm:text-xs md:text-base lg:text-base
     mb-2 md:mb-8
   "
           >
@@ -182,7 +182,7 @@ export function ContactSection() {
     tracking-tight
   "
           >
-            <span className="font-semibold text-[27.8px] sm:text-3xl md:text-5xl lg:text-[84px]">
+            <span className="font-semibold sm:text-[27.8px] text-[22px] md:text-5xl lg:text-[84px]">
               hello
             </span>
 
@@ -190,7 +190,7 @@ export function ContactSection() {
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-                font-semibold text-[27.8px] sm:text-3xl md:text-5xl lg:text-[84px]
+                font-semibold text-[22px] sm:text-[27.8px] md:text-5xl lg:text-[84px]
                 text-foreground/10
                 transition-colors duration-300
                 hover:text-foreground
@@ -207,35 +207,38 @@ export function ContactSection() {
       <div className="flex justify-end mb-12 px-6 md:px-12">
         <a
           href="#hero"
-          data-cursor="hover"
           className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              border
-              border-foreground/50
-              px-6
-              py-3
-              font-mono
-              text-xs
-              uppercase
-              tracking-widest
-              text-foreground
-              hover:border-accent
-              hover:text-accent
-              transition-all
-              duration-200
-            "
+      group inline-flex items-center gap-2
+
+      border border-foreground/20
+
+      px-4 py-2
+      lg:px-6 lg:py-3
+
+      font-mono
+      text-[10px]
+      lg:text-xs
+
+      uppercase
+      tracking-[0.15em]
+      lg:tracking-widest
+
+      text-foreground
+      hover:border-accent
+      hover:text-accent
+
+      transition-all duration-200
+    "
+          data-cursor="hover"
         >
           <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
 
           <BitmapChevron
             className="
                 transition-transform
-                duration-[400ms]
+                duration-400ms
                 ease-in-out
-                group-hover:rotate-317
+                group-hover:-rotate-45
               "
           />
         </a>
