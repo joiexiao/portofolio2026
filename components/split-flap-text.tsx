@@ -1,111 +1,141 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { motion } from "framer-motion"
-import { useMemo, useState, useCallback, useEffect, useRef, createContext, useContext } from "react"
-import { Volume2, VolumeX } from "lucide-react"
+import type React from "react";
+import { motion } from "framer-motion";
+import {
+  useMemo,
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  createContext,
+  useContext,
+} from "react";
+import { Volume2, VolumeX } from "lucide-react";
 
 interface AudioContextType {
-  isMuted: boolean
-  toggleMute: () => void
-  playClick: () => void
+  isMuted: boolean;
+  toggleMute: () => void;
+  playClick: () => void;
 }
 
-const SplitFlapAudioContext = createContext<AudioContextType | null>(null)
+const SplitFlapAudioContext = createContext<AudioContextType | null>(null);
 
 function useSplitFlapAudio() {
-  return useContext(SplitFlapAudioContext)
+  return useContext(SplitFlapAudioContext);
 }
 
-export function SplitFlapAudioProvider({ children }: { children: React.ReactNode }) {
-  const [isMuted, setIsMuted] = useState(true)
-  const audioContextRef = useRef<AudioContext | null>(null)
+export function SplitFlapAudioProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [isMuted, setIsMuted] = useState(true);
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   const getAudioContext = useCallback(() => {
-    if (typeof window === "undefined") return null
+    if (typeof window === "undefined") return null;
     if (!audioContextRef.current) {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext
+      const AudioContextClass =
+        window.AudioContext || (window as any).webkitAudioContext;
       if (AudioContextClass) {
-        audioContextRef.current = new AudioContextClass()
+        audioContextRef.current = new AudioContextClass();
       }
     }
-    return audioContextRef.current
-  }, [])
+    return audioContextRef.current;
+  }, []);
 
   const triggerHaptic = useCallback(() => {
-    if (isMuted) return
+    if (isMuted) return;
     if (typeof navigator !== "undefined" && "vibrate" in navigator) {
-      navigator.vibrate(10)
+      navigator.vibrate(10);
     }
-  }, [isMuted])
+  }, [isMuted]);
 
   const playClick = useCallback(() => {
-    if (isMuted) return
+    if (isMuted) return;
 
-    triggerHaptic()
+    triggerHaptic();
 
     try {
-      const ctx = getAudioContext()
-      if (!ctx) return
+      const ctx = getAudioContext();
+      if (!ctx) return;
 
       if (ctx.state === "suspended") {
-        ctx.resume()
+        ctx.resume();
       }
 
-      const oscillator = ctx.createOscillator()
-      const gainNode = ctx.createGain()
-      const filter = ctx.createBiquadFilter()
-      const lowpass = ctx.createBiquadFilter()
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+      const lowpass = ctx.createBiquadFilter();
 
-      oscillator.type = "square"
-      oscillator.frequency.setValueAtTime(800 + Math.random() * 400, ctx.currentTime)
-      oscillator.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.015)
+      oscillator.type = "square";
+      oscillator.frequency.setValueAtTime(
+        800 + Math.random() * 400,
+        ctx.currentTime,
+      );
+      oscillator.frequency.exponentialRampToValueAtTime(
+        200,
+        ctx.currentTime + 0.015,
+      );
 
-      filter.type = "bandpass"
-      filter.frequency.setValueAtTime(1200, ctx.currentTime)
-      filter.Q.setValueAtTime(0.8, ctx.currentTime)
+      filter.type = "bandpass";
+      filter.frequency.setValueAtTime(1200, ctx.currentTime);
+      filter.Q.setValueAtTime(0.8, ctx.currentTime);
 
-      lowpass.type = "lowpass"
-      lowpass.frequency.value = 2500
-      lowpass.Q.value = 0.5
+      lowpass.type = "lowpass";
+      lowpass.frequency.value = 2500;
+      lowpass.Q.value = 0.5;
 
-      gainNode.gain.setValueAtTime(0.05, ctx.currentTime)
-      gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02)
+      gainNode.gain.setValueAtTime(0.05, ctx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
 
-      oscillator.connect(filter)
-      filter.connect(gainNode)
-      gainNode.connect(lowpass)
-      lowpass.connect(ctx.destination)
+      oscillator.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(lowpass);
+      lowpass.connect(ctx.destination);
 
-      oscillator.start(ctx.currentTime)
-      oscillator.stop(ctx.currentTime + 0.02)
+      oscillator.start(ctx.currentTime);
+      oscillator.stop(ctx.currentTime + 0.02);
     } catch {
       // Audio not supported
     }
-  }, [isMuted, getAudioContext, triggerHaptic])
+  }, [isMuted, getAudioContext, triggerHaptic]);
 
   const toggleMute = useCallback(() => {
-    setIsMuted((prev) => !prev)
+    setIsMuted((prev) => !prev);
     if (isMuted) {
       try {
-        const ctx = getAudioContext()
+        const ctx = getAudioContext();
         if (ctx && ctx.state === "suspended") {
-          ctx.resume()
+          ctx.resume();
         }
       } catch {
         // Audio not supported
       }
     }
-  }, [isMuted, getAudioContext])
+  }, [isMuted, getAudioContext]);
 
-  const value = useMemo(() => ({ isMuted, toggleMute, playClick }), [isMuted, toggleMute, playClick])
+  const value = useMemo(
+    () => ({ isMuted, toggleMute, playClick }),
+    [isMuted, toggleMute, playClick],
+  );
 
-  return <SplitFlapAudioContext.Provider value={value}>{children}</SplitFlapAudioContext.Provider>
+  return (
+    <SplitFlapAudioContext.Provider value={value}>
+      {children}
+    </SplitFlapAudioContext.Provider>
+  );
 }
 
-export function SplitFlapMuteToggle({ className = "" }: { className?: string }) {
-  const audio = useSplitFlapAudio()
-  if (!audio) return null
+export function SplitFlapMuteToggle({
+  className = "",
+}: {
+  className?: string;
+}) {
+  const audio = useSplitFlapAudio();
+  if (!audio) return null;
 
   return (
     <button
@@ -113,36 +143,44 @@ export function SplitFlapMuteToggle({ className = "" }: { className?: string }) 
       className={`inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 ${className}`}
       aria-label={audio.isMuted ? "Unmute sound effects" : "Mute sound effects"}
     >
-      {audio.isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+      {audio.isMuted ? (
+        <VolumeX className="w-4 h-4" />
+      ) : (
+        <Volume2 className="w-4 h-4" />
+      )}
       <span>{audio.isMuted ? "Sound Off" : "Sound On"}</span>
     </button>
-  )
+  );
 }
 
 interface SplitFlapTextProps {
-  text: string
-  className?: string
-  speed?: number
+  text: string;
+  className?: string;
+  speed?: number;
 }
 
-const CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("")
+const CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 
-function SplitFlapTextInner({ text, className = "", speed = 50 }: SplitFlapTextProps) {
-  const chars = useMemo(() => text.split(""), [text])
-  const [animationKey, setAnimationKey] = useState(0)
-  const [hasInitialized, setHasInitialized] = useState(false)
-  const audio = useSplitFlapAudio()
+function SplitFlapTextInner({
+  text,
+  className = "",
+  speed = 50,
+}: SplitFlapTextProps) {
+  const chars = useMemo(() => text.split(""), [text]);
+  const [animationKey, setAnimationKey] = useState(0);
+  const [hasInitialized, setHasInitialized] = useState(false);
+  const audio = useSplitFlapAudio();
 
   const handleMouseEnter = useCallback(() => {
-    setAnimationKey((prev) => prev + 1)
-  }, [])
+    setAnimationKey((prev) => prev + 1);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHasInitialized(true)
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [])
+      setHasInitialized(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -163,92 +201,109 @@ function SplitFlapTextInner({ text, className = "", speed = 50 }: SplitFlapTextP
         />
       ))}
     </div>
-  )
+  );
 }
 
 export function SplitFlapText(props: SplitFlapTextProps) {
-  return <SplitFlapTextInner {...props} />
+  return <SplitFlapTextInner {...props} />;
 }
 
 interface SplitFlapCharProps {
-  char: string
-  index: number
-  animationKey: number
-  skipEntrance: boolean
-  speed: number
-  playClick?: () => void
+  char: string;
+  index: number;
+  animationKey: number;
+  skipEntrance: boolean;
+  speed: number;
+  playClick?: () => void;
 }
 
-function SplitFlapChar({ char, index, animationKey, skipEntrance, speed, playClick }: SplitFlapCharProps) {
-  const displayChar = CHARSET.includes(char) ? char : " "
-  const isSpace = char === " "
-  const [currentChar, setCurrentChar] = useState(skipEntrance ? displayChar : " ")
-  const [isSettled, setIsSettled] = useState(skipEntrance)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+function SplitFlapChar({
+  char,
+  index,
+  animationKey,
+  skipEntrance,
+  speed,
+  playClick,
+}: SplitFlapCharProps) {
+  const displayChar = CHARSET.includes(char) ? char : " ";
+  const isSpace = char === " ";
+  const [currentChar, setCurrentChar] = useState(
+    skipEntrance ? displayChar : " ",
+  );
+  const [isSettled, setIsSettled] = useState(skipEntrance);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const tileDelay = 0.15 * index
+  const tileDelay = 0.15 * index;
 
-const bgColor = isSettled
-  ? "var(--background)"
-  : "color-mix(in oklch, var(--accent) 20%, transparent)"
+  const bgColor = isSettled
+    ? "var(--background)"
+    : "color-mix(in oklch, var(--accent) 20%, transparent)";
 
-const textColor = isSettled
-  ? "var(--foreground)"
-  : "color-mix(in oklch, var(--accent) 85%, white)"
-
+  const textColor = isSettled
+    ? "var(--foreground)"
+    : "color-mix(in oklch, var(--accent) 85%, white)";
 
   useEffect(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     if (isSpace) {
-      setCurrentChar(" ")
-      setIsSettled(true)
-      return
+      setCurrentChar(" ");
+      setIsSettled(true);
+      return;
     }
 
-    setIsSettled(false)
-    setCurrentChar(CHARSET[Math.floor(Math.random() * CHARSET.length)])
+    setIsSettled(false);
+    setCurrentChar(CHARSET[Math.floor(Math.random() * CHARSET.length)]);
 
-    const baseFlips = 8
-    const startDelay = skipEntrance ? tileDelay * 400 : tileDelay * 800
-    let flipIndex = 0
-    let hasStartedSettling = false
+    const baseFlips = 8;
+    const startDelay = skipEntrance ? tileDelay * 400 : tileDelay * 800;
+    let flipIndex = 0;
+    let hasStartedSettling = false;
 
     timeoutRef.current = setTimeout(() => {
       intervalRef.current = setInterval(() => {
-        const settleThreshold = baseFlips + index * 3
+        const settleThreshold = baseFlips + index * 3;
 
         if (flipIndex >= settleThreshold && !hasStartedSettling) {
-          hasStartedSettling = true
-          if (intervalRef.current) clearInterval(intervalRef.current)
-          setCurrentChar(displayChar)
-          setIsSettled(true)
-          if (playClick) playClick()
-          return
+          hasStartedSettling = true;
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          setCurrentChar(displayChar);
+          setIsSettled(true);
+          if (playClick) playClick();
+          return;
         }
-        setCurrentChar(CHARSET[Math.floor(Math.random() * CHARSET.length)])
-        if (flipIndex % 2 === 0 && playClick) playClick()
-        flipIndex++
-      }, speed)
-    }, startDelay)
+        setCurrentChar(CHARSET[Math.floor(Math.random() * CHARSET.length)]);
+        if (flipIndex % 2 === 0 && playClick) playClick();
+        flipIndex++;
+      }, speed);
+    }, startDelay);
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-      if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    }
-  }, [displayChar, isSpace, tileDelay, animationKey, skipEntrance, index, speed, playClick])
+      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [
+    displayChar,
+    isSpace,
+    tileDelay,
+    animationKey,
+    skipEntrance,
+    index,
+    speed,
+    playClick,
+  ]);
 
   if (isSpace) {
     return (
       <div
         style={{
           width: "0.3em",
-          fontSize: "clamp(4rem, 15vw, 14rem)",
+          fontSize: "clamp(3rem, 15vw, 14rem)",
         }}
       />
-    )
+    );
   }
 
   return (
@@ -258,7 +313,7 @@ const textColor = isSettled
       transition={{ delay: tileDelay, duration: 0.3, ease: "easeOut" }}
       className="relative overflow-hidden flex items-center justify-center font-[family-name:var(--font-bebas)]"
       style={{
-        fontSize: "clamp(4rem, 15vw, 14rem)",
+        fontSize: "clamp(3rem, 15vw, 14rem)",
         width: "0.65em",
         height: "1.05em",
         backgroundColor: bgColor,
@@ -313,5 +368,5 @@ const textColor = isSettled
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }

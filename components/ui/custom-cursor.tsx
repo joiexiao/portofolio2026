@@ -9,6 +9,8 @@ const LERP = 0.25;
 const HOVER_COLORS = ["#A7CAFF", "#FF7CD8", "#7CFFD2", "#FFD37C"];
 
 export default function CustomCursor() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
   const hoverRingRef = useRef<HTMLDivElement | null>(null);
   const innerCoreRef = useRef<HTMLDivElement | null>(null);
@@ -25,6 +27,19 @@ export default function CustomCursor() {
   const positions = useRef(
     Array.from({ length: ECHO_COUNT }, () => ({ x: 0, y: 0 })),
   );
+
+  // ✅ detect mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const move = (e: MouseEvent) => {
@@ -202,6 +217,8 @@ export default function CustomCursor() {
       colorDelayRef.current?.kill();
     };
   }, [isHovering]);
+  // ✅ TARO DISINI
+  if (isMobile) return null;
 
   return (
     <>
