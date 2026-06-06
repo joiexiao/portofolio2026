@@ -249,7 +249,7 @@ export function ContactSection() {
           ref={footerRef}
           className="
       relative
-      h-[64px]
+      lg:h-16 sm:h-14 h-12
       overflow-hidden
       border-t border-black/20
       bg-white

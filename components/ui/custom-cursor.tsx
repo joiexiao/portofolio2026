@@ -9,8 +9,7 @@ const LERP = 0.25;
 const HOVER_COLORS = ["#A7CAFF", "#FF7CD8", "#7CFFD2", "#FFD37C"];
 
 export default function CustomCursor() {
-  const [isMobile, setIsMobile] = useState(false);
-
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const dotsRef = useRef<(HTMLDivElement | null)[]>([]);
   const hoverRingRef = useRef<HTMLDivElement | null>(null);
   const innerCoreRef = useRef<HTMLDivElement | null>(null);
@@ -30,16 +29,36 @@ export default function CustomCursor() {
 
   // ✅ detect mobile
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
+    const checkDevice = () => {
+      const isTouchDevice =
+        window.matchMedia("(hover: none)").matches ||
+        window.matchMedia("(pointer: coarse)").matches;
+
+      const isSmallScreen = window.innerWidth < 1024;
+
+      setIsMobile(isTouchDevice || isSmallScreen);
     };
 
-    checkMobile();
+    checkDevice();
 
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", checkDevice);
 
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkDevice);
+    };
   }, []);
+
+  useEffect(() => {
+    if (isMobile === null) return;
+
+    const root = document.documentElement;
+
+    if (isMobile) {
+      root.classList.remove("cursor-none");
+    } else {
+      root.classList.add("cursor-none");
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const move = (e: MouseEvent) => {
@@ -218,7 +237,7 @@ export default function CustomCursor() {
     };
   }, [isHovering]);
   // ✅ TARO DISINI
-  if (isMobile) return null;
+  if (isMobile === null || isMobile) return null;
 
   return (
     <>

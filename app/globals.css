@@ -3,12 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* globals.css */
-   * {
-     cursor: none !important;
-   }
 
-
+html.cursor-none * {
+  cursor: none !important;
+}
 /* Custom editorial design tokens - monochrome with orange accent */
 :root {
   /* Base */

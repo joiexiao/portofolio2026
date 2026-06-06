@@ -278,7 +278,7 @@ export default function AmaliahAstraPage() {
           LOGO HERO
       ===================== */}
       <GlitchReveal>
-        <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center px-4">
           {/* LIGHT RAYS */}
           <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <div className="w-full h-full">
@@ -307,7 +307,13 @@ export default function AmaliahAstraPage() {
               alt="Logo Project Thumbnail"
               fill
               priority
-              className="object-contain object-center"
+              className="
+object-contain 
+object-center
+scale-125
+sm:scale-110
+md:scale-100
+"
             />
           </div>
         </section>
@@ -320,17 +326,45 @@ export default function AmaliahAstraPage() {
         className="animate-section relative px-6 py-24 h-fit z-10"
       >
         <GlitchReveal>
-          <div className="max-w-7xl mx-32">
+          <div className="max-w-7xl mx-auto px-0 md:px-6 lg:px-0 lg:mx-32">
             <ScrambleText
               text="./Project-Overview"
               start={sectionStart["section-1"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight relative z-10 opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    relative
+    z-10
+    opacity-0
+    translate-y-12
+  "
+            >
               Yayasan Amaliah ASTRA
             </h2>
-            <div className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed opacity-0 translate-y-12">
+            <div
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    opacity-0
+    translate-y-12
+  "
+            >
               <p>
                 Yayasan Amaliah Astra is a social foundation under Astra
                 International that focuses on religious, educational, and
@@ -344,7 +378,19 @@ export default function AmaliahAstraPage() {
             </div>
 
             {/* META GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] gap-12 text-lg">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto]
+    gap-10
+    md:gap-12
+    text-base
+    md:text-lg
+  "
+            >
               <div className="animate-grid-item">
                 <h2 className="font-medium text-xl"> The Challenge</h2>
                 <p className="mt-2 leading-relaxed">
@@ -389,18 +435,45 @@ export default function AmaliahAstraPage() {
         className="animate-section relative px-6 py-24 h-fit z-10"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl mx-auto md:px-6 lg:px-0 lg:mx-32">
             <ScrambleText
               text="./Project-Origin"
               start={sectionStart["section-2"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               How it all began
             </h2>
 
-            <p className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               In the earliest phase of this work, we started by defining the
               core challenge and exploring initial directions through rough
               visual experimentation and strategic ideation. These early
@@ -410,7 +483,17 @@ export default function AmaliahAstraPage() {
             </p>
 
             {/* IMAGE GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-32">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    gap-12
+    md:gap-20
+    lg:gap-32
+  "
+            >
               {/* ================= ITEM 1 — VIDEO ================= */}
               <div className="animate-grid-item space-y-4">
                 {/* CARD */}
@@ -428,7 +511,7 @@ export default function AmaliahAstraPage() {
                   <div className="overflow-hidden">
                     <Image
                       src="/amaliahastrapost1.png"
-                      alt="Fund Small Capital Design Resources"
+                      alt="Mockup of symbolic handover of sacrificial animals"
                       width={488}
                       height={297}
                       className="
@@ -490,9 +573,11 @@ export default function AmaliahAstraPage() {
                 {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
-                    Website
+                    Symbolic Poster Design
                   </p>
-                  <p className="text-base">Fund Small Capital Website</p>
+                  <p className="text-base">
+                    Symbolic Handover of Sacrificial Animals
+                  </p>
                 </div>
               </div>
 
@@ -512,7 +597,7 @@ export default function AmaliahAstraPage() {
                   <div className="overflow-hidden">
                     <Image
                       src="/amaliahastrapost2.png"
-                      alt="Fund Small Capital Design Resources"
+                      alt="Mockup of symbolic handover of sacrificial animals"
                       width={488}
                       height={297}
                       className="
@@ -574,9 +659,11 @@ export default function AmaliahAstraPage() {
                 {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
-                    Website
+                    Mockup Design
                   </p>
-                  <p className="text-base">Fund Small Capital Website</p>
+                  <p className="text-base">
+                    Symbolic Handover of Sacrificial Animals
+                  </p>
                 </div>
               </div>
             </div>
@@ -599,7 +686,7 @@ export default function AmaliahAstraPage() {
               fixed
               top-1/2 left-1/2
               -translate-x-1/2 -translate-y-1/2
-              w-full max-w-6xl px-6
+              w-full max-w-7xl px-4 sm:px-6 md:px-10
             "
             onClick={(e) => e.stopPropagation()}
           >
@@ -654,25 +741,67 @@ export default function AmaliahAstraPage() {
         className="animate-section relative px-6 py-24 h-fit z-10"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl mx-auto md:px-6 lg:px-0 lg:mx-32">
             <ScrambleText
               text="./acknowledgements"
               start={sectionStart["section-3"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               Credits
             </h2>
 
-            <p className="animate-desc mt-32 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               Special thanks to Yayasan Amaliah Astra and Astra for the
               opportunity to intern and contribute to this project. The
               mentorship, collaboration, and professional environment provided
               valuable experience and insight, allowing this work to grow while
               supporting initiatives with real social impact.
             </p>
-            <div className="mt-32 max-w-4xl grid grid-cols-2 gap-x-20 gap-y-20 text-xl">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    gap-x-10
+    md:gap-x-20
+    gap-y-12
+    md:gap-y-20
+    text-base
+    md:text-lg
+    lg:text-xl
+  "
+            >
               <div className="animate-grid-item">
                 <p className="font-bold mb-2">Clients</p>
                 <a>Yayasan Amaliah ASTRA</a>
@@ -707,10 +836,39 @@ export default function AmaliahAstraPage() {
       {/* =====================
           NEXT PROJECT
       ===================== */}
-      <section className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 z-10">
+      <section
+        className="
+    relative
+    py-20 md:py-24 lg:py-32
+    px-4 sm:px-6
+    md:pl-20 md:pr-10
+    lg:pl-28 lg:pr-12
+    z-10
+  "
+      >
         {/* HEADER */}
-        <div className="mb-16 flex items-center justify-between">
-          <h2 className="font-mono text-4xl uppercase [word-spacing:-0.3em] text-accent tracking-tight">
+        <div
+          className="
+    mb-10 md:mb-16
+    flex
+    items-center
+    justify-between
+    gap-4
+  "
+        >
+          <h2
+            className="
+    font-mono
+    text-2xl
+    sm:text-2xl
+    md:text-4xl
+    uppercase
+    [word-spacing:-0.3em]
+    text-accent
+    tracking-tight
+    leading-none
+  "
+          >
             VIEW ANOTHER WORK
           </h2>
 
@@ -728,7 +886,9 @@ export default function AmaliahAstraPage() {
   px-4
   py-2
   font-mono
-  text-[10px]
+  lg:text-[10px]
+  sm:text-[8px]
+  text-[8px]
   uppercase
   tracking-[0.25em]
   text-foreground
@@ -742,11 +902,12 @@ export default function AmaliahAstraPage() {
 
             <BitmapChevron
               className="
-        transition-transform
-        duration-[400ms]
-        ease-in-out
-        group-hover:rotate-45
-      "
+    hidden sm:block
+    transition-transform
+    duration-[400ms]
+    ease-in-out
+    group-hover:rotate-45
+  "
             />
           </TransitionLink>
         </div>
@@ -768,7 +929,22 @@ export default function AmaliahAstraPage() {
                 >
                   <article
                     data-cursor="hover"
-                    className="group relative h-[180px] md:h-[200px] border border-border/40 px-10 overflow-hidden transition-colors duration-500 hover:border-accent/60 "
+                    className="
+  group
+  relative
+  min-h-[180px]
+  md:h-[200px]
+  border
+  border-border/40
+  px-5
+  py-6
+  sm:px-8
+  md:px-10
+  overflow-hidden
+  transition-colors
+  duration-500
+  hover:border-accent/60
+"
                   >
                     {/* HOVER BG */}
                     <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -776,19 +952,71 @@ export default function AmaliahAstraPage() {
                     {/* MAIN CONTENT */}
                     <div className="relative z-10 h-full flex flex-col justify-center">
                       {/* ROLE */}
-                      <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground transition-opacity duration-300 group-hover:opacity-0">
+                      <span
+                        className="
+    font-mono
+    text-[10px]
+    sm:text-[12px]
+    uppercase
+    tracking-widest
+    text-muted-foreground
+    transition-opacity
+    duration-300
+    md:group-hover:opacity-0
+  "
+                      >
                         {experiment.medium}
                       </span>
 
                       {/* TITLE */}
-                      <h3 className="mt-3 text-5xl md:text-7xl leading-none tracking-tight transition-transform duration-500 group-hover:-translate-y-6">
+                      <h3
+                        className="
+    mt-3
+    text-3xl
+    sm:text-5xl
+    md:text-7xl
+    leading-none
+    tracking-tight
+    transition-transform
+    duration-500
+    md:group-hover:-translate-y-6
+  "
+                      >
                         {experiment.title}
                       </h3>
                     </div>
 
                     {/* DESCRIPTION */}
-                    <div className="absolute bottom-6 left-10 right-10 z-10">
-                      <p className="font-mono text-accent text-xs leading-relaxed opacity-0 translate-y-6 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-w-md">
+                    <div
+                      className="
+    relative
+    md:absolute
+    mt-6
+    md:mt-0
+    md:bottom-6
+    md:left-10
+    md:right-10
+    z-10
+  "
+                    >
+                      <p
+                        className="
+      font-mono
+      text-accent
+      text-[11px]
+      md:text-xs
+      leading-relaxed
+      opacity-100
+      translate-y-0
+      md:opacity-0
+      md:translate-y-6
+      transition-all
+      duration-500
+      md:group-hover:opacity-100
+      md:group-hover:translate-y-0
+      max-w-md
+    "
+                      >
                         {experiment.description}
                       </p>
                     </div>
