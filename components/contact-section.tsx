@@ -178,7 +178,7 @@ export function ContactSection() {
           <h2
             className="
     flex flex-row md:flex-row md:items-baseline
-    font-[var(--font-bebas)]
+    font-(--font-bebas)
     tracking-tight
   "
           >

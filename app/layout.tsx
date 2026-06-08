@@ -7,7 +7,7 @@ import CustomCursor from "@/components/ui/custom-cursor";
 import { PageTransition } from "@/components/page-transition";
 
 const ibmPlexSans = IBM_Plex_Sans({
-  weight: ["400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-ibm-plex-sans",
 });

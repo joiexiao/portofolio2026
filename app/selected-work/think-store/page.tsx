@@ -419,9 +419,9 @@ export default function ThinkStorePage() {
                 {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
-                    Website
+                    Instagram Post
                   </p>
-                  <p className="text-base">Fund Small Capital Website</p>
+                  <p className="text-base">Promotional Poster Design</p>
                 </div>
               </div>
 
@@ -503,9 +503,9 @@ export default function ThinkStorePage() {
                 {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
-                    Website
+                    Mockup for Instagram Feeds
                   </p>
-                  <p className="text-base">Fund Small Capital Website</p>
+                  <p className="text-base">Promotional Poster Design</p>
                 </div>
               </div>
             </div>
@@ -616,9 +616,7 @@ export default function ThinkStorePage() {
 
               <div className="animate-grid-item">
                 <p className="font-bold mb-2">Products</p>
-                <p>
-                  Instagram Promotional Poster <br /> Brand Logo
-                </p>
+                <p>Instagram Promotional Poster Design</p>
               </div>
 
               <div className="animate-grid-item">

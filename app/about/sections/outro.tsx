@@ -282,7 +282,7 @@ lg:text-6xl leading-none cursor-pointer select-none hero-title text-primary unde
             <a
               href="https://github.com/joiexiao"
               target="_blank"
-              className="opacity-50 hover:opacity-100 transition"
+              className="opacity-50 hover:opacity-100 hover:color-primary transition"
               aria-label="GitHub"
               data-cursor="hover"
             >
@@ -347,7 +347,7 @@ lg:text-6xl leading-none cursor-pointer select-none hero-title text-primary unde
   "
       >
         <TransitionLink
-          href="/#hero"
+          href="/#home"
           className="
       group inline-flex items-center gap-2
 

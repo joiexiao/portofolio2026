@@ -10,10 +10,21 @@ import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
+import ComingSoon from "@/components/ui/ComingSoon";
+import { useSearchParams } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MuseumVirtualPage() {
+  const searchParams = useSearchParams();
+
+  const preview = searchParams.get("preview") === "true";
+  const isPublished = false;
+
+  if (!isPublished && !preview) {
+    return <ComingSoon />;
+  }
+
   const heroImageRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isManuallyPausedRef = useRef(false);
