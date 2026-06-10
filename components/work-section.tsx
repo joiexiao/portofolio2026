@@ -42,6 +42,13 @@ export const experiments = [
     span: "col-span-2 row-span-1",
   },
   {
+    title: "Levi Camp",
+    slug: "levi-camp",
+    medium: "UI UX Designer",
+    description: "Design system, Website mockups (Lo-Fi → Hi-Fi).",
+    span: "col-span-1 row-span-1",
+  },
+  {
     title: "Fund Small Capital",
     slug: "fund-small-capital",
     medium: "UI UX Designer",
@@ -50,11 +57,11 @@ export const experiments = [
     span: "col-span-1.4 row-span-1",
   },
   {
-    title: "Levi Camp",
-    slug: "levi-camp",
+    title: "Common Ground Project",
+    slug: "common-ground-project",
     medium: "UI UX Designer",
     description: "Design system, Website mockups (Lo-Fi → Hi-Fi).",
-    span: "col-span-1 row-span-1",
+    span: "col-span-2 row-span-1",
   },
 ];
 

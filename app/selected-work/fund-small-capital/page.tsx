@@ -494,10 +494,13 @@ export default function FundSmallCapitalPage() {
       ===================== */}
       <section
         data-section-id="section-1"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-7xl mx-32">
+          <div className="max-w-7xl px-0 md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Overview"
               start={sectionStart["section-1"]}
@@ -560,10 +563,13 @@ export default function FundSmallCapitalPage() {
       ===================== */}
       <section
         data-section-id="section-2"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section relative py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Origin"
               start={sectionStart["section-2"]}
@@ -994,10 +1000,13 @@ export default function FundSmallCapitalPage() {
       ===================== */}
       <section
         data-section-id="section-3"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl px-0 md:px-6 lg:px-0">
             <ScrambleText
               text="./acknowledgements"
               start={sectionStart["section-3"]}
@@ -1057,7 +1066,12 @@ export default function FundSmallCapitalPage() {
       {/* =====================
           NEXT PROJECT
       ===================== */}
-      <section className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12">
+      <section
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-10
+    lg:pl-20 lg:pr-12 z-10 relative"
+      >
         {/* HEADER */}
         <div className="mb-16 flex items-center justify-between">
           <h2 className="font-mono text-4xl uppercase [word-spacing:-0.3em] text-accent tracking-tight">

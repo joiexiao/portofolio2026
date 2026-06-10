@@ -323,10 +323,13 @@ md:scale-100
       ===================== */}
       <section
         data-section-id="section-1"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-7xl mx-auto px-0 md:px-6 lg:px-0 lg:mx-32">
+          <div className="max-w-7xl px-0 md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Overview"
               start={sectionStart["section-1"]}
@@ -392,7 +395,10 @@ md:scale-100
   "
             >
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Challenge</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Challenge
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   designing visual mockups and posters for the symbolic handover
                   of sacrificial animals, ensuring the message of social impact
@@ -401,7 +407,10 @@ md:scale-100
               </div>
 
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Outcome</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Outcome
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   A set of symbolic handover mockups that visually represent the
                   spirit of sharing, sustainability, and collaboration, aligned
@@ -410,7 +419,10 @@ md:scale-100
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Delivered</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Delivered
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   Graphic Design
                   <br />
@@ -419,7 +431,10 @@ md:scale-100
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Year</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Year
+                </h2>
                 <p className="mt-2 leading-relaxed">2025</p>
               </div>
             </div>
@@ -432,10 +447,13 @@ md:scale-100
       ===================== */}
       <section
         data-section-id="section-2"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-auto md:px-6 lg:px-0 lg:mx-32">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Origin"
               start={sectionStart["section-2"]}
@@ -738,10 +756,13 @@ md:scale-100
       ===================== */}
       <section
         data-section-id="section-3"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-auto md:px-6 lg:px-0 lg:mx-32">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./acknowledgements"
               start={sectionStart["section-3"]}
@@ -842,7 +863,7 @@ md:scale-100
     py-20 md:py-24 lg:py-32
     px-4 sm:px-6
     md:pl-20 md:pr-10
-    lg:pl-28 lg:pr-12
+    lg:pl-20 lg:pr-12
     z-10
   "
       >

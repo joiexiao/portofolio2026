@@ -92,7 +92,7 @@ const LightRays: React.FC<LightRaysProps> = ({
   raysColor = DEFAULT_COLOR,
   raysSpeed = 1,
   lightSpread = 1,
-  rayLength = 2,
+  rayLength = 1.2,
   pulsating = false,
   fadeDistance = 1.0,
   saturation = 1.0,
@@ -261,8 +261,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
 // Fade out ke bawah
 float verticalFade = smoothstep(
-  iResolution.y * 1.0,
-  iResolution.y * 0.35,
+  iResolution.y * 0.65,
+  iResolution.y * 0.1,
   coord.y
 );
 
