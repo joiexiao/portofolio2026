@@ -13,7 +13,7 @@ import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
 import ComingSoon from "@/components/ui/ComingSoon";
-import { useSearchParams } from "next/navigation";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
