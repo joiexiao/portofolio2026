@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = "force-dynamic";
 import TransitionLink from "@/components/transition-link";
 import { experiments } from "@/components/work-section";
 import Image from "next/image";
