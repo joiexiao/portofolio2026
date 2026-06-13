@@ -1,5 +1,5 @@
 "use client";
-export const dynamic = "force-dynamic";
+
 import TransitionLink from "@/components/transition-link";
 import { experiments } from "@/components/work-section";
 import Image from "next/image";
@@ -12,19 +12,21 @@ import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
 import ComingSoon from "@/components/ui/ComingSoon";
-import { useSearchParams } from "next/navigation";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MuseumVirtualPage() {
-  const searchParams = useSearchParams();
 
-  const preview = searchParams.get("preview") === "true";
-  const isPublished = false;
+const isPublished = false;
 
-  if (!isPublished && !preview) {
-    return <ComingSoon />;
-  }
+const preview =
+  typeof window !== "undefined" &&
+  new URLSearchParams(window.location.search).get("preview") === "true";
+
+if (!isPublished && !preview) {
+  return <ComingSoon />;
+}
 
   const heroImageRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
