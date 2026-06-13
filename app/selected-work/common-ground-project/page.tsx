@@ -18,7 +18,7 @@ import ComingSoon from "@/components/ui/ComingSoon";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CommonGroundProjectPage() {
-  const searchParams = useSearchParams();
+
 
 const isPublished = false;
 
