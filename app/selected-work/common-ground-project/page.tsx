@@ -1,5 +1,6 @@
 "use client";
-export const dynamic = "force-dynamic";
+
+import { Suspense } from "react";
 import TransitionLink from "@/components/transition-link";
 import { experiments } from "@/components/work-section";
 import Image from "next/image";
@@ -19,12 +20,15 @@ gsap.registerPlugin(ScrollTrigger);
 export default function CommonGroundProjectPage() {
   const searchParams = useSearchParams();
 
-  const preview = searchParams.get("preview") === "true";
-  const isPublished = false;
+const isPublished = false;
 
-  if (!isPublished && !preview) {
-    return <ComingSoon />;
-  }
+const preview =
+  typeof window !== "undefined" &&
+  new URLSearchParams(window.location.search).get("preview") === "true";
+
+if (!isPublished && !preview) {
+  return <ComingSoon />;
+}
 
   const heroImageRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
