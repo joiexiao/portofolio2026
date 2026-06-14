@@ -15,9 +15,7 @@ const oldStandardTT = Old_Standard_TT({
   display: "swap",
 });
 
-// Old English Text MT (self-hosted)
-// Download dari: https://www.dafont.com/ atau font repository lainnya
-// Letakkan di: public/fonts/OldEnglishTextMT.woff2
+
 const oldEnglishText = localFont({
   src: [
     {
@@ -281,7 +279,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
                     Jakarta, Indonesia
                   </h3>
                   <p className="text-[10px] sm:text-xs text-gray-400">
-                    GPA : 3.71 / 4.00
+                    GPA : 3.76 / 4.00
                   </p>
                 </div>
                 <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
@@ -309,7 +307,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2 ${oldStandardTT.className}`}
                   UI/UX Designer, Heulaulabs - Jakarta, Indonesia
                 </h3>
                 <span className="text-[10px] sm:text-xs text-gray-400 sm:whitespace-nowrap sm:ml-4">
-                  Feb 2025 - Present
+                  Feb 2025 - Jul 2024
                 </span>
               </div>
               <ul className="text-[10px] sm:text-xs space-y-1 leading-relaxed list-disc list-outside pl-4 marker:text-gray-400">
