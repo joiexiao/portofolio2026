@@ -191,11 +191,6 @@ export default function LeviCampPage() {
         aria-hidden="true"
       />
 
-      {/* GLOBAL ANIMATED NOISE - Fixed di seluruh halaman */}
-      <div className="fixed inset-0 pointer-events-none z-[1]">
-        <AnimatedNoise opacity={0.03} />
-      </div>
-
       {/* =====================
     CTA MENU (GLOBAL)
 ===================== */}

@@ -195,11 +195,6 @@ export default function ThinkStorePage() {
         aria-hidden="true"
       />
 
-      {/* GLOBAL ANIMATED NOISE - Fixed di seluruh halaman */}
-      <div className="fixed inset-0 pointer-events-none z-[1]">
-        <AnimatedNoise opacity={0.03} />
-      </div>
-
       {/* =====================
           CTA MENU (GLOBAL)
       ===================== */}
@@ -227,19 +222,21 @@ export default function ThinkStorePage() {
           LOGO HERO
       ===================== */}
       <GlitchReveal>
-        <section className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center z-10">
+        <section className="relative w-full h-screen overflow-hiddenflex items-center justify-center z-10">
           <div ref={heroImageRef} className="w-full h-full">
             <Image
               src="/thinkstorebanner.png"
               alt="Logo Project Thumbnail"
               fill
               priority
-              className="object-cover"
-            />
-            {/* Gradient bottom fade */}
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-40
-            bg-gradient-to-b from-transparent to-black"
+              className="
+object-contain 
+object-center
+scale-125
+sm:scale-110
+md:scale-100
+opacity-80
+"
             />
           </div>
         </section>
@@ -250,20 +247,51 @@ export default function ThinkStorePage() {
       ===================== */}
       <section
         data-section-id="section-1"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+            px-6 sm:px-8 lg:px-32
+            md:pl-20 md:pr-20
+            lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-7xl mx-32">
+          <div className="max-w-7xl px-0 md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Overview"
               start={sectionStart["section-1"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight relative z-10 opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    relative
+    z-10
+    opacity-0
+    translate-y-12
+  "
+            >
               Think Store
             </h2>
-            <div className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed opacity-0 translate-y-12">
+            <div
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    opacity-0
+    translate-y-12
+  "
+            >
               <p>
                 Think Store is an online thrift clothing store that offers
                 curated second-hand apparel with a focus on style,
@@ -274,9 +302,24 @@ export default function ThinkStorePage() {
             </div>
 
             {/* META GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] gap-12 text-lg">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto]
+    gap-10
+    md:gap-12
+    text-base
+    md:text-lg
+  "
+            >
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Challenge</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Challenge
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   Creating a brand logo and promotional posters that are
                   visually consistent and optimized for Instagram feed and story
@@ -285,7 +328,10 @@ export default function ThinkStorePage() {
               </div>
 
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Outcome</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Outcome
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   Promotional posters and brand logo designed for Instagram feed
                   and story formats to strengthen visual identity and
@@ -294,7 +340,10 @@ export default function ThinkStorePage() {
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Delivered</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Delivered
+                </h2>
                 <p className="mt-2 leading-relaxed">
                   Graphic Design
                   <br />
@@ -303,7 +352,10 @@ export default function ThinkStorePage() {
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Year</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Year
+                </h2>
                 <p className="mt-2 leading-relaxed">2024</p>
               </div>
             </div>
@@ -316,21 +368,51 @@ export default function ThinkStorePage() {
       ===================== */}
       <section
         data-section-id="section-2"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./Project-Origin"
               start={sectionStart["section-2"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               How it all began
             </h2>
 
-            <p className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               The project began with defining Think Store’s brand identity and
               overall tone. From there, the process moved into logo exploration,
               visual experimentation, and layout direction to create a cohesive
@@ -339,7 +421,17 @@ export default function ThinkStorePage() {
             </p>
 
             {/* IMAGE GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-32">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    gap-12
+    md:gap-20
+    lg:gap-32
+  "
+            >
               {/* ================= ITEM 1 — VIDEO ================= */}
               <div className="animate-grid-item space-y-4">
                 {/* CARD */}
@@ -579,28 +671,73 @@ export default function ThinkStorePage() {
           CREDITS
       ===================== */}
       <section
-        data-section-id="section-4"
-        className="animate-section relative px-6 py-24 h-fit z-10"
+        data-section-id="section-3"
+        className="animate-section py-20 md:py-24 lg:py-32
+    px-6 sm:px-8 lg:px-32
+    md:pl-20 md:pr-20
+    lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl mx-32">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./acknowledgements"
               start={sectionStart["section-4"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               Credits
             </h2>
 
-            <p className="animate-desc mt-32 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               Special thanks to Think Store for the collaboration and trust
               throughout this project. This freelance work was shaped through
               open communication and a shared vision to create engaging
               promotional visuals that support the brand’s digital growth.
             </p>
-            <div className="mt-32 max-w-4xl grid grid-cols-2 gap-x-20 gap-y-20 text-xl">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    gap-x-10
+    md:gap-x-20
+    gap-y-12
+    md:gap-y-20
+    text-base
+    md:text-lg
+    lg:text-xl
+  "
+            >
               <div className="animate-grid-item">
                 <p className="font-bold mb-2"> Clients</p>
                 <a
@@ -635,10 +772,39 @@ export default function ThinkStorePage() {
       {/* =====================
           NEXT PROJECT
       ===================== */}
-      <section className="relative py-32 pl-6 md:pl-28 pr-6 md:pr-12 z-10">
+      <section
+        className="
+    relative
+    py-20 md:py-24 lg:py-32
+    px-4 sm:px-6
+    md:pl-20 md:pr-10
+    lg:pl-20 lg:pr-12
+    z-10
+  "
+      >
         {/* HEADER */}
-        <div className="mb-16 flex items-center justify-between">
-          <h2 className="font-mono text-4xl uppercase [word-spacing:-0.3em] text-accent tracking-tight">
+        <div
+          className="
+    mb-10 md:mb-16
+    flex
+    items-center
+    justify-between
+    gap-4
+  "
+        >
+          <h2
+            className="
+    font-mono
+    text-2xl
+    sm:text-2xl
+    md:text-4xl
+    uppercase
+    [word-spacing:-0.3em]
+    text-accent
+    tracking-tight
+    leading-none
+  "
+          >
             VIEW ANOTHER WORK
           </h2>
 
@@ -647,34 +813,37 @@ export default function ThinkStorePage() {
             href="/"
             data-cursor="hover"
             className="
-  group
-  inline-flex
-  items-center
-  gap-2
-  border
-  border-foreground/40
-  px-4
-  py-2
-  font-mono
-  text-[10px]
-  uppercase
-  tracking-[0.25em]
-  text-foreground
-  hover:border-accent
-  hover:text-accent
-  transition-all
-  duration-200
-"
+           group
+           inline-flex
+           items-center
+           gap-2
+           border
+           border-foreground/40
+           px-4
+           py-2
+           font-mono
+           lg:text-[10px]
+           sm:text-[8px]
+           text-[8px]
+           uppercase
+           tracking-[0.25em]
+           text-foreground
+           hover:border-accent
+           hover:text-accent
+           transition-all
+           duration-200
+         "
           >
             <ScrambleTextOnHover text="Back to home" as="span" duration={0.6} />
 
             <BitmapChevron
               className="
-        transition-transform
-        duration-[400ms]
-        ease-in-out
-        group-hover:rotate-45
-      "
+             hidden sm:block
+             transition-transform
+             duration-[400ms]
+             ease-in-out
+             group-hover:rotate-45
+           "
             />
           </TransitionLink>
         </div>
@@ -696,7 +865,22 @@ export default function ThinkStorePage() {
                 >
                   <article
                     data-cursor="hover"
-                    className="group relative h-[180px] md:h-[200px] border border-border/40 px-10 overflow-hidden transition-colors duration-500 hover:border-accent/60 "
+                    className="
+  group
+  relative
+  min-h-[180px]
+  md:h-[200px]
+  border
+  border-border/40
+  px-5
+  py-6
+  sm:px-8
+  md:px-10
+  overflow-hidden
+  transition-colors
+  duration-500
+  hover:border-accent/60
+"
                   >
                     {/* HOVER BG */}
                     <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -704,19 +888,71 @@ export default function ThinkStorePage() {
                     {/* MAIN CONTENT */}
                     <div className="relative z-10 h-full flex flex-col justify-center">
                       {/* ROLE */}
-                      <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground transition-opacity duration-300 group-hover:opacity-0">
+                      <span
+                        className="
+    font-mono
+    text-[10px]
+    sm:text-[12px]
+    uppercase
+    tracking-widest
+    text-muted-foreground
+    transition-opacity
+    duration-300
+    md:group-hover:opacity-0
+  "
+                      >
                         {experiment.medium}
                       </span>
 
                       {/* TITLE */}
-                      <h3 className="mt-3 text-5xl md:text-7xl leading-none tracking-tight transition-transform duration-500 group-hover:-translate-y-6">
+                      <h3
+                        className="
+    mt-3
+    text-3xl
+    sm:text-5xl
+    md:text-7xl
+    leading-none
+    tracking-tight
+    transition-transform
+    duration-500
+    md:group-hover:-translate-y-6
+  "
+                      >
                         {experiment.title}
                       </h3>
                     </div>
 
                     {/* DESCRIPTION */}
-                    <div className="absolute bottom-6 left-10 right-10 z-10">
-                      <p className="font-mono text-accent text-xs leading-relaxed opacity-0 translate-y-6 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-w-md">
+                    <div
+                      className="
+    relative
+    md:absolute
+    mt-6
+    md:mt-0
+    md:bottom-6
+    md:left-10
+    md:right-10
+    z-10
+  "
+                    >
+                      <p
+                        className="
+      font-mono
+      text-accent
+      text-[11px]
+      md:text-xs
+      leading-relaxed
+      opacity-100
+      translate-y-0
+      md:opacity-0
+      md:translate-y-6
+      transition-all
+      duration-500
+      md:group-hover:opacity-100
+      md:group-hover:translate-y-0
+      max-w-md
+    "
+                      >
                         {experiment.description}
                       </p>
                     </div>

@@ -108,7 +108,6 @@ export default function Page() {
         </div>
 
         <div className="relative z-10">
-          <AnimatedNoise opacity={0.03} />
           <HeroSection triggerGlitch={triggerGlitch} />
           <SignalsSection />
           <WorkSection />

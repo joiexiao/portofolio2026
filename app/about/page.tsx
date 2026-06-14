@@ -86,10 +86,6 @@ export default function AboutPage() {
         aria-hidden="true"
       />
 
-      <div className="fixed inset-0 pointer-events-none z-[1]">
-        <AnimatedNoise opacity={0.03} />
-      </div>
-
       {/* =====================
           CTA MENU (GLOBAL)
       ===================== */}

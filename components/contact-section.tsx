@@ -142,11 +142,17 @@ export function ContactSection() {
     >
       {/* CONTENT WRAPPER - CONSISTENT PADDING */}
       <div
-        className="flex-1   pl-6 lg:pl-24
-  pr-6 lg:pr-24"
+        className="
+    flex-1
+    flex
+    flex-col
+    justify-center
+    pl-6 lg:pl-24
+    pr-6 lg:pr-24
+  "
       >
         {/* Header */}
-        <div ref={headerRef} className="lg:mb-48 mb-32 lg:mt-0 mt-12">
+        <div ref={headerRef} className="lg:mb-32 mb-24 lg:mt-0 mt-12">
           <span
             className="
               inline-block
@@ -162,7 +168,7 @@ export function ContactSection() {
         </div>
 
         {/* Title */}
-        <div className="lg:mb-48 mb-32">
+        <div className="mb-16 sm:mb-20 md:mb-24 lg:mb-48">
           <span
             className="
     block
@@ -177,12 +183,21 @@ export function ContactSection() {
 
           <h2
             className="
-    flex flex-row md:flex-row md:items-baseline
+    flex items-baseline
+    whitespace-nowrap
     font-(--font-bebas)
     tracking-tight
+    leading-[0.9]
+    w-full
   "
           >
-            <span className="font-semibold sm:text-[27.8px] text-[22px] md:text-5xl lg:text-[84px]">
+            <span
+              className="
+      font-semibold
+      text-[clamp(24px,5vw,128px)]
+      flex-shrink-0
+    "
+            >
               hello
             </span>
 
@@ -190,12 +205,16 @@ export function ContactSection() {
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-                font-semibold text-[22px] sm:text-[27.8px] md:text-5xl lg:text-[84px]
-                text-foreground/10
-                transition-colors duration-300
-                hover:text-foreground
-                break-all md:break-normal
-              "
+      font-semibold
+      text-[clamp(24px,5vw,128px)]
+
+      text-foreground/10
+      hover:text-foreground
+      transition-colors duration-300
+
+      whitespace-nowrap
+      min-w-0
+    "
             >
               mujahidazzam16@gmail.com
             </a>

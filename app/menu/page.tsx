@@ -72,11 +72,6 @@ export default function MenuPage() {
         aria-hidden="true"
       />
 
-      {/* NOISE */}
-      <div className="fixed inset-0 pointer-events-none z-[1]">
-        <AnimatedNoise opacity={0.03} />
-      </div>
-
       {/* CONTAINER */}
       <div className="relative h-full px-4 sm:px-6 z-10">
         {/* CLOSE CTA */}

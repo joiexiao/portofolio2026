@@ -175,8 +175,13 @@ export default function ResumePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
+      <div
+        className="grid-bg fixed inset-0 opacity-50 pointer-events-none z-0"
+        aria-hidden="true"
+      />
+
       {/* Header with scramble text */}
-      <div className="lg:mb-12 sm:mb-8 mb-4 flex justify-between items-center max-w-7xl mx-auto">
+      <div className="lg:mb-12 sm:mb-8 mb-4 flex justify-between items-center max-w-7xl mx-auto z-10">
         <ScrambleText
           text="./portfolio/mujahid-azzam/resume"
           data-cursor="hover"
@@ -191,11 +196,11 @@ export default function ResumePage() {
       {/* Main Content Grid */}
       <div
         className={`grid grid-cols-1 lg:grid-cols-2
-gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto ${oldStandardTT.className}`}
+gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto z-10 ${oldStandardTT.className}`}
       >
         {/* Left Column */}
         <motion.div
-          className={`border border-white p-4 sm:p-6 lg:p-10 space-y-4 ${oldStandardTT.className}`}
+          className={`border border-white p-4 sm:p-6 lg:p-10 space-y-4 z-10 bg-black ${oldStandardTT.className}`}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -421,7 +426,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
 
         {/* Right Column */}
         <motion.div
-          className="space-y-8"
+          className="space-y-8 z-10 bg-black"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}

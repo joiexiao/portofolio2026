@@ -13,20 +13,18 @@ import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
 import ComingSoon from "@/components/ui/ComingSoon";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MuseumVirtualPage() {
+  const isPublished = false;
 
-const isPublished = false;
+  const preview =
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("preview") === "true";
 
-const preview =
-  typeof window !== "undefined" &&
-  new URLSearchParams(window.location.search).get("preview") === "true";
-
-if (!isPublished && !preview) {
-  return <ComingSoon />;
-}
+  if (!isPublished && !preview) {
+    return <ComingSoon />;
+  }
 
   const heroImageRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -208,11 +206,6 @@ if (!isPublished && !preview) {
         className="grid-bg fixed inset-0 opacity-50 pointer-events-none z-0"
         aria-hidden="true"
       />
-
-      {/* GLOBAL ANIMATED NOISE - Fixed di seluruh halaman */}
-      <div className="fixed inset-0 pointer-events-none z-[1]">
-        <AnimatedNoise opacity={0.03} />
-      </div>
 
       {/* =====================
           CTA MENU (GLOBAL)
