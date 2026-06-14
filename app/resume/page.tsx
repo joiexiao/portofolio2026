@@ -125,7 +125,7 @@ const ScrambleText = ({
 const DownloadButton = () => {
   return (
     <motion.a
-      href="/Mujahid-Azzam-Resume.pdf"
+      href="/Mujahid-Azzam-Resume-2026.pdf"
       download
       data-cursor="hover"
       className="
