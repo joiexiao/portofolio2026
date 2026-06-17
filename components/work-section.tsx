@@ -11,13 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const experiments = [
   {
-    title: "Amaliah ASTRA",
-    slug: "amaliah-astra",
-    medium: "Graphic Designer",
-    description: "Symbolic visual mockups design.",
-    span: "col-span-1 row-span-1",
-  },
-  {
     title: "Malky Joki",
     slug: "malky-joki",
     medium: "Graphic Designer",
@@ -26,11 +19,26 @@ export const experiments = [
     span: "col-span-1 row-span-1",
   },
   {
+    title: "Amaliah ASTRA",
+    slug: "amaliah-astra",
+    medium: "Graphic Designer",
+    description: "Symbolic visual mockups design.",
+    span: "col-span-2 row-span-1",
+  },
+  {
     title: "Think Store",
     slug: "think-store",
     medium: "Graphic Designer",
     description:
       "Logo design and promotional posters for Instagram feeds and stories",
+    span: "col-span-1 row-span-1",
+  },
+  {
+    title: "Fund Small Capital",
+    slug: "fund-small-capital",
+    medium: "UI UX Designer",
+    description:
+      "Design system, UML, Website mockups (Lo-Fi → Hi-Fi), Zine, Visual assets.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -49,19 +57,17 @@ export const experiments = [
     span: "col-span-1 row-span-1",
   },
   {
-    title: "Fund Small Capital",
-    slug: "fund-small-capital",
-    medium: "UI UX Designer",
-    description:
-      "Design system, UML, Website mockups (Lo-Fi → Hi-Fi), Zine, Visual assets.",
-    span: "col-span-1.4 row-span-1",
-  },
-  {
     title: "Common Ground Project",
     slug: "common-ground-project",
     medium: "UI UX Designer",
     description: "Design system, Website mockups (Lo-Fi → Hi-Fi).",
     span: "col-span-2 row-span-1",
+  },
+  {
+    medium: "Coming Soon!",
+    slug: "about",
+    title: "Would You?",
+    span: "col-span-1 row-span-1",
   },
 ];
 
@@ -130,61 +136,153 @@ export function WorkSection() {
             Selected Works
           </h2>
         </div>
-
-        <p className="hidden md:block max-w-xs font-mono text-xs text-muted-foreground text-right leading-relaxed">
-          Studies across interface design, agent systems, and visual
-          computation.
-        </p>
       </div>
 
       {/* GRID */}
       <div
         ref={gridRef}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[200px]"
+        className="
+    grid
+    grid-cols-1
+    md:grid-cols-4
+    gap-4
+    md:gap-6
+    auto-rows-auto
+    md:auto-rows-[200px]
+  "
       >
-        {experiments.map((experiment, index) => (
-          <TransitionLink
-            key={experiment.slug}
-            href={`/selected-work/${experiment.slug}`}
-            className={cn("block", experiment.span)}
-          >
-            <article
-              data-cursor="hover"
-              className="group relative h-full border border-border/40 p-5 flex flex-col justify-between overflow-hidden transition-colors duration-500 hover:border-accent/60 bg-card/50 backdrop-blur-lg"
+        {experiments.map((experiment, index) => {
+          const href =
+            experiment.slug === "about"
+              ? "/about"
+              : `/selected-work/${experiment.slug}`;
+
+          return (
+            <TransitionLink
+              key={experiment.slug}
+              href={href}
+              className={cn(
+                "block col-span-1",
+                experiment.span
+                  .replace("col-span-1", "md:col-span-1")
+                  .replace("col-span-2", "md:col-span-2")
+                  .replace("row-span-1", "md:row-span-1"),
+              )}
             >
-              {/* HOVER BG */}
-              <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <article
+                data-cursor="hover"
+                className="
+            group
+            relative
+            min-h-[180px]
+            md:h-full
+            border
+            border-border/40
+            px-5
+            py-6
+            sm:px-8
+            md:p-5
+            overflow-hidden
+            transition-colors
+            duration-500
+            hover:border-accent/60
+            bg-card/50
+            backdrop-blur-lg
+          "
+              >
+                {/* HOVER BG */}
+                <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
 
-              {/* CONTENT */}
-              <div className="relative z-10">
-                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  {experiment.medium}
+                {/* CONTENT */}
+                <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    {/* ROLE */}
+                    <span
+                      className="
+                  font-mono
+                  text-[10px]
+                  uppercase
+                  tracking-widest
+                  text-muted-foreground
+                  transition-opacity
+                  duration-300
+                  opacity-100
+                  md:group-hover:opacity-0
+                "
+                    >
+                      {experiment.medium}
+                    </span>
+
+                    {/* TITLE */}
+                    <h3
+                      className="
+                  mt-3
+                  text-2xl
+                  md:text-4xl
+                  tracking-tight
+                  transition-all
+                  duration-500
+                  md:group-hover:-translate-y-4
+                  md:group-hover:text-accent
+                "
+                    >
+                      {experiment.title}
+                    </h3>
+                  </div>
+
+                  {/* DESCRIPTION */}
+                  <div
+                    className="
+                relative
+                mt-6
+                md:mt-0
+                md:absolute
+                md:bottom-5
+                md:left-5
+                md:right-5
+                z-10
+              "
+                  >
+                    <p
+                      className="
+                  font-mono
+                  text-xs
+                  text-accent
+                  leading-relaxed
+                  max-w-[280px]
+
+                  opacity-100
+                  translate-y-0
+
+                  md:opacity-0
+                  md:translate-y-6
+
+                  transition-all
+                  duration-500
+
+                  md:group-hover:opacity-100
+                  md:group-hover:translate-y-0
+                "
+                    >
+                      {experiment.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* INDEX */}
+                <span className="absolute top-6 right-6 font-mono text-[10px] text-muted-foreground/40 transition-colors duration-300 group-hover:text-accent">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3  text-2xl md:text-4xl tracking-tight transition-colors duration-300 group-hover:text-accent">
-                  {experiment.title}
-                </h3>
-              </div>
 
-              {/* DESCRIPTION */}
-              <div className="relative z-10">
-                <p className="font-mono text-xs text-muted-foreground leading-relaxed max-w-[280px] opacity-0 translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-                  {experiment.description}
-                </p>
-              </div>
-
-              {/* INDEX */}
-              <span className="absolute bottom-4 right-4 font-mono text-[10px] text-muted-foreground/40 transition-colors duration-300 group-hover:text-accent">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              {/* CORNER */}
-              <div className="absolute top-0 right-0 w-12 h-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
-                <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
-              </div>
-            </article>
-          </TransitionLink>
-        ))}
+                {/* CORNER */}
+                <div className="absolute top-0 right-0 w-12 h-12 opacity-0 transition-opacity duration-500 md:group-hover:opacity-100">
+                  <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
+                  <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
+                </div>
+              </article>
+            </TransitionLink>
+          );
+        })}
       </div>
     </section>
   );

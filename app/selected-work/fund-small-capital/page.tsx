@@ -266,8 +266,6 @@ export default function FundSmallCapitalPage() {
         className="grid-bg fixed inset-0 opacity-50 pointer-events-none z-0"
         aria-hidden="true"
       />
-
-
       {/* =====================
           CTA MENU (GLOBAL)
       ===================== */}
@@ -300,29 +298,69 @@ export default function FundSmallCapitalPage() {
         isManuallyPausedRef={isManuallyPausedRef}
       />
       <GlitchReveal>
-        <section className="relative w-full h-screen text-white  overflow-hidden">
+        <section
+          className="
+      relative
+      w-full
+      min-h-screen
+      overflow-hidden
+      text-white
+      px-4
+      sm:px-6
+      md:px-10
+    "
+        >
           <div className="absolute inset-0" />
-          {/* CENTER TEXT */}
+
+          {/* =====================
+        CENTER TEXT
+    ===================== */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 6.6, ease: "easeOut" }}
-            className="relative z-10 flex flex-col items-center justify-center h-full text-center"
+            className="
+        relative z-10
+        flex flex-col
+        items-center
+        justify-center
+        text-center
+        min-h-screen
+      "
           >
             <h1
-              className="text-7xl font-bold tracking-tight"
+              className="
+          font-bold
+          tracking-tight
+          leading-none
+
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+        "
               data-cursor="hover"
             >
               <WaveText text="FUND SMALL CAPITAL" />
             </h1>
-            <p className="mt-4 text-2xl" data-cursor="hover">
+
+            <p
+              className="
+          mt-3 md:mt-4
+          text-sm
+          sm:text-lg
+          md:text-xl
+          lg:text-2xl
+        "
+              data-cursor="hover"
+            >
               <WaveText text="web-based application design" />
             </p>
           </motion.div>
 
           {/* =====================
-            LOGOS
-        ===================== */}
+        FLOATING LOGOS
+    ===================== */}
 
           {/* LOGO 1 */}
           <motion.div
@@ -332,14 +370,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute top-[30%] left-[12%] cursor-grab"
+            className="
+        absolute
+        top-[18%] left-[4%]
+
+        sm:top-[22%] sm:left-[8%]
+        md:top-[30%] md:left-[12%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(14, 2, 4.2)} animate="float">
               <Image
                 src="/crypto-placeholder1.png"
                 alt=""
-                width={110}
-                height={100}
+                width={70}
+                height={70}
+                className="md:w-[110px]"
               />
             </motion.div>
           </motion.div>
@@ -352,14 +399,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute top-[30%] right-[22%] cursor-grab"
+            className="
+        absolute
+        top-[16%] right-[2%]
+
+        sm:top-[20%] sm:right-[8%]
+        md:top-[30%] md:right-[22%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(18, 3, 5)} animate="float">
               <Image
                 src="/crypto-placeholder8.png"
                 alt=""
-                width={120}
-                height={110}
+                width={80}
+                height={80}
+                className="md:w-[120px]"
               />
             </motion.div>
           </motion.div>
@@ -372,14 +428,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute bottom-[28%] left-[38%] cursor-grab"
+            className="
+        absolute
+        bottom-[24%] left-[10%]
+
+        sm:bottom-[22%] sm:left-[18%]
+        md:bottom-[28%] md:left-[38%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(12, 2, 3.8)} animate="float">
               <Image
                 src="/crypto-placeholder5.png"
                 alt=""
-                width={90}
-                height={90}
+                width={55}
+                height={55}
+                className="md:w-[90px]"
               />
             </motion.div>
           </motion.div>
@@ -392,14 +457,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute bottom-[18%] right-[35%] cursor-grab"
+            className="
+        absolute
+        bottom-[14%] right-[8%]
+
+        sm:bottom-[14%] sm:right-[18%]
+        md:bottom-[18%] md:right-[35%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(16, 2, 4.6)} animate="float">
               <Image
                 src="/crypto-placeholder6.png"
                 alt=""
-                width={120}
-                height={120}
+                width={75}
+                height={75}
+                className="md:w-[120px]"
               />
             </motion.div>
           </motion.div>
@@ -412,14 +486,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute top-[22%] left-[30%] cursor-grab"
+            className="
+        absolute
+        top-[8%] left-[28%]
+
+        sm:top-[12%] sm:left-[32%]
+        md:top-[22%] md:left-[30%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(20, 3, 5.4)} animate="float">
               <Image
                 src="/crypto-placeholder2.png"
                 alt=""
-                width={130}
-                height={130}
+                width={85}
+                height={85}
+                className="md:w-[130px]"
               />
             </motion.div>
           </motion.div>
@@ -432,14 +515,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute top-[20%] right-[39%] cursor-grab"
+            className="
+        absolute
+        top-[10%] right-[30%]
+
+        sm:top-[10%] sm:right-[32%]
+        md:top-[20%] md:right-[39%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(10, 1.5, 3.5)} animate="float">
               <Image
                 src="/crypto-placeholder4.png"
                 alt=""
-                width={85}
-                height={85}
+                width={50}
+                height={50}
+                className="md:w-[85px]"
               />
             </motion.div>
           </motion.div>
@@ -452,14 +544,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute bottom-[31%] left-[15%] cursor-grab"
+            className="
+        absolute
+        bottom-[30%] left-[2%]
+
+        sm:bottom-[28%] sm:left-[8%]
+        md:bottom-[31%] md:left-[15%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(22, 3, 5.8)} animate="float">
               <Image
                 src="/crypto-placeholder3.png"
                 alt=""
-                width={140}
-                height={140}
+                width={90}
+                height={90}
+                className="md:w-[140px]"
               />
             </motion.div>
           </motion.div>
@@ -472,14 +573,23 @@ export default function FundSmallCapitalPage() {
             drag
             dragElastic={0.12}
             dragMomentum={false}
-            className="absolute bottom-[30%] right-[14%] cursor-grab"
+            className="
+        absolute
+        bottom-[28%] right-[0%]
+
+        sm:bottom-[26%] sm:right-[6%]
+        md:bottom-[30%] md:right-[14%]
+
+        cursor-grab
+      "
           >
             <motion.div variants={floating(24, 3, 6)} animate="float">
               <Image
                 src="/crypto-placeholder7.png"
                 alt=""
-                width={150}
-                height={150}
+                width={95}
+                height={95}
+                className="md:w-[150px]"
               />
             </motion.div>
           </motion.div>
@@ -503,10 +613,38 @@ export default function FundSmallCapitalPage() {
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight relative z-10 opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    relative
+    z-10
+    opacity-0
+    translate-y-12
+  "
+            >
               Fund Small Capital
             </h2>
-            <div className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed opacity-0 translate-y-12">
+            <div
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    opacity-0
+    translate-y-12
+  "
+            >
               <p>
                 Fund Small Capital is a cryptocurrency education community
                 focused on sharing market insights, learning materials, and
@@ -518,9 +656,24 @@ export default function FundSmallCapitalPage() {
             </div>
 
             {/* META GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto] gap-12 text-lg">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto_auto]
+    gap-10
+    md:gap-12
+    text-base
+    md:text-lg
+  "
+            >
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Challenge</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Challenge
+                </h2>
                 <p className="mt-2">
                   Transitioning from WhatsApp-based content delivery to a
                   structured, scalable, and centralized web-based education
@@ -529,7 +682,10 @@ export default function FundSmallCapitalPage() {
               </div>
 
               <div className="animate-grid-item">
-                <h2 className="font-medium text-xl"> The Outcome</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  The Outcome
+                </h2>
                 <p className="mt-2">
                   A web-based cryptocurrency education and information platform
                   with organized content and improved accessibility for users.
@@ -537,7 +693,10 @@ export default function FundSmallCapitalPage() {
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Delivered</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Delivered
+                </h2>
                 <p className="mt-2">
                   UI UX Design
                   <br />
@@ -546,7 +705,10 @@ export default function FundSmallCapitalPage() {
               </div>
 
               <div className="animate-grid-item whitespace-nowrap">
-                <h2 className="font-medium text-xl"> Year</h2>
+                <h2 className="font-medium text:base sm:text-lg lg:text-xl">
+                  {" "}
+                  Year
+                </h2>
                 <p className="mt-2">2025</p>
               </div>
             </div>
@@ -559,7 +721,7 @@ export default function FundSmallCapitalPage() {
       ===================== */}
       <section
         data-section-id="section-2"
-        className="animate-section relative py-20 md:py-24 lg:py-32
+        className="animate-section py-20 md:py-24 lg:py-32
     px-6 sm:px-8 lg:px-32
     md:pl-20 md:pr-20
     lg:pl-24 lg:pr-24"
@@ -572,11 +734,38 @@ export default function FundSmallCapitalPage() {
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               How it all began
             </h2>
 
-            <p className="animate-desc mt-24 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-12 md:mt-16 lg:mt-24
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               The project began with system analysis and UML design to define
               user roles, data flow, and platform structure. It continued with
               the design and development of the web-based application, followed
@@ -585,7 +774,17 @@ export default function FundSmallCapitalPage() {
             </p>
 
             {/* IMAGE GRID */}
-            <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-32">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    gap-12
+    md:gap-20
+    lg:gap-32
+  "
+            >
               {/* ================= ITEM 1 — VIDEO ================= */}
               <div className="animate-grid-item space-y-4">
                 {/* CARD */}
@@ -1002,18 +1201,45 @@ export default function FundSmallCapitalPage() {
     lg:pl-24 lg:pr-24"
       >
         <GlitchReveal>
-          <div className="max-w-8xl px-0 md:px-6 lg:px-0">
+          <div className="max-w-8xl md:px-6 lg:px-0">
             <ScrambleText
               text="./acknowledgements"
               start={sectionStart["section-3"]}
               className="animate-scramble font-mono text-[10px] uppercase tracking-[0.3em] text-accent"
               duration={3.5}
             />
-            <h2 className="animate-title mt-8 text-7xl whitespace-nowrap tracking-tight opacity-0 translate-y-12">
+            <h2
+              className="
+    animate-title
+    mt-6 md:mt-8
+    text-4xl
+    sm:text-5xl
+    md:text-6xl
+    lg:text-7xl
+    leading-none
+    tracking-tight
+    opacity-0
+    translate-y-12
+  "
+            >
               Credits
             </h2>
 
-            <p className="animate-desc mt-32 max-w-4xl text-2xl leading-relaxed text-white opacity-0 translate-y-12">
+            <p
+              className="
+    animate-desc
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-2xl
+    leading-relaxed
+    text-white
+    opacity-0
+    translate-y-12
+  "
+            >
               Special thanks to Fund Small Capital for the trust, collaboration,
               and valuable insights throughout the development process. This
               project would not have been possible without the open
@@ -1022,7 +1248,22 @@ export default function FundSmallCapitalPage() {
               collaboration played a key role in shaping the platform into a
               solution that truly supports the community’s learning needs.
             </p>
-            <div className="mt-32 max-w-4xl grid grid-cols-2 gap-x-20 gap-y-20 text-xl">
+            <div
+              className="
+    mt-16 md:mt-24 lg:mt-32
+    max-w-4xl
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    gap-x-10
+    md:gap-x-20
+    gap-y-12
+    md:gap-y-20
+    text-base
+    md:text-lg
+    lg:text-xl
+  "
+            >
               <div className="animate-grid-item">
                 <p className="font-bold mb-2"> Clients</p>
                 <p>Fund Small Capital</p>
@@ -1063,14 +1304,38 @@ export default function FundSmallCapitalPage() {
           NEXT PROJECT
       ===================== */}
       <section
-        className="animate-section py-20 md:py-24 lg:py-32
-    px-6 sm:px-8 lg:px-32
-    md:pl-20 md:pr-10
-    lg:pl-20 lg:pr-12 z-10 relative"
+        className="
+         relative
+         py-20 md:py-24 lg:py-32
+         px-4 sm:px-6
+         md:pl-20 md:pr-10
+         lg:pl-20 lg:pr-12
+         z-10
+       "
       >
         {/* HEADER */}
-        <div className="mb-16 flex items-center justify-between">
-          <h2 className="font-mono text-4xl uppercase [word-spacing:-0.3em] text-accent tracking-tight">
+        <div
+          className="
+         mb-10 md:mb-16
+         flex
+         items-center
+         justify-between
+         gap-4
+       "
+        >
+          <h2
+            className="
+         font-mono
+         text-2xl
+         sm:text-2xl
+         md:text-4xl
+         uppercase
+         [word-spacing:-0.3em]
+         text-accent
+         tracking-tight
+         leading-none
+       "
+          >
             VIEW ANOTHER WORK
           </h2>
 
@@ -1079,34 +1344,37 @@ export default function FundSmallCapitalPage() {
             href="/"
             data-cursor="hover"
             className="
-  group
-  inline-flex
-  items-center
-  gap-2
-  border
-  border-foreground/40
-  px-4
-  py-2
-  font-mono
-  text-[10px]
-  uppercase
-  tracking-[0.25em]
-  text-foreground
-  hover:border-accent
-  hover:text-accent
-  transition-all
-  duration-200
-"
+       group
+       inline-flex
+       items-center
+       gap-2
+       border
+       border-foreground/40
+       px-4
+       py-2
+       font-mono
+       lg:text-[10px]
+       sm:text-[8px]
+       text-[8px]
+       uppercase
+       tracking-[0.25em]
+       text-foreground
+       hover:border-accent
+       hover:text-accent
+       transition-all
+       duration-200
+     "
           >
             <ScrambleTextOnHover text="Back to home" as="span" duration={0.6} />
 
             <BitmapChevron
               className="
-        transition-transform
-        duration-[400ms]
-        ease-in-out
-        group-hover:rotate-45
-      "
+         hidden sm:block
+         transition-transform
+         duration-[400ms]
+         ease-in-out
+         group-hover:rotate-45
+       "
             />
           </TransitionLink>
         </div>
@@ -1128,7 +1396,22 @@ export default function FundSmallCapitalPage() {
                 >
                   <article
                     data-cursor="hover"
-                    className="group relative h-[180px] md:h-[200px] border border-border/40 px-10 overflow-hidden transition-colors duration-500 hover:border-accent/60"
+                    className="
+  group
+  relative
+  min-h-[180px]
+  md:h-[200px]
+  border
+  border-border/40
+  px-5
+  py-6
+  sm:px-8
+  md:px-10
+  overflow-hidden
+  transition-colors
+  duration-500
+  hover:border-accent/60
+"
                   >
                     {/* HOVER BG */}
                     <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -1136,19 +1419,71 @@ export default function FundSmallCapitalPage() {
                     {/* MAIN CONTENT */}
                     <div className="relative z-10 h-full flex flex-col justify-center">
                       {/* ROLE */}
-                      <span className="font-mono text-[12px] uppercase tracking-widest text-muted-foreground transition-opacity duration-300 group-hover:opacity-0">
+                      <span
+                        className="
+    font-mono
+    text-[10px]
+    sm:text-[12px]
+    uppercase
+    tracking-widest
+    text-muted-foreground
+    transition-opacity
+    duration-300
+    md:group-hover:opacity-0
+  "
+                      >
                         {experiment.medium}
                       </span>
 
                       {/* TITLE */}
-                      <h3 className="mt-3 font-[var(--font-bebas)] text-5xl md:text-7xl leading-none tracking-tight transition-transform duration-500 group-hover:-translate-y-6">
+                      <h3
+                        className="
+    mt-3
+    text-3xl
+    sm:text-5xl
+    md:text-7xl
+    leading-none
+    tracking-tight
+    transition-transform
+    duration-500
+    md:group-hover:-translate-y-6
+  "
+                      >
                         {experiment.title}
                       </h3>
                     </div>
 
                     {/* DESCRIPTION */}
-                    <div className="absolute bottom-6 left-10 right-10 z-10">
-                      <p className="font-mono text-accent text-xs leading-relaxed opacity-0 translate-y-6 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-w-md">
+                    <div
+                      className="
+    relative
+    md:absolute
+    mt-6
+    md:mt-0
+    md:bottom-6
+    md:left-10
+    md:right-10
+    z-10
+  "
+                    >
+                      <p
+                        className="
+      font-mono
+      text-accent
+      text-[11px]
+      md:text-xs
+      leading-relaxed
+      opacity-100
+      translate-y-0
+      md:opacity-0
+      md:translate-y-6
+      transition-all
+      duration-500
+      md:group-hover:opacity-100
+      md:group-hover:translate-y-0
+      max-w-md
+    "
+                      >
                         {experiment.description}
                       </p>
                     </div>

@@ -24,7 +24,7 @@ export function GlitchReveal({
       // initial (sekali)
       gsap.set(textRef.current, {
         opacity: 0,
-        y: 24,
+        y: 0,
         filter: "blur(10px)",
       });
 
