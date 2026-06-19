@@ -11,7 +11,7 @@ import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
-import ComingSoon from "@/components/ui/ComingSoon";
+import ComingSoon from "@/components/ComingSoon";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -877,7 +877,11 @@ export default function MalkyJokiPage() {
               return (
                 <TransitionLink
                   key={experiment.slug}
-                  href={`/selected-work/${experiment.slug}`}
+                  href={
+                    experiment.slug === "about"
+                      ? "/about"
+                      : `/selected-work/${experiment.slug}`
+                  }
                   className="block"
                 >
                   <article

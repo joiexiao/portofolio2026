@@ -15,7 +15,6 @@ const oldStandardTT = Old_Standard_TT({
   display: "swap",
 });
 
-
 const oldEnglishText = localFont({
   src: [
     {
@@ -79,7 +78,7 @@ const ScrambleText = ({
   const end = start + target.length;
 
   return (
-    <span className="text-xs sm:text-sm md:text-base lg:text-base font-mono text-primary">
+    <span className="text-xs sm:text-sm md:text-base lg:text-base font-mono text-primary z-10">
       {displayText.slice(0, start)}
 
       <TransitionLink
@@ -125,7 +124,7 @@ const ScrambleText = ({
 const DownloadButton = () => {
   return (
     <motion.a
-      href="/Mujahid-Azzam-Resume-2026.pdf"
+      href="/Mujahid-Azzam-Resume.pdf"
       download
       data-cursor="hover"
       className="
@@ -147,7 +146,7 @@ const DownloadButton = () => {
       text-foreground
       hover:border-accent
       hover:text-accent
-
+      z-10
       transition-all duration-200
     "
       initial={{ opacity: 0, y: 20 }}
@@ -426,7 +425,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
 
         {/* Right Column */}
         <motion.div
-          className="space-y-8 z-10 bg-black"
+          className="flex flex-col space-y-8 z-10 bg-black"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
@@ -558,7 +557,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
           </div>
 
           {/* Technical Skills */}
-          <div className="border border-white p-4 sm:p-6 lg:p-10 space-y-4">
+          <div className="border border-white p-4 sm:p-6 lg:p-10 space-y-4 flex-1">
             <h2
               className={`text-base sm:text-lg lg:text-xl border-b border-white pb-1 ${oldStandardTT.className}`}
             >
@@ -598,7 +597,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
       </div>
 
       {/* Bottom Link */}
-      <div className="lg:mb-12 sm:mb-8 mb-4 mt-4 sm:mt-8 lg:mt-12 flex justify-between items-center max-w-7xl mx-auto">
+      <div className="lg:mb-12 sm:mb-8 mb-4 mt-4 sm:mt-8 lg:mt-12 flex justify-between items-center max-w-7xl mx-auto z-10">
         {/* Mobile Only */}
         <div className="md:hidden">
           <DownloadButton />
@@ -619,6 +618,7 @@ sm:flex-row sm:justify-between sm:items-start mb-2"
       hover:text-background
       transition-colors
       duration-200
+      z-10
     "
         >
           <ScrambleTextOnHover

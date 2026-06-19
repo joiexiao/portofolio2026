@@ -3,7 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
 html.cursor-none * {
   cursor: none !important;
 }
@@ -22,7 +21,7 @@ html.cursor-none * {
   --popover-foreground: oklch(0.95 0 0);
 
   /* Primary (identity color) */
-  --primary: oklch(0.82 0.09 255);              /* #A7CAFF */
+  --primary: oklch(0.82 0.09 255); /* #A7CAFF */
   --primary-foreground: oklch(0.08 0 0);
 
   /* Secondary */
@@ -34,11 +33,11 @@ html.cursor-none * {
   --muted-foreground: oklch(0.55 0 0);
 
   /* Accent */
-  --accent: oklch(0.82 0.09 255);               /* #A7CAFF */
+  --accent: oklch(0.82 0.09 255); /* #A7CAFF */
   --accent-foreground: oklch(0.08 0 0);
 
   /* Destructive */
-  --destructive: oklch(0.63 0.23 265);          /* #3773fa */
+  --destructive: oklch(0.63 0.23 265); /* #3773fa */
   --destructive-foreground: oklch(0.63 0.23 265);
 
   /* Borders & Inputs */
@@ -46,7 +45,7 @@ html.cursor-none * {
   --input: oklch(0.2 0 0);
 
   /* Focus Ring */
-  --ring: oklch(0.82 0.09 255);                  /* #A7CAFF */
+  --ring: oklch(0.82 0.09 255); /* #A7CAFF */
 
   /* Radius */
   --radius: 0rem;
@@ -55,16 +54,15 @@ html.cursor-none * {
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
 
-  --sidebar-primary: oklch(0.82 0.09 255);       /* #A7CAFF */
+  --sidebar-primary: oklch(0.82 0.09 255); /* #A7CAFF */
   --sidebar-primary-foreground: oklch(0.08 0 0);
 
   --sidebar-accent: oklch(0.15 0 0);
   --sidebar-accent-foreground: oklch(0.95 0 0);
 
   --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.82 0.09 255);          /* #A7CAFF */
+  --sidebar-ring: oklch(0.82 0.09 255); /* #A7CAFF */
 }
-
 
 @theme inline {
   /* Updated font-sans and font-mono to use IBM Plex */
@@ -123,26 +121,31 @@ html.cursor-none * {
     scrollbar-color: hsl(0, 0%, 24%) hsl(0, 0%, 8%);
   }
   /* Webkit scrollbar styling for html and body */
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     width: 10px;
   }
-  html::-webkit-scrollbar-track,
-  body::-webkit-scrollbar-track {
+
+  html::-webkit-scrollbar-track {
     background: hsl(0, 0%, 8%);
   }
-  html {
-  scrollbar-gutter: stable;
-}
-  html::-webkit-scrollbar-thumb,
-  body::-webkit-scrollbar-thumb {
+
+  html::-webkit-scrollbar-thumb {
     background: hsl(0, 0%, 24%);
-    border-radius: 0px;
+    border-radius: 0;
   }
-  html::-webkit-scrollbar-thumb:hover,
-  body::-webkit-scrollbar-thumb:hover {
+
+  html::-webkit-scrollbar-thumb:hover {
     background: hsl(0, 0%, 32%);
   }
+}
+
+html.transitioning {
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+html.transitioning::-webkit-scrollbar {
+  display: none;
 }
 
 /* Custom noise texture overlay */
@@ -160,7 +163,8 @@ html.cursor-none * {
 
 /* Grid background pattern */
 .grid-bg {
-  background-image: linear-gradient(to right, oklch(0.2 0 0) 1px, transparent 1px),
+  background-image:
+    linear-gradient(to right, oklch(0.2 0 0) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(0.2 0 0) 1px, transparent 1px);
   background-size: 60px 60px;
 }
@@ -170,7 +174,6 @@ html.cursor-none * {
   background: oklch(0.82 0.09 255);
   color: oklch(0.08 0 0);
 }
-
 
 .glowButton {
   background-color: black;

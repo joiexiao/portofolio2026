@@ -132,7 +132,7 @@ export function HeroSection({ triggerGlitch = false }: Props) {
 "
     >
       {/* Main content */}
-      <div ref={contentRef} className="flex-1 w-full">
+      <div ref={contentRef} className="flex-1 w-fit">
         <SplitFlapAudioProvider>
           <div className="relative">
             <SplitFlapText

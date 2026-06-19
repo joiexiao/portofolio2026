@@ -83,7 +83,7 @@ export function SignalsSection() {
     <section
       ref={sectionRef}
       id="signals"
-      className="relative py-20 md:py-32   pl-6 lg:pl-24
+      className="relative py-20 md:py-32 pl-6 lg:pl-24
   pr-6 lg:pr-24"
     >
       {/* HEADER */}
@@ -98,10 +98,7 @@ export function SignalsSection() {
       </div>
 
       {/* VIEWPORT */}
-      <div
-        ref={wrapperRef}
-        className="overflow-visible md:overflow-hidden pr-6 md:pr-12"
-      >
+      <div ref={wrapperRef} className="overflow-visible pr-6 md:pr-12">
         {/* TRACK */}
         <div
           ref={trackRef}

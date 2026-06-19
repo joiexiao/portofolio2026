@@ -15,14 +15,14 @@ export const experiments = [
     slug: "malky-joki",
     medium: "Graphic Designer",
     description:
-      "Price list & promotional posters for Instagram feeds and stories.",
+      "Designed Instagram promotional posters for feeds and stories with consistent visuals.",
     span: "col-span-1 row-span-1",
   },
   {
     title: "Amaliah ASTRA",
     slug: "amaliah-astra",
     medium: "Graphic Designer",
-    description: "Symbolic visual mockups design.",
+    description: "Designed symbolic visual mockups with a conceptual approach.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -30,7 +30,7 @@ export const experiments = [
     slug: "think-store",
     medium: "Graphic Designer",
     description:
-      "Logo design and promotional posters for Instagram feeds and stories",
+      "Designed Instagram promotional posters for feeds and stories.",
     span: "col-span-1 row-span-1",
   },
   {
@@ -38,7 +38,7 @@ export const experiments = [
     slug: "fund-small-capital",
     medium: "UI UX Designer",
     description:
-      "Design system, UML, Website mockups (Lo-Fi → Hi-Fi), Zine, Visual assets.",
+      "Designed an e-learning platform with a user-centered UX approach, along with a zine to promote and communicate the community’s value.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -46,21 +46,23 @@ export const experiments = [
     slug: "museum-virtual",
     medium: "UI UX Designer",
     description:
-      "Design system, Website mockups (Lo-Fi → Hi-Fi), Visual assets.",
+      "Designed a virtual museum experience to showcase collections through intuitive navigation and engaging visual storytelling.",
     span: "col-span-2 row-span-1",
   },
   {
     title: "Levi Camp",
     slug: "levi-camp",
     medium: "UI UX Designer",
-    description: "Design system, Website mockups (Lo-Fi → Hi-Fi).",
+    description:
+      "Designed a camp reservation platform with a focus on clear booking flow and seamless user experience.",
     span: "col-span-1 row-span-1",
   },
   {
     title: "Common Ground Project",
     slug: "common-ground-project",
     medium: "UI UX Designer",
-    description: "Design system, Website mockups (Lo-Fi → Hi-Fi).",
+    description:
+      "Designed a design system and website mockups, supported by user research, wireframing, and prototyping.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -123,7 +125,7 @@ export function WorkSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="relative py-32   pl-6 lg:pl-24
+      className="relative py-32 pl-6 lg:pl-24
   pr-6 lg:pr-24"
     >
       {/* HEADER */}
@@ -238,8 +240,7 @@ export function WorkSection() {
                 md:mt-0
                 md:absolute
                 md:bottom-5
-                md:left-5
-                md:right-5
+
                 z-10
               "
                   >
@@ -249,7 +250,7 @@ export function WorkSection() {
                   text-xs
                   text-accent
                   leading-relaxed
-                  max-w-[280px]
+   
 
                   opacity-100
                   translate-y-0

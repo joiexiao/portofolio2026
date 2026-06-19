@@ -137,7 +137,6 @@ export function ContactSection() {
         min-h-screen
         flex flex-col
         pt-24
-        border-t border-border/30
       "
     >
       {/* CONTENT WRAPPER - CONSISTENT PADDING */}
