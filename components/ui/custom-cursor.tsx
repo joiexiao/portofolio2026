@@ -71,7 +71,7 @@ export default function CustomCursor() {
       setIsHovering(!!el?.closest("[data-cursor='hover']"));
     };
 
-    window.addEventListener("mousemove", move);
+    window.addEventListener("pointermove", move, true);
     window.addEventListener("pointermove", updateHoverState);
 
     const tick = () => {
@@ -109,7 +109,7 @@ export default function CustomCursor() {
 
     gsap.ticker.add(tick);
     return () => {
-      window.removeEventListener("mousemove", move);
+      window.removeEventListener("pointermove", move, true);
       window.removeEventListener("pointermove", updateHoverState);
       gsap.ticker.remove(tick);
     };

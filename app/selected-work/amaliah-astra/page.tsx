@@ -5,7 +5,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatedNoise } from "@/components/animated-noise";
 import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
@@ -72,7 +71,7 @@ export default function AmaliahAstraPage() {
     if (!heroImageRef.current) return;
 
     const tl = gsap.timeline({
-      delay: 1.2, // sesuaikan sama durasi overlay transition
+      delay: 1, // sesuaikan sama durasi overlay transition
     });
 
     // LIGHT RAYS

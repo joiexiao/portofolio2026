@@ -143,14 +143,22 @@ const FuzzyText: React.FC<FuzzyTextProps> = ({
         offCtx.fillStyle = color;
       }
 
+      offCtx.textAlign = "center";
+
       if (letterSpacing !== 0) {
-        let xPos = xOffset;
+        let xPos = offscreenWidth / 2 - totalWidth / 2;
+
         for (const char of text) {
-          offCtx.fillText(char, xPos, actualAscent);
+          const opticalAdjust = 2;
+          offCtx.fillText(
+            text,
+            offscreenWidth / 2 + opticalAdjust,
+            actualAscent,
+          );
           xPos += offCtx.measureText(char).width + letterSpacing;
         }
       } else {
-        offCtx.fillText(text, xOffset - actualLeft, actualAscent);
+        offCtx.fillText(text, offscreenWidth / 2, actualAscent);
       }
 
       const horizontalMargin = fuzzRange + 20;

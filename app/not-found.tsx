@@ -1,5 +1,8 @@
+import TransitionLink from "@/components/transition-link";
 import FuzzyText from "@/components/ui/FuzzyText";
 import LetterGlitch from "@/components/ui/LetterGlitch";
+import { BitmapChevron } from "@/components/bitmap-chevron";
+import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
 
 export default function NotFound() {
   return (
@@ -14,19 +17,21 @@ export default function NotFound() {
           characters="01"
         />
       </div>
-      <div className="relative z-10 flex flex-col items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center justify-center gap-4">
         <FuzzyText
-          className="mx-auto block"
+          className="mx-auto block text-center"
           fontSize="clamp(5rem,20vw,14rem)"
           baseIntensity={0.15}
           hoverIntensity={0.45}
+          direction="horizontal"
         >
           404
         </FuzzyText>
 
-        <div className="mt-4 flex justify-center">
+        <div className="flex justify-center w-fill">
           <FuzzyText
-            fontSize="clamp(1rem,2vw,1.5rem)"
+            className="mx-auto block text-center"
+            fontSize="clamp(1.5rem,3vw,2rem)"
             baseIntensity={0.1}
             hoverIntensity={0.25}
           >

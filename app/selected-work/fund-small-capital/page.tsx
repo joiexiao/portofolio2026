@@ -6,7 +6,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatedNoise } from "@/components/animated-noise";
 import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";

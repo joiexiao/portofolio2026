@@ -5,7 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatedNoise } from "@/components/animated-noise";
+import StickerPeel from "@/components/ui/StickerPeel";
 import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
@@ -62,6 +62,58 @@ export default function ThinkStorePage() {
     });
 
     return () => ctx.revert();
+  }, []);
+
+  /* =====================
+    Hero
+  ===================== */
+
+  useEffect(() => {
+    if (!heroImageRef.current) return;
+
+    const sticker = heroImageRef.current.querySelector("[data-cursor='hover']");
+
+    if (!sticker) return;
+
+    const tl = gsap.timeline({
+      delay: 1,
+    });
+
+    tl.fromTo(
+      sticker,
+      {
+        y: -120,
+        scale: 1.35,
+        rotation: -12,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.in",
+      },
+    )
+      .to(sticker, {
+        scaleX: 1.08,
+        scaleY: 0.92,
+        duration: 0.08,
+        ease: "power2.out",
+      })
+      .to(sticker, {
+        scaleX: 0.96,
+        scaleY: 1.04,
+        duration: 0.08,
+        ease: "power2.out",
+      })
+      .to(sticker, {
+        scaleX: 1,
+        scaleY: 1,
+        duration: 0.15,
+        ease: "back.out(4)",
+      });
   }, []);
 
   /* =====================
@@ -222,26 +274,25 @@ export default function ThinkStorePage() {
           LOGO HERO
       ===================== */}
       <GlitchReveal>
-        <section className="relative w-full h-screen overflow-hiddenflex items-center justify-center z-10">
-          <div ref={heroImageRef} className="w-full h-full">
-            <Image
-              src="/thinkstorebanner.png"
-              alt="Logo Project Thumbnail"
-              fill
-              priority
-              className="
-object-contain 
-object-center
-scale-125
-sm:scale-110
-md:scale-100
-opacity-80
-"
+        <section className="relative w-full h-screen overflow-hidden flex items-center justify-center z-10">
+          <div
+            ref={heroImageRef}
+            className="w-full h-full flex items-center justify-center"
+          >
+            <StickerPeel
+              imageSrc="/thinkstorelogo1.png"
+              width={500}
+              rotate={0}
+              peelBackHoverPct={30}
+              peelBackActivePct={40}
+              shadowIntensity={0.5}
+              lightingIntensity={0.1}
+              peelDirection={0}
+              data-cursor="hover"
             />
           </div>
         </section>
       </GlitchReveal>
-
       {/* =====================
           PROJECT DETAIL
       ===================== */}
