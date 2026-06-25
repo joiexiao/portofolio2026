@@ -490,7 +490,7 @@ export default function ThinkStorePage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/thinkstoreproject.png",
+                      src: "/thinkstoreproject.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -499,8 +499,8 @@ export default function ThinkStorePage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/thinkstoreproject.png"
-                      alt="Fund Small Capital Design Resources"
+                      src="/thinkstoreproject.webp"
+                      alt="Think Store Promotional Poster Design"
                       width={488}
                       height={297}
                       className="
@@ -574,7 +574,7 @@ export default function ThinkStorePage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/thinkstoreproject2.png",
+                      src: "/thinkstoreproject2.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -583,8 +583,8 @@ export default function ThinkStorePage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/thinkstoreproject2.png"
-                      alt="Fund Small Capital Design Resources"
+                      src="/thinkstoreproject2.webp"
+                      alt="Think Store Promotional Poster Mockup"
                       width={488}
                       height={297}
                       className="

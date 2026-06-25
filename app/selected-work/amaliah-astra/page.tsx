@@ -513,7 +513,7 @@ md:scale-100
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/amaliahastrapost1.png",
+                      src: "/amaliahastrapost1.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -522,7 +522,7 @@ md:scale-100
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/amaliahastrapost1.png"
+                      src="/amaliahastrapost1.webp"
                       alt="Mockup of symbolic handover of sacrificial animals"
                       width={488}
                       height={297}
@@ -599,7 +599,7 @@ md:scale-100
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/amaliahastrapost2.png",
+                      src: "/amaliahastrapost2.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -608,7 +608,7 @@ md:scale-100
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/amaliahastrapost2.png"
+                      src="/amaliahastrapost2.webp"
                       alt="Mockup of symbolic handover of sacrificial animals"
                       width={488}
                       height={297}

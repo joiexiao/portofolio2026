@@ -6,7 +6,7 @@
 html.cursor-none * {
   cursor: none !important;
 }
-/* Custom editorial design tokens - monochrome with orange accent */
+
 :root {
   /* Base */
   --background: oklch(0.08 0 0);

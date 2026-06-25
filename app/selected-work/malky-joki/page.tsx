@@ -225,7 +225,7 @@ export default function MalkyJokiPage() {
         <section className="relative w-full h-screen overflow-hidden bg-black flex items-center justify-center z-10">
           <div ref={heroImageRef} className="w-full h-full">
             <Image
-              src="/malkyjokibanner.png"
+              src="/malkyjokibanner.webp"
               alt="Logo Project Thumbnail"
               fill
               priority
@@ -455,7 +455,7 @@ export default function MalkyJokiPage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/malkyjokypost.png",
+                      src: "/malkyjokypost.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -464,7 +464,7 @@ export default function MalkyJokiPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/malkyjokypost.png"
+                      src="/malkyjokypost.webp"
                       alt="Fund Small Capital Design Resources"
                       width={488}
                       height={297}
@@ -539,7 +539,7 @@ export default function MalkyJokiPage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/malkyjokipost1.png",
+                      src: "/malkyjokipost1.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -548,7 +548,7 @@ export default function MalkyJokiPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/malkyjokipost1.png"
+                      src="/malkyjokipost1.webp"
                       alt="Fund Small Capital Design Resources"
                       width={488}
                       height={297}

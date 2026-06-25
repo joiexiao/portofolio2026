@@ -961,7 +961,7 @@ export default function FundSmallCapitalPage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/FSCbrandguideline.png",
+                      src: "/FSCbrandguideline.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -970,7 +970,7 @@ export default function FundSmallCapitalPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/FSCbrandguideline.png"
+                      src="/FSCbrandguideline.webp"
                       alt="Fund Small Capital Brand Guidelines"
                       width={488}
                       height={297}
@@ -1046,7 +1046,7 @@ export default function FundSmallCapitalPage() {
                   onClick={() => {
                     setModalContent({
                       type: "image",
-                      src: "/fsczinemockup.png",
+                      src: "/fsczinemockup.webp",
                     });
                     setModalOpen(true);
                   }}
@@ -1055,7 +1055,7 @@ export default function FundSmallCapitalPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/fsczinemockup.png"
+                      src="/fsczinemockup.webp"
                       alt="Fund Small Capital Zine Design"
                       width={488}
                       height={297}

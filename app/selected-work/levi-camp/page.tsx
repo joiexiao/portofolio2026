@@ -221,7 +221,7 @@ export default function LeviCampPage() {
           {/* DESKTOP IMAGE */}
           <div className="hidden md:block w-full h-full">
             <Image
-              src="/levicampbanner.png"
+              src="/levicampbanner.webp"
               alt="Logo Project Thumbnail"
               fill
               priority
@@ -243,13 +243,13 @@ export default function LeviCampPage() {
           {/* Gradient */}
           <div
             className="
-        pointer-events-none
-        absolute inset-x-0 bottom-0
-        h-40
-        bg-gradient-to-b
-        from-transparent
-        to-black
-      "
+            pointer-events-none
+            absolute inset-x-0 bottom-0
+            h-40
+            bg-linear-to-b
+            from-transparent
+            to-black
+          "
           />
         </section>
       </GlitchReveal>
@@ -544,7 +544,7 @@ export default function LeviCampPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/levicampimage.png"
+                      src="/levicampimage.webp"
                       alt="Levi Camp website dark mode"
                       width={488}
                       height={297}
@@ -705,7 +705,7 @@ export default function LeviCampPage() {
                 >
                   <div className="overflow-hidden">
                     <Image
-                      src="/levicampimagelight.png"
+                      src="/levicampimagelight.webp"
                       alt="Levi Camp website light mode"
                       width={488}
                       height={297}
