@@ -1072,7 +1072,7 @@ export default function LeviCampPage() {
       duration-500
       md:group-hover:opacity-100
       md:group-hover:translate-y-0
-      max-w-md
+      max-w-xl
     "
                       >
                         {experiment.description}
