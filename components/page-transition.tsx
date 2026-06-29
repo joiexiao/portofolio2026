@@ -7,6 +7,7 @@ import gsap from "gsap";
 type PageTransitionContextType = {
   navigate: (href: string) => void;
   goBack: () => void;
+  onReady: (cb: () => void) => void;
 };
 
 const PageTransitionContext = createContext<PageTransitionContextType | null>(
@@ -28,6 +29,27 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const darkRef = useRef<HTMLDivElement>(null);
   const isAnimating = useRef(false);
 
+  // Track apakah ada transisi yang pernah jalan
+  const hasTransitioned = useRef(false);
+  // Queue callbacks yang nunggu transisi selesai
+  const readyCallbacks = useRef<(() => void)[]>([]);
+
+  // Dipanggil dari page/component buat daftarin callback
+  const onReady = (cb: () => void) => {
+    if (!hasTransitioned.current) {
+      // Gak ada transisi (direct URL access), langsung fire
+      cb();
+    } else {
+      readyCallbacks.current.push(cb);
+    }
+  };
+
+  // Fire semua callback yang udah didaftarin, terus bersih
+  const fireReady = () => {
+    readyCallbacks.current.forEach((cb) => cb());
+    readyCallbacks.current = [];
+  };
+
   // 🔒 lock scroll + hide scrollbar
   const lockScroll = () => {
     const scrollbarWidth =
@@ -48,6 +70,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   const playTransition = (onMid: () => void) => {
     if (isAnimating.current) return;
     isAnimating.current = true;
+    hasTransitioned.current = true;
 
     // ⛔ hide scrollbar BEFORE animation starts
     lockScroll();
@@ -60,6 +83,8 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       defaults: { ease: "expo.inOut" },
       onComplete: () => {
         isAnimating.current = false;
+
+        readyCallbacks.current.forEach((cb) => cb());
         unlockScroll(); // ✅ restore scrollbar AFTER exit
       },
     });
@@ -71,7 +96,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
     // MID ACTION (route change)
     tl.add(onMid);
 
-    // EXIT
+    // EXIT — fireReady dipanggil pas layer terakhir selesai exit
     tl.to(blueRef.current, { y: "-100%", duration: 0.9 });
     tl.to(
       darkRef.current,
@@ -82,6 +107,9 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
       },
       "-=0.15",
     );
+
+    // trigger next page animation sedikit sebelum layer habis
+    tl.call(fireReady, [], "-=0.85");
   };
 
   const navigate = (href: string) => {
@@ -93,7 +121,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <PageTransitionContext.Provider value={{ navigate, goBack }}>
+    <PageTransitionContext.Provider value={{ navigate, goBack, onReady }}>
       {children}
 
       {/* DARK LAYER */}

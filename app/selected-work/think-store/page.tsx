@@ -1,4 +1,5 @@
 "use client";
+
 import TransitionLink from "@/components/transition-link";
 import { experiments } from "@/components/work-section";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
+import { usePageTransition } from "@/components/page-transition";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,10 +19,11 @@ export default function ThinkStorePage() {
   const heroImageRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isManuallyPausedRef = useRef(false);
-  const pageRef = useRef<HTMLDivElement>(null);
+
   const [modalOpen, setModalOpen] = useState(false);
   const [showMenuCTA, setShowMenuCTA] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
+
   const [modalContent, setModalContent] = useState<{
     type: "video" | "image";
     src: string;
@@ -28,6 +31,8 @@ export default function ThinkStorePage() {
     type: "image",
     src: "",
   });
+
+  const { onReady } = usePageTransition();
 
   useEffect(() => {
     if (!modalOpen) return;
@@ -43,78 +48,67 @@ export default function ThinkStorePage() {
   }, [modalOpen]);
 
   /* =====================
-     PAGE ENTRY
-  ===================== */
-  useEffect(() => {
-    if (!pageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        pageRef.current,
-        { xPercent: -100, opacity: 0 },
-        {
-          xPercent: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: "power3.out",
-        },
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
-  /* =====================
-    Hero
-  ===================== */
+   HERO ANIMATION
+===================== */
 
   useEffect(() => {
     if (!heroImageRef.current) return;
 
-    const sticker = heroImageRef.current.querySelector("[data-cursor='hover']");
+    const ctx = gsap.context(() => {
+      onReady(() => {
+        const sticker = heroImageRef.current?.querySelector(
+          "[data-cursor='hover']",
+        );
 
-    if (!sticker) return;
+        if (!sticker) return;
 
-    const tl = gsap.timeline({
-      delay: 1,
+        const tl = gsap.timeline({
+          defaults: {
+            ease: "power3.out",
+          },
+        });
+
+        tl.fromTo(
+          sticker,
+          {
+            y: -120,
+            scale: 1.35,
+            rotation: -12,
+            opacity: 0,
+            filter: "blur(10px)",
+          },
+          {
+            y: 0,
+            scale: 1,
+            rotation: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 1,
+          },
+        )
+          .to(sticker, {
+            scaleX: 1.08,
+            scaleY: 0.92,
+            duration: 0.08,
+            ease: "power2.out",
+          })
+          .to(sticker, {
+            scaleX: 0.96,
+            scaleY: 1.04,
+            duration: 0.08,
+            ease: "power2.out",
+          })
+          .to(sticker, {
+            scaleX: 1,
+            scaleY: 1,
+            duration: 0.15,
+            ease: "back.out(4)",
+          });
+      });
     });
 
-    tl.fromTo(
-      sticker,
-      {
-        y: -120,
-        scale: 1.35,
-        rotation: -12,
-        opacity: 0,
-      },
-      {
-        y: 0,
-        scale: 1,
-        rotation: 0,
-        opacity: 1,
-        duration: 0.5,
-        ease: "power3.in",
-      },
-    )
-      .to(sticker, {
-        scaleX: 1.08,
-        scaleY: 0.92,
-        duration: 0.08,
-        ease: "power2.out",
-      })
-      .to(sticker, {
-        scaleX: 0.96,
-        scaleY: 1.04,
-        duration: 0.08,
-        ease: "power2.out",
-      })
-      .to(sticker, {
-        scaleX: 1,
-        scaleY: 1,
-        duration: 0.15,
-        ease: "back.out(4)",
-      });
-  }, []);
+    return () => ctx.revert();
+  }, [onReady]);
 
   /* =====================
      UNIVERSAL SCROLL ANIMATIONS

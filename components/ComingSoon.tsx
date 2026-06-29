@@ -1,305 +1,312 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { BitmapChevron } from "@/components/bitmap-chevron";
+import { X } from "lucide-react";
 import TransitionLink from "@/components/transition-link";
+import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
-import { GlitchReveal } from "@/components/ui/glitch-reveal";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { usePageTransition } from "@/components/page-transition";
 
-export default function ComingSoon() {
-  const [revealKey, setRevealKey] = useState(0);
-  const [showPopup, setShowPopup] = useState(false);
-  const router = useRouter();
-  const handleStayHere = () => {
-    setShowPopup(false);
-    setRevealKey((prev) => prev + 1);
-  };
+interface ComingSoonProps {
+  title: string;
+  roles: string[];
+  progress: number;
+}
 
+export default function ComingSoon({
+  title,
+  roles,
+  progress,
+}: ComingSoonProps) {
+  const totalBars = 48;
+  const filledBars = Math.round((progress / 100) * totalBars);
+
+  const barsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const progressRef = useRef<HTMLParagraphElement>(null);
+
+  const { onReady } = usePageTransition();
+
+  // Animasi bars — nunggu page transition selesai dulu
   useEffect(() => {
-    setShowPopup(true);
-  }, []);
+    const ctx = gsap.context(() => {
+      onReady(() => {
+        const tl = gsap.timeline();
+
+        tl.fromTo(
+          barsRef.current.filter(Boolean),
+          {
+            scaleY: 0,
+            opacity: 0,
+            transformOrigin: "bottom",
+          },
+          {
+            scaleY: 1,
+            opacity: 1,
+            duration: 0.25,
+            stagger: 0.015,
+            ease: "power2.out",
+          },
+        );
+
+        tl.fromTo(
+          barsRef.current.slice(0, filledBars),
+          {
+            backgroundColor: "#3f3f46",
+          },
+          {
+            backgroundColor: "var(--color-primary)",
+            duration: 0.15,
+            stagger: 0.025,
+            ease: "none",
+          },
+          "-=0.15",
+        );
+      });
+    });
+
+    return () => ctx.revert();
+  }, [filledBars]);
+
+  // Animasi counter — nunggu page transition selesai dulu
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      onReady(() => {
+        const counter = { value: 0 };
+
+        gsap.to(counter, {
+          value: progress,
+          duration: 1.4,
+          ease: "power2.out",
+          snap: { value: 1 },
+          onUpdate: () => {
+            if (progressRef.current) {
+              progressRef.current.textContent = `${counter.value}%`;
+            }
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, [progress]);
 
   return (
-    <>
-      {/* POPUP */}
-      {showPopup && (
-        <div className="fixed overflow-hidden inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xl">
-          <div className="bg-black border-primary text-white p-6 max-w-md w-fit mx-4">
-            <h2 className="text-xl font-medium mb-3">
-              This page is still in development
-            </h2>
+    <main className="relative min-h-screen w-full overflow-hidden bg-black">
+      {/* Background */}
+      <div
+        className="grid-bg fixed inset-0 opacity-50 pointer-events-none"
+        aria-hidden="true"
+      />
 
-            <p className="text-sm mb-8 opacity-70">
-              Do you want to go back to homepage or stay here?
-            </p>
+      <div
+        className="
+        relative z-10
+        flex min-h-screen items-center justify-center
+        px-4 py-10
+        sm:px-6
+        md:px-10
+      "
+      >
+        <div
+          className="
+          w-full
+          max-w-4xl
+          border border-zinc-800
+          bg-zinc-900/90
+          backdrop-blur-sm
+        "
+        >
+          <div
+            className="
+            w-full
+            p-5
+            sm:p-6
+            md:p-8
+            lg:p-10
+          "
+          >
+            {/* Top */}
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-wrap gap-2">
+                {roles.map((role) => (
+                  <span
+                    key={role}
+                    className="
+                    border border-zinc-700
+                    px-2.5 py-1
+                    text-[10px]
+                    sm:text-xs
+                    font-light
+                    uppercase
+                    tracking-[0.18em]
+                    text-zinc-400
+                  "
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 xl:gap-4">
-              {/* Never Mind */}
-              <button
-                onClick={handleStayHere}
-                className="
-     group
-      inline-flex w-full items-center justify-center gap-3
-
-      px-5 py-3
-        border border-white/20
-      font-mono
-      text-[10px] uppercase tracking-[0.25em]
-      text-white
-      
-      transition-all duration-200
-      hover:text-primary hover:border-primary
-
-      sm:w-auto
-      sm:px-6
-      sm:text-xs
-    "
-              >
-                <ScrambleTextOnHover
-                  text="Never Mind"
-                  as="span"
-                  duration={0.6}
+              <button className="shrink-0 text-zinc-500 transition hover:text-primary">
+                <X
+                  onClick={() => window.history.back()}
                   data-cursor="hover"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                 />
               </button>
+            </div>
 
-              {/* Back to Home */}
+            <div className="mt-4 border-t border-zinc-800" />
+
+            {/* Title */}
+            <h1
+              className="
+              mt-6
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
+              font-light
+              tracking-tight
+              leading-none
+              text-white
+            "
+            >
+              {title}
+            </h1>
+
+            {/* Description */}
+            <p
+              className="
+              mt-4
+              max-w-2xl
+              text-sm
+              sm:text-base
+              md:text-lg
+              leading-6
+              sm:leading-7
+              text-zinc-400
+            "
+            >
+              This project is currently under development and isn't available
+              publicly yet. You can preview it once development has been
+              completed.
+            </p>
+
+            {/* Progress Header */}
+            <div className="mt-8 flex items-center justify-between">
+              <p
+                className="
+                text-[10px]
+                sm:text-xs
+                font-light
+                uppercase
+                tracking-[0.2em]
+                text-white
+              "
+              >
+                Progress
+              </p>
+
+              <p
+                ref={progressRef}
+                className="
+                text-sm
+                sm:text-base
+                font-light
+                text-white
+              "
+              >
+                0%
+              </p>
+            </div>
+
+            {/* Progress Grid */}
+            <div className="mt-3 flex gap-[2px] sm:gap-[4px]">
+              {Array.from({ length: totalBars }).map((_, i) => (
+                <div
+                  key={i}
+                  ref={(el) => {
+                    barsRef.current[i] = el;
+                  }}
+                  className="
+                  h-12
+                  sm:h-16
+                  md:h-20
+                  flex-1
+                  bg-zinc-700
+                "
+                />
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div
+              className="
+    mt-8
+    border-t border-zinc-800
+    pt-6
+    flex items-center justify-between
+    gap-4
+  "
+            >
+              <p
+                className="
+    text-xs
+    sm:text-sm
+    text-zinc-500
+  "
+              >
+                Last updated ·{" "}
+                {new Date().toLocaleDateString("en-US", {
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+
               <TransitionLink
                 href="/"
-                className="
-      group
-      inline-flex w-full items-center justify-center gap-3
-
-      border border-white/20
-      px-5 py-3
-
-      font-mono
-      text-[10px] uppercase tracking-[0.25em]
-      text-white
-
-      transition-all duration-200
-      hover:border-primary hover:text-primary
-
-      sm:w-auto
-      sm:px-6
-      sm:text-xs
-    "
                 data-cursor="hover"
+                className="
+      shrink-0
+      group
+      inline-flex
+      items-center
+      gap-2
+      border border-foreground/40
+      px-3 sm:px-4
+      py-2
+      font-mono
+      text-[8px]
+      sm:text-[10px]
+      uppercase
+      tracking-[0.25em]
+      text-foreground
+      transition-all duration-200
+      hover:border-accent
+      hover:text-accent
+    "
               >
                 <ScrambleTextOnHover
-                  text="Back to Home"
+                  text="View More Projects"
                   as="span"
                   duration={0.6}
-                  data-cursor="hover"
+                />
+
+                <BitmapChevron
+                  className="
+        hidden sm:block
+        transition-transform
+        duration-[400ms]
+        ease-in-out
+        group-hover:rotate-45
+      "
                 />
               </TransitionLink>
             </div>
           </div>
         </div>
-      )}
-
-      {/* MAIN PAGE */}
-      <GlitchReveal key={revealKey}>
-        <div
-          className="
-      h-screen
-      w-full
-      overflow-hidden
-      bg-[#0078D7]
-      text-white
-
-      flex flex-col
-
-      justify-center
-      px-8
-
-      sm:px-10
-
-      md:px-12
-
-      lg:justify-between
-      lg:px-16
-      lg:py-12
-
-      xl:px-24
-    "
-        >
-          {/* Top */}
-          <div>
-            <h1
-              className="
-          leading-none
-          font-light
-
-          text-[120px]
-          sm:text-[140px]
-          md:text-[160px]
-
-          lg:text-[120px]
-          xl:text-[160px]
-
-          mb-8
-        "
-            >
-              :{")"}
-            </h1>
-
-            <p
-              className="
-          max-w-[1400px]
-          font-light
-
-          text-[24px]
-          sm:text-[32px]
-          md:text-[38px]
-
-          lg:text-4xl
-          xl:text-[40px]
-
-          leading-[1.4]
-          lg:leading-[1.15]
-        "
-            >
-              This page can’t be opened because this project is still under
-              development. The system is currently preparing this content for
-              future release. Please check back again later.
-            </p>
-          </div>
-
-          {/* Progress */}
-          <div
-            className="
-        my-10
-        md:my-12
-        lg:my-0
-      "
-          >
-            <p
-              className="
-          font-light
-
-          text-[22px]
-          sm:text-[24px]
-          md:text-[30px]
-
-          lg:text-2xl
-          xl:text-3xl
-        "
-            >
-              20%{" "}
-              <span
-                className="
-            text-[20px]
-            sm:text-[22px]
-            md:text-[28px]
-
-            lg:text-2xl
-            xl:text-3xl
-          "
-              >
-                complete
-              </span>
-            </p>
-          </div>
-
-          {/* Bottom */}
-          <div
-            className="
-    flex
-    items-start
-
-    gap-4
-    sm:gap-6
-    lg:gap-8
-
-    max-w-[850px]
-    lg:max-w-none
-  "
-          >
-            <img
-              src="/resume-barcode.png"
-              alt="Download CV QR Code"
-              className="
-      shrink-0
-      object-contain
-
-      w-24 h-24
-      sm:w-24 sm:h-24
-      md:w-32 md:h-32
-    "
-            />
-
-            <div className="flex-1">
-              <p
-                className="
-        font-light
-        leading-relaxed
-
-        text-[11px]
-        sm:text-[13px]
-        md:text-[16px]
-
-        lg:text-lg
-        xl:text-[20px]
-
-        mb-2
-        xl:mb-4
-      "
-              >
-                For more information and to see what I’ve built so far, scan
-                this code to download my CV.
-              </p>
-
-              <p
-                className="
-        font-light
-        leading-relaxed
-
-        text-[11px]
-        sm:text-[13px]
-        md:text-[16px]
-
-        lg:text-base
-      "
-              >
-                If you want to contact me or know more about who I am, you can
-                check it out on.
-              </p>
-
-              <div
-                className="
-        flex flex-wrap items-center gap-1
-
-        mt-1
-        xl:mt-3
-
-        text-[11px]
-        sm:text-[13px]
-        md:text-[16px]
-
-        lg:text-base
-      "
-              >
-                <span>More Info:</span>
-
-                <TransitionLink
-                  href="/about"
-                  className="hover:text-primary transition-colors"
-                  data-cursor="hover"
-                >
-                  <ScrambleTextOnHover
-                    text="WHO_IS_JAID"
-                    as="span"
-                    duration={0.6}
-                    data-cursor="hover"
-                  />
-                </TransitionLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </GlitchReveal>
-    </>
+      </div>
+    </main>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import TransitionLink from "@/components/transition-link";
 import { experiments } from "@/components/work-section";
 import Image from "next/image";
@@ -17,14 +16,19 @@ import ComingSoon from "@/components/ComingSoon";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CommonGroundProjectPage() {
-  const isPublished = false;
+  const project = {
+    title: "Common Ground Project",
+    roles: ["Freelance", "UI/UX Designer"],
+    progress: 45,
+    published: false,
+  };
 
   const preview =
     typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("preview") === "true";
 
-  if (!isPublished && !preview) {
-    return <ComingSoon />;
+  if (!project.published && !preview) {
+    return <ComingSoon {...project} />;
   }
 
   const heroImageRef = useRef<HTMLDivElement>(null);

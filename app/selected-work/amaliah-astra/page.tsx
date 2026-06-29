@@ -10,6 +10,7 @@ import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover, ScrambleText } from "@/components/scramble-text";
 import LightRays from "@/components/LightRays";
+import { usePageTransition } from "@/components/page-transition";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,8 @@ export default function AmaliahAstraPage() {
     src: "",
   });
 
+  const { onReady } = usePageTransition();
+
   useEffect(() => {
     if (!modalOpen) return;
 
@@ -43,75 +46,57 @@ export default function AmaliahAstraPage() {
   }, [modalOpen]);
 
   /* =====================
-     PAGE ENTRY
-  ===================== */
-  useEffect(() => {
-    if (!pageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        pageRef.current,
-        { xPercent: -100, opacity: 0 },
-        {
-          xPercent: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: "power3.out",
-        },
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
-  /* =====================
-     HERO ANIMATION
+     HERO ANIMATION — nunggu page transition selesai
   ===================== */
   useEffect(() => {
     if (!heroImageRef.current) return;
 
-    const tl = gsap.timeline({
-      delay: 1, // sesuaikan sama durasi overlay transition
+    const ctx = gsap.context(() => {
+      onReady(() => {
+        const tl = gsap.timeline();
+
+        // LIGHT RAYS
+        tl.fromTo(
+          ".custom-rays",
+          {
+            opacity: 0,
+            scale: 1.4,
+            filter: "blur(30px)",
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 2.5,
+            ease: "power3.out",
+          },
+        );
+
+        // HERO IMAGE
+        tl.fromTo(
+          heroImageRef.current,
+          {
+            y: 180,
+            scale: 0.8,
+            opacity: 0,
+            rotate: -3,
+            filter: "blur(20px)",
+          },
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            rotate: 0,
+            filter: "blur(0px)",
+            duration: 2,
+            ease: "power4.out",
+          },
+          "-=2",
+        );
+      });
     });
 
-    // LIGHT RAYS
-    tl.fromTo(
-      ".custom-rays",
-      {
-        opacity: 0,
-        scale: 1.4,
-        filter: "blur(30px)",
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        filter: "blur(0px)",
-        duration: 2.5,
-        ease: "power3.out",
-      },
-    );
-
-    // HERO IMAGE
-    tl.fromTo(
-      heroImageRef.current,
-      {
-        y: 180,
-        scale: 0.8,
-        opacity: 0,
-        rotate: -3,
-        filter: "blur(20px)",
-      },
-      {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        rotate: 0,
-        filter: "blur(0px)",
-        duration: 2,
-        ease: "power4.out",
-      },
-      "-=2",
-    );
+    return () => ctx.revert();
   }, []);
 
   /* =====================
@@ -195,7 +180,6 @@ export default function AmaliahAstraPage() {
           const id = entry.target.getAttribute("data-section-id");
           if (!id) return;
 
-          // 🔥 FIX UTAMA: nunggu 1 frame biar GSAP settle
           requestAnimationFrame(() => {
             setSectionStart((prev) => ({
               ...prev,
@@ -203,7 +187,7 @@ export default function AmaliahAstraPage() {
             }));
           });
 
-          observer.unobserve(entry.target); // sekali trigger
+          observer.unobserve(entry.target);
         });
       },
       {
@@ -312,6 +296,7 @@ md:scale-100
           </div>
         </section>
       </GlitchReveal>
+
       {/* =====================
           PROJECT DETAIL
       ===================== */}
@@ -365,7 +350,7 @@ md:scale-100
               <p>
                 Yayasan Amaliah Astra is a social foundation under Astra
                 International that focuses on religious, educational, and
-                community empowerment initiatives. Guided by Astra’s vision of
+                community empowerment initiatives. Guided by Astra's vision of
                 shared prosperity, the foundation develops programs that combine
                 social impact, sustainability, and community empowerment. One of
                 its key initiatives is Kurban Astra, an annual program designed
@@ -408,7 +393,7 @@ md:scale-100
                 <p className="mt-2 leading-relaxed">
                   A set of symbolic handover mockups that visually represent the
                   spirit of sharing, sustainability, and collaboration, aligned
-                  with Astra’s values and program identity.
+                  with Astra's values and program identity.
                 </p>
               </div>
 
@@ -490,7 +475,7 @@ md:scale-100
               core challenge and exploring initial directions through rough
               visual experimentation and strategic ideation. These early
               explorations helped uncover the visual logic and narrative that
-              would guide the project’s direction, turning abstract concepts
+              would guide the project's direction, turning abstract concepts
               into a clearer, more intentional foundation.
             </p>
 
@@ -506,9 +491,8 @@ md:scale-100
     lg:gap-32
   "
             >
-              {/* ================= ITEM 1 — VIDEO ================= */}
+              {/* ================= ITEM 1 ================= */}
               <div className="animate-grid-item space-y-4">
-                {/* CARD */}
                 <div
                   onClick={() => {
                     setModalContent({
@@ -582,7 +566,6 @@ md:scale-100
                   </div>
                 </div>
 
-                {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
                     Symbolic Poster Design
@@ -593,7 +576,7 @@ md:scale-100
                 </div>
               </div>
 
-              {/* ================= ITEM 2 — VIDEO ================= */}
+              {/* ================= ITEM 2 ================= */}
               <div className="animate-grid-item space-y-4">
                 <div
                   onClick={() => {
@@ -668,7 +651,6 @@ md:scale-100
                   </div>
                 </div>
 
-                {/* TEXT */}
                 <div>
                   <p className="text-xs uppercase tracking-widest text-foreground/60">
                     Mockup Design
@@ -684,15 +666,13 @@ md:scale-100
       </section>
 
       {/* =====================
-                MODAL
-            ===================== */}
-
+          MODAL
+      ===================== */}
       {modalOpen && (
         <div
           className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm"
           onClick={() => setModalOpen(false)}
         >
-          {/* CENTER WRAPPER */}
           <div
             className="
               fixed
@@ -702,9 +682,7 @@ md:scale-100
             "
             onClick={(e) => e.stopPropagation()}
           >
-            {/* CONTENT */}
-            <div className="relative overflow-hidden  modal-cursor">
-              {/* CLOSE BUTTON — DI DALAM IMAGE */}
+            <div className="relative overflow-hidden modal-cursor">
               <button
                 onClick={() => setModalOpen(false)}
                 aria-label="Close modal"
@@ -861,7 +839,6 @@ md:scale-100
     z-10
   "
       >
-        {/* HEADER */}
         <div
           className="
     mb-10 md:mb-16
@@ -887,7 +864,6 @@ md:scale-100
             VIEW ANOTHER WORK
           </h2>
 
-          {/* BACK TO HOME BUTTON */}
           <TransitionLink
             href="/"
             data-cursor="hover"
@@ -927,7 +903,6 @@ md:scale-100
           </TransitionLink>
         </div>
 
-        {/* LIST */}
         <div className="flex flex-col gap-6">
           {experiments
             .filter((e) => e.slug !== "amaliah-astra")
@@ -965,12 +940,9 @@ md:scale-100
   hover:border-accent/60
 "
                   >
-                    {/* HOVER BG */}
                     <div className="absolute inset-0 bg-accent/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                    {/* MAIN CONTENT */}
                     <div className="relative z-10 h-full flex flex-col justify-center">
-                      {/* ROLE */}
                       <span
                         className="
     font-mono
@@ -987,7 +959,6 @@ md:scale-100
                         {experiment.medium}
                       </span>
 
-                      {/* TITLE */}
                       <h3
                         className="
     mt-3
@@ -1005,7 +976,6 @@ md:scale-100
                       </h3>
                     </div>
 
-                    {/* DESCRIPTION */}
                     <div
                       className="
     relative
@@ -1040,12 +1010,10 @@ md:scale-100
                       </p>
                     </div>
 
-                    {/* INDEX — GLOBAL */}
                     <span className="absolute top-6 right-6 font-mono text-[10px] text-muted-foreground/40 transition-colors duration-300 group-hover:text-accent">
                       {String(globalIndex + 1).padStart(2, "0")}
                     </span>
 
-                    {/* CORNER */}
                     <div className="absolute top-0 right-0 w-12 h-12 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                       <div className="absolute top-0 right-0 w-full h-[1px] bg-accent" />
                       <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />

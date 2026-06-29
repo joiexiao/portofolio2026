@@ -6,7 +6,6 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useRef, useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatedNoise } from "@/components/animated-noise";
 import { GlitchReveal } from "@/components/ui/glitch-reveal";
 import { MusicButton } from "@/components/ui/music-button";
 import { BitmapChevron } from "@/components/bitmap-chevron";
@@ -16,14 +15,19 @@ import ComingSoon from "@/components/ComingSoon";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function MuseumVirtualPage() {
-  const isPublished = false;
+  const project = {
+    title: "Museum Virtual Bela Negara",
+    roles: ["Freelance", "UI/UX Designer"],
+    progress: 80,
+    published: false,
+  };
 
   const preview =
     typeof window !== "undefined" &&
     new URLSearchParams(window.location.search).get("preview") === "true";
 
-  if (!isPublished && !preview) {
-    return <ComingSoon />;
+  if (!project.published && !preview) {
+    return <ComingSoon {...project} />;
   }
 
   const heroImageRef = useRef<HTMLDivElement>(null);
