@@ -7,8 +7,6 @@ import { SignalsSection } from "@/components/signals-section";
 import { WorkSection } from "@/components/work-section";
 import { PrinciplesSection } from "@/components/principles-section";
 import { ContactSection } from "@/components/contact-section";
-import { SideNav } from "@/components/side-nav";
-import { AnimatedNoise } from "@/components/animated-noise";
 import CustomCursor from "@/components/ui/custom-cursor";
 import PageLoader from "@/components/page-loader";
 

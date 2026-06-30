@@ -1,5 +1,6 @@
 "use client";
 import { X } from "lucide-react";
+import { Dot } from "lucide-react";
 import TransitionLink from "@/components/transition-link";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
@@ -20,17 +21,60 @@ export default function ComingSoon({
 }: ComingSoonProps) {
   const totalBars = 48;
   const filledBars = Math.round((progress / 100) * totalBars);
-
   const barsRef = useRef<(HTMLDivElement | null)[]>([]);
   const progressRef = useRef<HTMLParagraphElement>(null);
+  const progressDotsRef = useRef<HTMLSpanElement>(null);
+  const idleIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const { onReady } = usePageTransition();
+
+  const startIdleAnimation = () => {
+    const remainingBars = barsRef.current.slice(filledBars).filter(Boolean);
+
+    if (!remainingBars.length) return;
+
+    let current = 0;
+
+    // reset awal
+    gsap.set(remainingBars, {
+      opacity: 0,
+      backgroundColor: "rgb(92, 116, 148)",
+    });
+
+    idleIntervalRef.current = setInterval(() => {
+      // kalau udah penuh semua → reset
+      if (current >= remainingBars.length) {
+        setTimeout(() => {
+          gsap.set(remainingBars, {
+            opacity: 0,
+          });
+        }, 220);
+
+        current = 0;
+        return;
+      }
+
+      // isi satu-satu
+      gsap.to(remainingBars[current], {
+        opacity: 0.5,
+        duration: 0.18,
+        ease: "none",
+        overwrite: true,
+      });
+
+      current++;
+    }, 140);
+  };
 
   // Animasi bars — nunggu page transition selesai dulu
   useEffect(() => {
     const ctx = gsap.context(() => {
       onReady(() => {
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+          onComplete: () => {
+            startIdleAnimation();
+          },
+        });
 
         tl.fromTo(
           barsRef.current.filter(Boolean),
@@ -55,16 +99,23 @@ export default function ComingSoon({
           },
           {
             backgroundColor: "var(--color-primary)",
-            duration: 0.15,
+            duration: 0.001,
             stagger: 0.025,
             ease: "none",
+            immediateRender: false,
           },
           "-=0.15",
         );
       });
     });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+
+      if (idleIntervalRef.current) {
+        clearInterval(idleIntervalRef.current);
+      }
+    };
   }, [filledBars]);
 
   // Animasi counter — nunggu page transition selesai dulu
@@ -87,11 +138,41 @@ export default function ComingSoon({
       });
     });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+
+      if (idleIntervalRef.current) {
+        clearInterval(idleIntervalRef.current);
+      }
+    };
   }, [progress]);
 
+  useEffect(() => {
+    let dotsInterval: NodeJS.Timeout;
+
+    const ctx = gsap.context(() => {
+      onReady(() => {
+        const dots = ["", ".", "..", "..."];
+        let current = 0;
+
+        dotsInterval = setInterval(() => {
+          if (progressDotsRef.current) {
+            progressDotsRef.current.textContent = dots[current];
+          }
+
+          current = (current + 1) % dots.length;
+        }, 450);
+      });
+    });
+
+    return () => {
+      clearInterval(dotsInterval);
+      ctx.revert();
+    };
+  }, [onReady]);
+
   return (
-    <main className="relative min-h-screen w-full overflow-hidden bg-black">
+    <main className="relative min-h-screen w-screen overflow-hidden bg-black">
       {/* Background */}
       <div
         className="grid-bg fixed inset-0 opacity-50 pointer-events-none"
@@ -112,7 +193,7 @@ export default function ComingSoon({
           w-full
           max-w-4xl
           border border-zinc-800
-          bg-zinc-900/90
+          bg-zinc-900/10
           backdrop-blur-sm
         "
         >
@@ -195,18 +276,31 @@ export default function ComingSoon({
 
             {/* Progress Header */}
             <div className="mt-8 flex items-center justify-between">
-              <p
+              <div
                 className="
-                text-[10px]
-                sm:text-xs
-                font-light
-                uppercase
-                tracking-[0.2em]
-                text-white
-              "
+    flex items-center
+    text-[10px]
+    sm:text-xs
+    font-light
+    uppercase
+    tracking-[0.2em]
+    text-white
+  "
               >
-                Progress
-              </p>
+                <span>Progress</span>
+
+                <span
+                  ref={progressDotsRef}
+                  className="min-w-[20px]text-[10px]
+    sm:text-xs
+    font-light
+    uppercase
+    tracking-[0.2em]
+    text-white"
+                >
+                  .
+                </span>
+              </div>
 
               <p
                 ref={progressRef}
@@ -226,17 +320,23 @@ export default function ComingSoon({
               {Array.from({ length: totalBars }).map((_, i) => (
                 <div
                   key={i}
-                  ref={(el) => {
-                    barsRef.current[i] = el;
-                  }}
                   className="
-                  h-12
-                  sm:h-16
-                  md:h-20
-                  flex-1
-                  bg-zinc-700
-                "
-                />
+        relative
+        overflow-hidden
+        h-12
+        sm:h-16
+        md:h-20
+        flex-1
+        bg-zinc-700
+      "
+                >
+                  <div
+                    ref={(el) => {
+                      barsRef.current[i] = el;
+                    }}
+                    className="h-12 sm:h-16 md:h-20 flex-1 bg-zinc-700"
+                  />
+                </div>
               ))}
             </div>
 
@@ -252,20 +352,31 @@ export default function ComingSoon({
             >
               <p
                 className="
-    text-xs
-    sm:text-sm
-    text-zinc-500
-  "
+      flex items-center gap-1
+      text-xs
+      sm:text-sm
+      text-zinc-500
+    "
               >
-                Last updated ·{" "}
-                {new Date().toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
+                <Dot
+                  strokeWidth={12}
+                  className="
+        h-3 w-3
+        text-green-500
+        animate-[pulse_1.4s_ease-in-out_infinite]
+      "
+                />{" "}
+                Last Update
+                <span>
+                  {new Date().toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
               </p>
 
               <TransitionLink
-                href="/"
+                href="/#work"
                 data-cursor="hover"
                 className="
       shrink-0

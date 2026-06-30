@@ -25,11 +25,10 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "./jaid's-portfolio",
-  description:
-    "Interface studies in controlled environments. We design systems that behave, not just screens that display.",
+  title: "Jaid's Space",
+  description: "Exploring the intersection of design, code, and creativity.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/logos.png",
   },
 };
 export default function RootLayout({

@@ -129,7 +129,7 @@ export function PrinciplesSection() {
             </span>
 
             {/* Title */}
-            <h3 className="font-[var(--font-bebas)]' text-4xl md:text-6xl lg:text-8xl tracking-tight leading-none">
+            <h3 className="font-[var(--font-bebas)] text-4xl md:text-6xl lg:text-8xl max-w-4xl tracking-tight leading-none">
               {principle.titleParts.map((part, i) =>
                 part.highlight ? (
                   <HighlightText key={i} parallaxSpeed={0.6}>

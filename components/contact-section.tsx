@@ -174,7 +174,7 @@ export function ContactSection() {
     uppercase tracking-[0.2em]
     text-accent font-light
     text-[10px] sm:text-xs md:text-base lg:text-base
-    mb-2 md:mb-8
+    mb-2 md:mb-4
   "
           >
             Just say
@@ -182,17 +182,19 @@ export function ContactSection() {
 
           <h2
             className="
-    flex items-baseline
+    flex items-center
     whitespace-nowrap
-    font-(--font-bebas)
+    font-sans
     tracking-tight
-    leading-[0.9]
-    w-full
+    leading-none
+    uppercase
   "
+            style={{
+              WebkitTextStroke: "clamp(0.5px,0.08vw,2px) currentColor",
+            }}
           >
             <span
               className="
-      font-semibold
       text-[clamp(24px,5vw,128px)]
       flex-shrink-0
     "
@@ -204,15 +206,11 @@ export function ContactSection() {
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-      font-semibold
       text-[clamp(24px,5vw,128px)]
-
       text-foreground/10
       hover:text-foreground
       transition-colors duration-300
-
       whitespace-nowrap
-      min-w-0
     "
             >
               mujahidazzam16@gmail.com
@@ -221,46 +219,77 @@ export function ContactSection() {
         </div>
       </div>
 
-      {/* BACK TO TOP - MOVED INSIDE PADDING CONTAINER */}
-      <div className="flex justify-end mb-12 px-6 md:px-12">
-        <a
-          href="#hero"
-          className="
-      group inline-flex items-center gap-2
-
-      border border-foreground/20
-
-      px-4 py-2
-      lg:px-6 lg:py-3
-
-      font-mono
-      text-[10px]
-      lg:text-xs
-
-      uppercase
-      tracking-[0.15em]
-      lg:tracking-widest
-
-      text-foreground
-      hover:border-accent
-      hover:text-accent
-
-      transition-all duration-200
-    "
-          data-cursor="hover"
-        >
-          <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
-
-          <BitmapChevron
+      <>
+        {/* DESKTOP */}
+        <div className="hidden md:flex justify-end mb-12 px-6 md:px-12">
+          <button
+            onClick={() => {
+              document
+                .getElementById("hero")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="
-                transition-transform
-                duration-400ms
-                ease-in-out
-                group-hover:-rotate-45
-              "
-          />
-        </a>
-      </div>
+        group inline-flex items-center gap-2
+        border border-foreground/20
+        px-4 py-2 lg:px-6 lg:py-3
+        font-mono
+        text-[10px] lg:text-xs
+        uppercase
+        tracking-[0.15em] lg:tracking-widest
+        text-foreground
+        hover:border-accent
+        hover:text-accent
+        transition-all duration-200
+      "
+            data-cursor="hover"
+          >
+            <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
+
+            <BitmapChevron
+              className="
+          transition-transform
+          duration-300
+          ease-in-out
+          group-hover:-rotate-45
+        "
+            />
+          </button>
+        </div>
+
+        {/* MOBILE FLOATING BUTTON */}
+        <div
+          className="
+      fixed bottom-5 right-5 z-[999]
+      flex md:hidden
+      items-center justify-center
+    "
+        >
+          <button
+            onClick={() => {
+              document
+                .getElementById("hero")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="
+        w-14 h-14 rounded-full
+        border border-white/20
+        bg-black/80 backdrop-blur-md
+
+        flex items-center justify-center
+
+        text-white
+        hover:border-accent
+        hover:text-accent
+
+        transition-all duration-300
+      "
+            data-cursor="hover"
+            aria-label="Back to top"
+          >
+            <BitmapChevron className="-rotate-45" />
+          </button>
+        </div>
+      </>
       {/* FOOTER — FULL BLEED - FIXED */}
       <div className="relative left-1/2 -translate-x-1/2 w-screen">
         <div
