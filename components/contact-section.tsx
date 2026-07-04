@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import { AnimatedNoise } from "@/components/animated-noise";
+import TransitionLink from "./transition-link";
 
 const Marquee = dynamic(() => import("react-fast-marquee"), {
   ssr: false,
@@ -195,7 +196,7 @@ export function ContactSection() {
           >
             <span
               className="
-      text-[clamp(24px,5vw,128px)]
+      text-[clamp(16px,5vw,128px)]
       flex-shrink-0
     "
             >
@@ -206,7 +207,7 @@ export function ContactSection() {
               href="mailto:mujahidazzam16@gmail.com"
               data-cursor="hover"
               className="
-      text-[clamp(24px,5vw,128px)]
+      text-[clamp(16px,5vw,128px)]
       text-foreground/10
       hover:text-foreground
       transition-colors duration-300
@@ -220,15 +221,42 @@ export function ContactSection() {
       </div>
 
       <>
-        {/* DESKTOP */}
-        <div className="hidden md:flex justify-end mb-12 px-6 md:px-12">
-          <button
-            onClick={() => {
-              document
-                .getElementById("hero")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="
+        {/* DESKTOP WRAPPER */}
+        <div className="hidden md:block mb-12 px-6 lg:px-24 ">
+          <div className="flex items-center justify-between">
+            {/* LEFT - TransitionLink */}
+            <TransitionLink
+              href="/resume"
+              data-cursor="hover"
+              className="
+        font-mono
+        text-[10px] lg:text-xs
+        uppercase
+        tracking-[0.15em]
+        underline
+        underline-offset-4
+        decoration-1
+        transition-colors duration-200
+        text-primary
+        hover:text-black
+        hover:bg-accent
+      "
+            >
+              <ScrambleTextOnHover
+                text="jaid's resume"
+                as="span"
+                duration={0.6}
+              />
+            </TransitionLink>
+
+            {/* RIGHT - Button */}
+            <button
+              onClick={() => {
+                document
+                  .getElementById("hero")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="
         group inline-flex items-center gap-2
         border border-foreground/20
         px-4 py-2 lg:px-6 lg:py-3
@@ -241,28 +269,62 @@ export function ContactSection() {
         hover:text-accent
         transition-all duration-200
       "
-            data-cursor="hover"
-          >
-            <ScrambleTextOnHover text="Back to top" as="span" duration={0.6} />
+              data-cursor="hover"
+            >
+              <ScrambleTextOnHover
+                text="Back to top"
+                as="span"
+                duration={0.6}
+              />
 
-            <BitmapChevron
-              className="
-          transition-transform
-          duration-300
-          ease-in-out
+              <BitmapChevron
+                className="
+          transition-transform duration-300 ease-in-out
           group-hover:-rotate-45
         "
-            />
-          </button>
+              />
+            </button>
+          </div>
         </div>
 
-        {/* MOBILE FLOATING BUTTON */}
+        {/* MOBILE - LEFT (TransitionLink) */}
         <div
           className="
-      fixed bottom-5 right-5 z-[999]
-      flex md:hidden
-      items-center justify-center
+    fixed bottom-5 left-5 z-[999]
+    flex md:hidden
+  "
+        >
+          <TransitionLink
+            href="/resume"
+            data-cursor="hover"
+            className="
+      px-5 py-3
+      
+      border border-white/20
+      bg-black/80 backdrop-blur-md
+
+      font-mono
+      text-xs
+      uppercase
+      tracking-[0.18em]
+      text-white
+
+      hover:border-accent
+      hover:text-accent
+
+      transition-all duration-300
     "
+          >
+            <ScrambleTextOnHover text="resume" as="span" duration={0.6} />
+          </TransitionLink>
+        </div>
+
+        {/* MOBILE - RIGHT (Back to top button) */}
+        <div
+          className="
+    fixed bottom-5 right-5 z-[999]
+    flex md:hidden
+  "
         >
           <button
             onClick={() => {
@@ -271,25 +333,26 @@ export function ContactSection() {
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
             className="
-        w-14 h-14 rounded-full
-        border border-white/20
-        bg-black/80 backdrop-blur-md
+      w-16 h-16 rounded-full
+      border border-white/20
+      bg-black/80 backdrop-blur-md
 
-        flex items-center justify-center
+      flex items-center justify-center
 
-        text-white
-        hover:border-accent
-        hover:text-accent
+      text-white
+      hover:border-accent
+      hover:text-accent
 
-        transition-all duration-300
-      "
+      transition-all duration-300
+    "
             data-cursor="hover"
             aria-label="Back to top"
           >
-            <BitmapChevron className="-rotate-45" />
+            <BitmapChevron className="-rotate-45 scale-110" />
           </button>
         </div>
       </>
+
       {/* FOOTER — FULL BLEED - FIXED */}
       <div className="relative left-1/2 -translate-x-1/2 w-screen">
         <div

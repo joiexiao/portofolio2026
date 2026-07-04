@@ -34,38 +34,43 @@ export default function ComingSoon({
     if (!remainingBars.length) return;
 
     let current = 0;
+    let isResetting = false;
 
-    // reset awal
     gsap.set(remainingBars, {
-      opacity: 0,
-      backgroundColor: "rgb(92, 116, 148)",
+      backgroundColor: "#3f3f46",
     });
 
-    idleIntervalRef.current = setInterval(() => {
-      // kalau udah penuh semua → reset
-      if (current >= remainingBars.length) {
-        setTimeout(() => {
-          gsap.set(remainingBars, {
-            opacity: 0,
-          });
-        }, 220);
+    const tick = () => {
+      if (isResetting) return; // skip tick selama reset masih jalan
 
-        current = 0;
+      if (current >= remainingBars.length) {
+        isResetting = true;
+
+        gsap.to(remainingBars, {
+          backgroundColor: "#3f3f46",
+          duration: 0.2,
+          overwrite: true,
+          onComplete: () => {
+            current = 0;
+            isResetting = false;
+          },
+        });
+
         return;
       }
 
-      // isi satu-satu
       gsap.to(remainingBars[current], {
-        opacity: 0.5,
+        backgroundColor: "rgb(92, 116, 148)",
         duration: 0.18,
         ease: "none",
         overwrite: true,
       });
 
       current++;
-    }, 140);
-  };
+    };
 
+    idleIntervalRef.current = setInterval(tick, 140);
+  };
   // Animasi bars — nunggu page transition selesai dulu
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -126,7 +131,7 @@ export default function ComingSoon({
 
         gsap.to(counter, {
           value: progress,
-          duration: 1.4,
+          duration: 2,
           ease: "power2.out",
           snap: { value: 1 },
           onUpdate: () => {
@@ -327,14 +332,15 @@ export default function ComingSoon({
         sm:h-16
         md:h-20
         flex-1
-        bg-zinc-700
       "
+                  // outer tetep transparent, cuma jadi wadah ukuran + overflow-hidden
                 >
                   <div
                     ref={(el) => {
                       barsRef.current[i] = el;
                     }}
-                    className="h-12 sm:h-16 md:h-20 flex-1 bg-zinc-700"
+                    className="absolute inset-0 bg-zinc-700"
+                    // inner pegang background permanen dari class, ga pernah di-opacity-0-in lagi
                   />
                 </div>
               ))}
