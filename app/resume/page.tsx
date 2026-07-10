@@ -591,25 +591,25 @@ export default function ResumePage() {
 
                 {[
                   {
-                    company: "Levi Camp",
-                    type: "Freelance Project",
-                    position: "UI/UX Designer",
-                    date: "Aug 2024 - Oct 2024",
-                    desc: [
-                      "Designed user interfaces for a camp reservation platform with a focus on simplifying the booking experience.",
-                      "Organized reservation flows and information architecture to reduce user confusion throughout the booking process.",
-                      "Created responsive layouts that ensured a consistent experience across desktop and mobile devices.",
-                    ],
-                  },
-                  {
                     company: "Museum Bela Negara",
                     type: "Academic Project",
                     position: "UI/UX Designer",
-                    date: "Jul 2025 - Dec 2025",
+                    date: "Aug 2024 - Oct 2024",
                     desc: [
                       "Designed user interfaces for a virtual museum platform to deliver an engaging digital exhibition experience.",
                       "Structured navigation and content hierarchy to improve storytelling and content discoverability.",
                       "Balanced modern visual design with historical themes while maintaining accessibility and usability.",
+                    ],
+                  },
+                  {
+                    company: "Levi Camp",
+                    type: "Freelance Project",
+                    position: "UI/UX Designer",
+                    date: "Feb 2025 - Jul 2025",
+                    desc: [
+                      "Designed user interfaces for a camp reservation platform with a focus on simplifying the booking experience.",
+                      "Organized reservation flows and information architecture to reduce user confusion throughout the booking process.",
+                      "Created responsive layouts that ensured a consistent experience across desktop and mobile devices.",
                     ],
                   },
                   {
