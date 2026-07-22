@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dynamic from "next/dynamic";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import { BitmapChevron } from "@/components/bitmap-chevron";
-import { AnimatedNoise } from "@/components/animated-noise";
 import TransitionLink from "./transition-link";
 
 const Marquee = dynamic(() => import("react-fast-marquee"), {
@@ -222,7 +221,7 @@ export function ContactSection() {
 
       <>
         {/* DESKTOP WRAPPER */}
-        <div className="hidden md:block mb-12 px-6 lg:px-24 ">
+        <div className="hidden md:block mb-12 px-6 lg:pl-24 lg:pr-12 ">
           <div className="flex items-center justify-between">
             {/* LEFT - TransitionLink */}
             <TransitionLink
@@ -268,6 +267,7 @@ export function ContactSection() {
         hover:border-accent
         hover:text-accent
         transition-all duration-200
+
       "
               data-cursor="hover"
             >
