@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import CustomCursor from "@/components/ui/custom-cursor";
 import { PageTransition } from "@/components/page-transition";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -51,6 +52,7 @@ export default function RootLayout({
         </PageTransition>
 
         <Analytics />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
     </html>
   );
