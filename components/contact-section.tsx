@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { ScrambleTextOnHover } from "@/components/scramble-text";
 import { BitmapChevron } from "@/components/bitmap-chevron";
 import TransitionLink from "./transition-link";
+import { X } from "lucide-react";
 
 const Marquee = dynamic(() => import("react-fast-marquee"), {
   ssr: false,
@@ -20,6 +21,7 @@ export function ContactSection() {
   const footerRef = useRef<HTMLDivElement>(null);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
 
   const roles = [
     "Keen to Collaborate?",
@@ -65,6 +67,24 @@ export function ContactSection() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    if (!footerRef.current) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: footerRef.current,
+      start: "top bottom",
+      once: true,
+
+      onEnter: () => {
+        setTimeout(() => {
+          setShowResumeModal(true);
+        }, 400); // 400ms delay
+      },
+    });
+
+    return () => trigger.kill();
+  }, []);
+
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -90,6 +110,37 @@ export function ContactSection() {
     );
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentRole]);
+
+  useEffect(() => {
+    if (!showResumeModal) return;
+
+    gsap.fromTo(
+      ".resume-modal",
+      {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+    );
+  }, [showResumeModal]);
+
+  const closeResumeModal = () => {
+    gsap.to(".resume-modal", {
+      opacity: 0,
+      y: 20,
+      scale: 0.96,
+      duration: 0.3,
+      ease: "power2.out",
+      onComplete: () => setShowResumeModal(false),
+    });
+  };
 
   /* ============================
     FOOTER ITEM
@@ -372,6 +423,122 @@ export function ContactSection() {
           </Marquee>
         </div>
       </div>
+
+      {showResumeModal && (
+        <div
+          onClick={closeResumeModal}
+          className="
+    fixed inset-0 z-[9999]
+    flex items-center justify-center
+    bg-black/50
+    backdrop-blur-lg
+    px-6
+    animate-in fade-in duration-300
+  "
+        >
+          <div
+            className="
+        resume-modal
+        relative
+        w-full max-w-lg
+        border border-white/10
+        bg-neutral-950/40
+        backdrop-blur-lg
+        p-8 md:p-10
+        text-white
+        shadow-2xl
+      "
+          >
+            <button
+              onClick={closeResumeModal}
+              data-cursor="hover"
+              className="
+          absolute right-5 top-5
+          text-white/40
+          hover:text-white
+          transition-colors
+        "
+            >
+              <X size={20} />
+            </button>
+
+            <h3
+              className="
+              mt-4
+          text-3xl
+          font-semibold
+          tracking-tight
+        "
+            >
+              Thanks for stopping by.
+            </h3>
+
+            <p
+              className="
+          mt-4
+          text-white/70
+          leading-7
+        "
+            >
+              Whether you're interested in my experience or the work I've built,
+              I've got both ready for you.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <TransitionLink
+                href="/resume"
+                data-cursor="hover"
+                className="
+            flex-1
+            bg-accent
+            px-6
+            py-3
+            text-center
+            font-mono
+            text-xs
+            uppercase
+            tracking-[0.15em]
+            text-black
+            transition-all
+            hover:scale-[1.02]
+          "
+              >
+                View Resume
+              </TransitionLink>
+
+              <button
+                onClick={() => {
+                  closeResumeModal();
+
+                  setTimeout(() => {
+                    document
+                      .getElementById("projects")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }, 300);
+                }}
+                data-cursor="hover"
+                className="
+            flex-1
+            border
+            border-white/10
+            px-6
+            py-3
+            font-mono
+            text-xs
+            uppercase
+            tracking-[0.15em]
+            text-white
+            transition-all
+            hover:border-accent
+            hover:text-accent
+          "
+              >
+                View Projects
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
