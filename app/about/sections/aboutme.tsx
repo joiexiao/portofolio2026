@@ -113,6 +113,20 @@ lg:text-2xl"
 md:text-xl
 lg:text-2xl"
             >
+              Common Ground Fight
+            </p>
+            <p
+              className="text-xs sm:text-sm
+md:text-xl
+lg:text-2xl"
+            >
+              Kala Loop
+            </p>
+            <p
+              className="text-xs sm:text-sm
+md:text-xl
+lg:text-2xl"
+            >
               Think Store
             </p>
             <p

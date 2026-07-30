@@ -390,7 +390,7 @@ lg:text-5xl font-semibold leading-tight max-w-5xl"
                 </div>
               </div>
             </span>{" "}
-            UI/UX and graphic designer in 2024.
+            UI/UX and graphic designer in 2023.
           </h2>
         </div>
       </section>

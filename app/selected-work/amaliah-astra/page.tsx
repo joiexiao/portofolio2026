@@ -471,12 +471,11 @@ md:scale-100
     translate-y-12
   "
             >
-              In the earliest phase of this work, we started by defining the
-              core challenge and exploring initial directions through rough
-              visual experimentation and strategic ideation. These early
-              explorations helped uncover the visual logic and narrative that
-              would guide the project's direction, turning abstract concepts
-              into a clearer, more intentional foundation.
+              The project began with reviewing the existing mockup to identify
+              opportunities for visual improvement. Rather than creating an
+              entirely new concept, the focus was on redesigning the layout,
+              refining design elements, and strengthening visual consistency to
+              produce a cleaner, more engaging, and brand-aligned final outcome.
             </p>
 
             {/* IMAGE GRID */}
@@ -796,12 +795,12 @@ md:scale-100
   "
             >
               <div className="animate-grid-item">
-                <p className="font-bold mb-2">Clients</p>
+                <p className="font-bold mb-2">Company</p>
                 <a>Yayasan Amaliah ASTRA</a>
               </div>
 
               <div className="animate-grid-item">
-                <p className="font-bold mb-2">Involvement</p>
+                <p className="font-bold mb-2">Role</p>
                 <p>Graphic Designer Intern</p>
               </div>
 

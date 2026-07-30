@@ -366,9 +366,9 @@ export default function ThinkStorePage() {
                   The Challenge
                 </h2>
                 <p className="mt-2 leading-relaxed">
-                  Creating a brand logo and promotional posters that are
-                  visually consistent and optimized for Instagram feed and story
-                  formats.
+                  Establishing a cohesive visual identity for Think Store while
+                  maintaining consistency across promotional materials for
+                  Instagram feed and story formats.
                 </p>
               </div>
 
@@ -458,11 +458,10 @@ export default function ThinkStorePage() {
     translate-y-12
   "
             >
-              The project began with defining Think Store’s brand identity and
-              overall tone. From there, the process moved into logo exploration,
-              visual experimentation, and layout direction to create a cohesive
-              look that could consistently support promotional content on
-              Instagram feeds and stories.
+              The project started with developing Think Store's visual identity,
+              beginning with logo exploration and a clear design direction. With
+              this foundation in place, the branding was consistently applied
+              across promotional posters and Instagram content.
             </p>
 
             {/* IMAGE GRID */}

@@ -500,41 +500,46 @@ export function ContactSection() {
             tracking-[0.15em]
             text-black
             transition-all
+            hover:bg-primary/80
             hover:scale-[1.02]
           "
               >
-                View Resume
+                <ScrambleTextOnHover
+                  text="View Resume"
+                  as="span"
+                  data-cursor="hover"
+                  duration={0.6}
+                />
               </TransitionLink>
 
-              <button
-                onClick={() => {
-                  closeResumeModal();
-
-                  setTimeout(() => {
-                    document
-                      .getElementById("projects")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }, 300);
-                }}
+              <TransitionLink
+                href="#work"
                 data-cursor="hover"
                 className="
             flex-1
             border
-            border-white/10
+            bg-neutral-950
             px-6
             py-3
+            text-center
             font-mono
             text-xs
             uppercase
             tracking-[0.15em]
             text-white
+            hover:border-primary
+            hover:text-primary
             transition-all
-            hover:border-accent
-            hover:text-accent
+            hover:scale-[1.02]
           "
               >
-                View Projects
-              </button>
+                <ScrambleTextOnHover
+                  text="View Projects"
+                  as="span"
+                  data-cursor="hover"
+                  duration={0.6}
+                />
+              </TransitionLink>
             </div>
           </div>
         </div>

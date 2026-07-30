@@ -16,42 +16,46 @@ export function PrinciplesSection() {
   const principles = [
     {
       number: "01",
+      label: "USER EXPERIENCE",
       titleParts: [
-        { text: "UI UX ", highlight: true },
-        { text: " DESIGN", highlight: false },
+        { text: "UX ", highlight: false },
+        { text: " RESEARCH", highlight: true },
       ],
       description:
-        "Designing intuitive interfaces and user flows based on clarity, usability, and logic.",
+        "Analyzing user needs and product requirements to create intuitive, well-structured interfaces.",
       align: "left",
     },
     {
       number: "02",
+      label: "USER INTERFACE",
       titleParts: [
-        { text: "DESIGN ", highlight: true },
-        { text: " SYSTEMS", highlight: false },
+        { text: "UI ", highlight: true },
+        { text: " DESIGN", highlight: false },
       ],
       description:
-        "Creating consistent, scalable design systems to keep products clean and coherent.",
+        "Crafting visually engaging interfaces that balance aesthetics, consistency, and functionality.",
       align: "right",
     },
     {
       number: "03",
+      label: "GRAPHICS",
       titleParts: [
         { text: "GRAPHICS ", highlight: false },
         { text: "DESIGN", highlight: true },
       ],
       description:
-        "Crafting visual assets that communicate ideas clearly and effectively.",
+        "Transforming ideas into compelling visuals that communicate with clarity and purpose.",
       align: "left",
     },
     {
       number: "04",
+      label: "STRATEGY",
       titleParts: [
-        { text: "PROTOTYPING & ", highlight: false },
-        { text: " INTERACTION", highlight: true },
+        { text: "DESIGN ", highlight: false },
+        { text: " STRATEGY", highlight: true },
       ],
       description:
-        "Turning ideas into interactive experiences through motion and micro-interactions.",
+        "Aligning user needs and business goals to create purposeful digital experiences.",
       align: "right",
     },
   ];
@@ -125,7 +129,7 @@ export function PrinciplesSection() {
           >
             {/* Annotation */}
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4 group-hover:text-primary">
-              {principle.number} / {principle.titleParts[0].text.split(" ")[0]}
+              {principle.number} / {principle.label}
             </span>
 
             {/* Title */}
