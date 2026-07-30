@@ -156,7 +156,7 @@ export default function ResumePage() {
       desc: [
         "Designed a mockup template used for livestock handover documentation across 50+ partner companies during the Kurban Astra 2025 event.",
         "Created supporting materials including delivery letters and livestock handover data recaps to ensure clear documentation across all recipients.",
-        "Redesigned the previous year's mockup through 2 revision rounds (1 major, 1 minor) to align with updated event branding.",
+        "●	Redesigned the previous year's mockup to align with updated event branding and improve visual consistency.",
       ],
     },
     {
@@ -449,17 +449,17 @@ export default function ResumePage() {
 
           {/* ===== KOLOM KANAN ===== */}
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
-            {/* ORGANIZATIONAL EXPERIENCE - HIMA */}
+            {/* SELECTED PROJECTS */}
             <motion.div
-              initial={{ opacity: 0, y: -40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.6 }}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.25, duration: 0.6 }}
               className={`${panelStyle} p-5 sm:p-7 lg:p-8 space-y-8 transition-colors duration-500 h-fit`}
             >
               <section className="space-y-5">
-                <h2 className={sectionTitle}>Organizational Experience</h2>
+                <h2 className={sectionTitle}>Selected Projects</h2>
 
-                {organizationalExperience.map((item, i) => (
+                {selectedProjects.map((item, i) => (
                   <div
                     key={i}
                     className={`
@@ -523,17 +523,18 @@ export default function ResumePage() {
                 ))}
               </section>
             </motion.div>
-            {/* SELECTED PROJECTS */}
+
+            {/* ORGANIZATIONAL EXPERIENCE - HIMA */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.25, duration: 0.6 }}
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.6 }}
               className={`${panelStyle} p-5 sm:p-7 lg:p-8 space-y-8 transition-colors duration-500 h-fit`}
             >
               <section className="space-y-5">
-                <h2 className={sectionTitle}>Selected Projects</h2>
+                <h2 className={sectionTitle}>Organizational Experience</h2>
 
-                {selectedProjects.map((item, i) => (
+                {organizationalExperience.map((item, i) => (
                   <div
                     key={i}
                     className={`
@@ -673,11 +674,14 @@ export default function ResumePage() {
                       title: "Tools",
                       items: [
                         "Figma",
+                        "Figjam",
                         "Adobe Photoshop",
                         "Adobe Illustrator",
-                        "Notion",
                         "Canva",
+                        "Maze",
                         "Google Analytics",
+                        "Notion",
+                        "Plane",
                         "Visual Studio Code",
                         "Git",
                         "GitHub",
