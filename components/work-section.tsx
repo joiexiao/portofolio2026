@@ -5,7 +5,6 @@ import TransitionLink from "@/components/transition-link";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { AnimatedNoise } from "@/components/animated-noise";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,14 +14,15 @@ export const experiments = [
     slug: "malky-joki",
     medium: "Graphic Designer",
     description:
-      "Designed Instagram promotional posters for feeds and stories with consistent visuals.",
+      "Visual assets crafted to strengthen digital promotions and maintain a bold, recognizable style.",
     span: "col-span-1 row-span-1",
   },
   {
     title: "Amaliah ASTRA",
     slug: "amaliah-astra",
     medium: "Graphic Designer",
-    description: "Designed symbolic visual mockups with a conceptual approach.",
+    description:
+      "Refining documentation materials with a cleaner visual system for consistent event communication.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -30,7 +30,7 @@ export const experiments = [
     slug: "think-store",
     medium: "Graphic Designer",
     description:
-      "Designed Instagram promotional posters for feeds and stories.",
+      "Shaping a consistent visual identity that brings consistency across social media content.",
     span: "col-span-1 row-span-1",
   },
   {
@@ -38,7 +38,7 @@ export const experiments = [
     slug: "fund-small-capital",
     medium: "UI UX Designer",
     description:
-      "Designed an e-learning platform with a user-centered UX approach, along with a zine to promote and communicate the community’s value.",
+      "Designing a structured learning experience that makes educational content easier to explore and manage.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -46,7 +46,7 @@ export const experiments = [
     slug: "museum-virtual",
     medium: "UI UX Designer",
     description:
-      "Designed a virtual museum experience to showcase collections through intuitive navigation and engaging visual storytelling.",
+      "Transforming historical collections into an accessible and engaging digital museum experience.",
     span: "col-span-2 row-span-1",
   },
   {
@@ -54,7 +54,7 @@ export const experiments = [
     slug: "levi-camp",
     medium: "UI UX Designer",
     description:
-      "Designed a camp reservation platform with a focus on clear booking flow and seamless user experience.",
+      "Simplifying the camp booking journey through a seamless and thoughtfully designed reservation flow.",
     span: "col-span-1 row-span-1",
   },
   {
@@ -62,7 +62,7 @@ export const experiments = [
     slug: "common-ground-project",
     medium: "UI UX Designer",
     description:
-      "Designed a design system and website mockups, supported by user research, wireframing, and prototyping.",
+      "Creating scalable interfaces that support both participants and organizers in managing sporting events.",
     span: "col-span-2 row-span-1",
   },
   {
