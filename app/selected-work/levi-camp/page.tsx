@@ -866,7 +866,15 @@ export default function LeviCampPage() {
 
               <div className="animate-grid-item">
                 <p className="font-bold mb-2">Collabolators</p>
-                <p>Heulaulabs</p>
+                <a
+                  href="https://www.heulaulab.xyz/"
+                  data-cursor="hover"
+                  className="hover:text-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Heulaulabs
+                </a>
               </div>
 
               <div className="animate-grid-item">
