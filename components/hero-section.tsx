@@ -172,8 +172,9 @@ export function HeroSection({ triggerGlitch = false }: Props) {
           data-cursor="hover"
         >
           Mujahid Azzam is a UI/UX and Graphic Designer focused on crafting
-          clear, functional digital interfaces alongside visual explorations and
-          small creative experiments. Currently based in Depok, Indonesia.
+          clear, functional digital interfaces, with visual explorations and
+          small creative experiments on the side. Currently based in Depok,
+          Indonesia.
         </p>
 
         <div
