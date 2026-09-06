@@ -339,12 +339,12 @@ export default function ResumePage() {
                     mujahidazzam16@gmail.com |
                   </a>
                   <a
-                    href="https://wa.me/6287808677159"
+                    href="https://wa.me/6281930056269"
                     target="_blank"
                     className="hover:opacity-100 transition-opacity hover:text-primary"
                     data-cursor="hover"
                   >
-                    087808677159 |
+                    081930056269 |
                   </a>
 
                   <a
