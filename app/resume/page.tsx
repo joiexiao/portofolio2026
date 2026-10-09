@@ -26,7 +26,7 @@ const ScrambleText = ({
     const initialDelay = setTimeout(() => {
       setIsAnimating(true);
 
-      const chars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`";
+      const chars = "!@#$%^&*()_+-=[]{}|;:,.<>?/\\~`";
       const originalText = text;
       let iteration = 0;
 
@@ -37,7 +37,6 @@ const ScrambleText = ({
             .map((char, index) => {
               if (index < iteration) return originalText[index];
               if (char === " ") return " ";
-
               return chars[Math.floor(Math.random() * chars.length)];
             })
             .join(""),
@@ -58,14 +57,12 @@ const ScrambleText = ({
   }, [text, duration]);
 
   const target = "mujahid-azzam";
-
   const start = text.indexOf(target);
   const end = start + target.length;
 
   return (
     <span className="text-xs sm:text-sm font-mono text-primary z-10">
       {displayText.slice(0, start)}
-
       <TransitionLink
         href="/about"
         data-cursor="hover"
@@ -79,26 +76,22 @@ const ScrambleText = ({
         <span
           className={`
             relative inline-block
-
             after:absolute
             after:left-0
             after:bottom-[1px]
             after:h-[0.5px]
             after:w-full
             after:bg-current
-
             after:origin-left
             after:transition-transform
             after:duration-500
             after:ease-out
-
             ${isAnimating ? "after:scale-x-0" : "after:scale-x-100"}
           `}
         >
           {displayText.slice(start, end)}
         </span>
       </TransitionLink>
-
       {displayText.slice(end)}
     </span>
   );
@@ -126,6 +119,29 @@ export default function ResumePage() {
 
   const workExperience = [
     {
+      company: "SIDSNEAKS",
+      type: "Freelance, Jakarta, Indonesia",
+      position: "UI/UX Designer",
+      date: "Sep 2026 - Oct 2026",
+      desc: [
+        "Customized and expanded an existing UI Kit into a comprehensive admin dashboard design system for SIDSNEAKS, a sneaker e-commerce platform, covering design foundations (color tokens, typography, spacing) through to a composable CRUD data table system with sortable headers, filters, bulk actions, and loading/empty/error states.",
+        "Adapted the form system and commerce-specific admin components from the base UI Kit, including order/payment/shipping status variants, product/SKU cells, and order/payment/shipment timeline patterns to support internal operations workflows.",
+        "Customized reusable navigation, overlay, and system-state patterns (drawers, popovers, empty/error/permission-denied states) to maintain consistency, using an external CRM reference for visual density while keeping SIDSNEAKS branding authoritative.",
+      ],
+    },
+    {
+      company: "Kala Loop",
+      type: "Freelance, Jakarta, Indonesia",
+      position: "UI/UX Designer & Treasurer",
+      date: "Mar 2026 - Aug 2026",
+      desc: [
+        "Designed 50+ user and admin dashboard screens for Common Ground, a combat sports event management platform, covering both mobile and desktop layouts.",
+        "Designed 10+ features across user and admin flows, translating requirements into wireframes and high-fidelity designs.",
+        "Managed team finances by creating internal PRDs and MOUs to formalize financial processes and responsibilities.",
+        "Tracked team fund inflows and outflows, preparing ad-hoc recaps when significant expenses or calculation discrepancies occurred.",
+      ],
+    },
+    {
       company: "Heulaulabs",
       type: "Freelance, Jakarta, Indonesia",
       position: "UI/UX Designer",
@@ -137,18 +153,6 @@ export default function ResumePage() {
       ],
     },
     {
-      company: "Kala Loop",
-      type: "Freelance, Jakarta, Indonesia",
-      position: "UI/UX Designer & Treasurer",
-      date: "Mar 2026 - Present",
-      desc: [
-        "Designed 50+ user and admin dashboard screens for Common Ground, a combat sports event management platform, covering both mobile and desktop layouts.",
-        "Designed 10+ features across user and admin flows, translating requirements into wireframes and high-fidelity designs.",
-        "Managed team finances by creating internal PRDs and MOUs to formalize financial processes and responsibilities.",
-        "Tracked team fund inflows and outflows, preparing ad-hoc recaps when significant expenses or calculation discrepancies occurred.",
-      ],
-    },
-    {
       company: "Yayasan Amaliah ASTRA",
       type: "Internship, Jakarta, Indonesia",
       position: "Graphic Designer",
@@ -156,27 +160,7 @@ export default function ResumePage() {
       desc: [
         "Designed a mockup template used for livestock handover documentation across 50+ partner companies during the Kurban Astra 2025 event.",
         "Created supporting materials including delivery letters and livestock handover data recaps to ensure clear documentation across all recipients.",
-        "●	Redesigned the previous year's mockup to align with updated event branding and improve visual consistency.",
-      ],
-    },
-    {
-      company: "Think Store",
-      type: "Freelance, Bogor, Indonesia",
-      position: "Graphic Designer",
-      date: "Sep 2024",
-      desc: [
-        "Established Think Store's brand identity from logo exploration to visual direction, creating a cohesive look for a thrifting/pre-loved fashion brand.",
-        "Designed 5 promotional posters and 2 video content pieces for Instagram feeds and stories.",
-      ],
-    },
-    {
-      company: "Malky Joki Store",
-      type: "Freelance, South Tangerang, Indonesia",
-      position: "Graphic Designer",
-      date: "Jan 2023",
-      desc: [
-        "Designed 15+ promotional posters for a Mobile Legends ranked boosting service, supporting ongoing digital content needs.",
-        "Interpreted client-provided visual references into on-brand designs matching requested style and tone.",
+        "Redesigned the previous year's mockup to align with updated event branding and improve visual consistency.",
       ],
     },
   ];
@@ -184,7 +168,7 @@ export default function ResumePage() {
   const organizationalExperience = [
     {
       company: "Himpunan Mahasiswa D3 Sistem Informasi",
-      type: "UPN \u201cVeteran\u201d Jakarta",
+      type: 'UPN "Veteran" Jakarta',
       position: "General Treasurer",
       date: "Jan 2024 - Dec 2024",
       desc: [
@@ -199,12 +183,12 @@ export default function ResumePage() {
     {
       company: "Fund Small Capital",
       type: "Academic Project (Real Case Study)",
-      position: "UI/UX Designer",
+      position: "UI/UX Engineer",
       date: "Jul 2025 - Dec 2025",
       desc: [
         "Designed 25+ screens across 10 user flows for 3 user roles in a web-based e-learning application, from user flow mapping to high-fidelity prototypes.",
-        "Authored complete system documentation solo, including use case, activity (25+), sequence (20+), ERD, and class diagrams across 3 user roles, taking on end-to-end product design responsibilities from system architecture to interface design.",
-        "Created a supplementary zine mockup as a self-initiated deliverable to present the project in a more engaging format.",
+        "Produced system documentation, including use case diagrams, 25+ activity diagrams, 20+ sequence diagrams, an ERD, and class diagrams.",
+        "Contributed to frontend implementation using Laravel and aligned table structures with the existing Entity Relationship Diagram (ERD), gaining practical exposure to MVC architecture and database schema design.",
       ],
     },
     {
@@ -226,12 +210,12 @@ export default function ResumePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className={`
-      relative min-h-screen bg-black text-white
-      px-4 py-6
-      sm:px-8 sm:py-10
-      lg:px-16 lg:py-14
-      ${inter.className}
-    `}
+        relative min-h-screen bg-black text-white
+        px-4 py-6
+        sm:px-8 sm:py-10
+        lg:px-16 lg:py-14
+        ${inter.className}
+      `}
     >
       {/* GRID BG */}
       <div
@@ -245,25 +229,25 @@ export default function ResumePage() {
 
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-3">
-          {/* TOGGLE (ALWAYS VISIBLE) */}
+          {/* TOGGLE */}
           <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
 
-          {/* DOWNLOAD (DESKTOP ONLY) */}
+          {/* DOWNLOAD - DESKTOP ONLY */}
           <motion.a
-            href="/Mujahid-Azzam-Resume-Master.pdf"
+            href="/Mujahid-Azzam-Resume-UIUX-Engineer.pdf"
             download
             data-cursor="hover"
             className="
-            hidden md:block
-            border border-white/10
-            px-4 py-2
-            font-mono text-[10px]
-            uppercase tracking-[0.2em]
-            text-white
-            hover:text-primary
-            hover:border-primary
-            transition-all duration-300
-          "
+              hidden md:block
+              border border-white/10
+              px-4 py-2
+              font-mono text-[10px]
+              uppercase tracking-[0.2em]
+              text-white
+              hover:text-primary
+              hover:border-primary
+              transition-all duration-300
+            "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.5 }}
@@ -279,23 +263,23 @@ export default function ResumePage() {
         download
         data-cursor="hover"
         className="
-        md:hidden
-        fixed bottom-5 right-4
-        z-20
-        border sm:border-white/10
-        px-4 py-2
-        font-mono text-[10px]
-        uppercase tracking-[0.2em]
-        md:text-white
-        text-primary
-        border-primary
-        bg-black/60 backdrop-blur
-        md:hover:text-primary
-        md:hover:border-primary
-        hover:text-white
-        hover:border-white
-        transition-all duration-300
-      "
+          md:hidden
+          fixed bottom-5 right-4
+          z-20
+          border sm:border-white/10
+          px-4 py-2
+          font-mono text-[10px]
+          uppercase tracking-[0.2em]
+          md:text-white
+          text-primary
+          border-primary
+          bg-black/60 backdrop-blur
+          md:hover:text-primary
+          md:hover:border-primary
+          hover:text-white
+          hover:border-white
+          transition-all duration-300
+        "
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.5 }}
@@ -308,7 +292,7 @@ export default function ResumePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-start">
           {/* ===== KOLOM KIRI ===== */}
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8">
-            {/* HERO + EDUCATION + WORK EXPERIENCE */}
+            {/* HERO + WORK EXPERIENCE */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -323,7 +307,7 @@ export default function ResumePage() {
                   </h1>
 
                   <p className="font-mono uppercase tracking-[0.3em] text-[10px] sm:text-xs sm:tracking-[0.1em] opacity-60">
-                    UI/UX DESIGNER | GRAPHIC DESIGNER
+                    UI/UX ENGINEER | GRAPHIC DESIGNER
                   </p>
                 </div>
 
@@ -333,14 +317,17 @@ export default function ResumePage() {
                   <a
                     href="mailto:mujahidazzam16@gmail.com"
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:opacity-100 transition-opacity hover:text-primary"
                     data-cursor="hover"
                   >
                     mujahidazzam16@gmail.com |
                   </a>
+
                   <a
                     href="https://wa.me/6281930056269"
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:opacity-100 transition-opacity hover:text-primary"
                     data-cursor="hover"
                   >
@@ -350,6 +337,7 @@ export default function ResumePage() {
                   <a
                     href="https://linkedin.com/in/mujahidazzam"
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:opacity-100 transition-opacity hover:text-primary"
                     data-cursor="hover"
                   >
@@ -359,6 +347,7 @@ export default function ResumePage() {
                   <a
                     href="https://github.com/joiexiao"
                     target="_blank"
+                    rel="noreferrer"
                     className="hover:opacity-100 transition-opacity hover:text-primary"
                     data-cursor="hover"
                   >
@@ -369,11 +358,11 @@ export default function ResumePage() {
                 </div>
 
                 <p className="text-[11px] sm:text-xs leading-[1.9] text-justify opacity-80">
-                  Fresh graduate in Information Systems with 10+ completed
-                  projects in UI/UX and graphic design, spanning freelance work
-                  and case studies. Freelancing in digital design since 2023,
-                  with hands-on experience in user research, wireframing,
-                  high-fidelity prototyping, and visual design production.
+                  Fresh graduate in Information Systems with 10+ UI/UX projects
+                  across freelance work and case studies. Skilled in end-to-end
+                  design, from user research and user flows to wireframing,
+                  high-fidelity UI, prototyping, and developer handoff. Working
+                  knowledge of HTML, CSS, React, Next.js, and Tailwind CSS.
                 </p>
               </div>
 
@@ -383,17 +372,17 @@ export default function ResumePage() {
 
                 {workExperience.map((item, i) => (
                   <div
-                    key={i}
+                    key={item.company}
                     className={`
-                space-y-3
-                ${
-                  i !== 0
-                    ? `pt-6 border-t ${
-                        isDark ? "border-white/10" : "border-black/10"
-                      }`
-                    : ""
-                }
-              `}
+                      space-y-3
+                      ${
+                        i !== 0
+                          ? `pt-6 border-t ${
+                              isDark ? "border-white/10" : "border-black/10"
+                            }`
+                          : ""
+                      }
+                    `}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
@@ -410,10 +399,10 @@ export default function ResumePage() {
 
                           <span
                             className={`
-                        text-[10px] sm:text-xs
-                        tracking-[0.12em]
-                        ${textMuted}
-                      `}
+                              text-[10px] sm:text-xs
+                              tracking-[0.12em]
+                              ${textMuted}
+                            `}
                           >
                             {item.type}
                           </span>
@@ -426,11 +415,11 @@ export default function ResumePage() {
 
                       <span
                         className={`
-                    text-[10px] sm:text-xs
-                    whitespace-nowrap
-                    shrink-0
-                    ${textMuted}
-                  `}
+                          text-[10px] sm:text-xs
+                          whitespace-nowrap
+                          shrink-0
+                          ${textMuted}
+                        `}
                       >
                         {item.date}
                       </span>
@@ -461,17 +450,17 @@ export default function ResumePage() {
 
                 {selectedProjects.map((item, i) => (
                   <div
-                    key={i}
+                    key={item.company}
                     className={`
-                space-y-3
-                ${
-                  i !== 0
-                    ? `pt-6 border-t ${
-                        isDark ? "border-white/10" : "border-black/10"
-                      }`
-                    : ""
-                }
-              `}
+                      space-y-3
+                      ${
+                        i !== 0
+                          ? `pt-6 border-t ${
+                              isDark ? "border-white/10" : "border-black/10"
+                            }`
+                          : ""
+                      }
+                    `}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
@@ -488,10 +477,10 @@ export default function ResumePage() {
 
                           <span
                             className={`
-                        text-[10px] sm:text-xs
-                        tracking-[0.12em]
-                        ${textMuted}
-                      `}
+                              text-[10px] sm:text-xs
+                              tracking-[0.12em]
+                              ${textMuted}
+                            `}
                           >
                             {item.type}
                           </span>
@@ -504,11 +493,11 @@ export default function ResumePage() {
 
                       <span
                         className={`
-                    text-[10px] sm:text-xs
-                    whitespace-nowrap
-                    shrink-0
-                    ${textMuted}
-                  `}
+                          text-[10px] sm:text-xs
+                          whitespace-nowrap
+                          shrink-0
+                          ${textMuted}
+                        `}
                       >
                         {item.date}
                       </span>
@@ -536,17 +525,17 @@ export default function ResumePage() {
 
                 {organizationalExperience.map((item, i) => (
                   <div
-                    key={i}
+                    key={item.company}
                     className={`
-                space-y-3
-                ${
-                  i !== 0
-                    ? `pt-6 border-t ${
-                        isDark ? "border-white/10" : "border-black/10"
-                      }`
-                    : ""
-                }
-              `}
+                      space-y-3
+                      ${
+                        i !== 0
+                          ? `pt-6 border-t ${
+                              isDark ? "border-white/10" : "border-black/10"
+                            }`
+                          : ""
+                      }
+                    `}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1">
@@ -563,10 +552,10 @@ export default function ResumePage() {
 
                           <span
                             className={`
-                        text-[10px] sm:text-xs
-                        tracking-[0.12em]
-                        ${textMuted}
-                      `}
+                              text-[10px] sm:text-xs
+                              tracking-[0.12em]
+                              ${textMuted}
+                            `}
                           >
                             {item.type}
                           </span>
@@ -579,11 +568,11 @@ export default function ResumePage() {
 
                       <span
                         className={`
-                    text-[10px] sm:text-xs
-                    whitespace-nowrap
-                    shrink-0
-                    ${textMuted}
-                  `}
+                          text-[10px] sm:text-xs
+                          whitespace-nowrap
+                          shrink-0
+                          ${textMuted}
+                        `}
                       >
                         {item.date}
                       </span>
@@ -617,11 +606,11 @@ export default function ResumePage() {
 
                     <span
                       className={`
-            text-[10px] sm:text-xs
-            whitespace-nowrap
-            shrink-0
-            ${textMuted}
-          `}
+                        text-[10px] sm:text-xs
+                        whitespace-nowrap
+                        shrink-0
+                        ${textMuted}
+                      `}
                     >
                       Grade: 3.76
                     </span>
@@ -635,11 +624,11 @@ export default function ResumePage() {
 
                     <span
                       className={`
-            text-[10px] sm:text-xs
-            whitespace-nowrap
-            shrink-0
-            ${textMuted}
-          `}
+                        text-[10px] sm:text-xs
+                        whitespace-nowrap
+                        shrink-0
+                        ${textMuted}
+                      `}
                     >
                       Graduated: 2026
                     </span>
@@ -653,7 +642,7 @@ export default function ResumePage() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.35, duration: 0.6 }}
-              className={`${panelStyle} p-5 sm:p-7 lg:p-8 space-y-6 transition-colors duration-500 h-fit min-h-[315px]`}
+              className={`${panelStyle} p-5 sm:p-7 lg:p-8 space-y-6 transition-colors duration-500 h-fit min-h-[240px]`}
             >
               <section className="space-y-6">
                 <h2 className={sectionTitle}>Skills</h2>
@@ -668,6 +657,8 @@ export default function ResumePage() {
                         "Laravel",
                         "Tailwind CSS",
                         "GSAP",
+                        "PHP",
+                        "SQL",
                       ],
                     },
                     {
@@ -740,6 +731,7 @@ export default function ResumePage() {
           </div>
         </div>
       </div>
+
       {/* BOTTOM */}
       <div className="relative z-10 mt-6 sm:mt-10 lg:mt-12 max-w-7xl mx-auto flex items-center justify-between">
         {/* CTA */}
@@ -760,7 +752,7 @@ export default function ResumePage() {
             hover:text-black
             text-primary
             hover:bg-accent
-            "
+          "
         >
           <ScrambleTextOnHover
             text="jaid's portfolio"

@@ -36,7 +36,7 @@ export const experiments = [
   {
     title: "Fund Small Capital",
     slug: "fund-small-capital",
-    medium: "UI UX Designer",
+    medium: "UI UX Engineer",
     description:
       "Designing a structured learning experience that makes educational content easier to explore and manage.",
     span: "col-span-2 row-span-1",
@@ -66,10 +66,18 @@ export const experiments = [
     span: "col-span-2 row-span-1",
   },
   {
+    title: "SIDSNEAKS",
+    slug: "sidsneaks",
+    medium: "UI UX Designer",
+    description:
+      "Designed an admin dashboard design system for SIDSNEAKS, a sneaker e-commerce platform.",
+    span: "col-span-1 row-span-1",
+  },
+  {
     medium: "Coming Soon!",
     slug: "about",
     title: "Would You?",
-    span: "col-span-1 row-span-1",
+    span: "col-span-4 row-span-1",
   },
 ];
 
