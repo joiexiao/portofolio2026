@@ -155,7 +155,7 @@ export function HeroSection({ triggerGlitch = false }: Props) {
             drop-shadow-[0_0_6px_hsl(var(--primary)/0.45)]
           "
         >
-          UI UX Designer
+          UI UX Designer | Graphic Designer
         </h2>
 
         <p
